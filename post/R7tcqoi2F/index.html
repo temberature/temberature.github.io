@@ -1,0 +1,243 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>递归的优雅与挑战：一次深度探讨 | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="递归的优雅与挑战：一次深度探讨 | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="有一天，我听到两位程序员的讨论，他们争论着如何编写优雅的代码。一个强烈主张递归的使用，他信誓旦旦地说：“我们应该多用递归，递归可以让代码更简洁。”而另一位却反驳道：“我不同意，递归会让调试变得非常困难。”这个讨论让我思考，递归真的如此有利，..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              递归的优雅与挑战：一次深度探讨
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-07-22
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>有一天，我听到两位程序员的讨论，他们争论着如何编写优雅的代码。一个强烈主张递归的使用，他信誓旦旦地说：“我们应该多用递归，递归可以让代码更简洁。”而另一位却反驳道：“我不同意，递归会让调试变得非常困难。”这个讨论让我思考，<strong>递归真的如此有利，还是有其固有的问题呢？</strong></p>
+<h2 id="递归精简而强大">递归：精简而强大</h2>
+<p>在计算机科学的世界中，递归是一种强大的工具。就像世界级计算机科学家 Donald E. Knuth 所说，递归能提供一种非常清晰，直观且简洁的解决方案。当我们面临像树的深度优先遍历或是分治算法这样的问题时，递归的表达方式显得极其自然。像这样的问题，非递归的代码往往会带有大量的辅助代码，而递归能让这些复杂性消失，让代码更加易于理解。</p>
+<p>试想一下，如果我们要解决汉诺塔问题，递归可以轻易地帮助我们完成：</p>
+<pre><code class="language-python">def hanoi(n, source, buffer, target):
+    if n &gt; 0:
+        hanoi(n-1, source, target, buffer)
+        print(&quot;Move disk from&quot;, source, &quot;to&quot;, target)
+        hanoi(n-1, buffer, source, target)
+</code></pre>
+<p>如同魔术，几行代码就解决了这个问题。但是，<strong>这个魔术的背后，隐藏着怎样的秘密呢？</strong></p>
+<h2 id="递归复杂的挑战">递归：复杂的挑战</h2>
+<p>然而，就像我听到的那位程序员所说，递归也可能带来一些挑战。递归在执行时引入了复杂的执行栈，使得调试和理解程序变得更加困难。深度的递归可能引起栈溢出，而且错误的定位变得棘手，因为同一函数的多个实例可能同时存在。</p>
+<p>回到我们的汉诺塔例子，如果试图理解递归在执行过程中堆栈的变化，这个“魔术”可能会让你感到困惑。</p>
+<h2 id="权衡和抉择">权衡和抉择</h2>
+<p>因此，是否使用递归，并没有一个固定的答案。我们需要在代码的简洁性和易调试性之间进行权衡。一个好的程序员，会根据问题的性质和上下文，做出最恰当的选择。</p>
+<p>一个更高层次的问题是：“在哪些情况下，我们应该考虑使用迭代而不是递归？”当我们面对可能引发深度递归和栈溢出的问题，或者更关注性能优化时，迭代可能是更好的选择。例如，对于斐波那契数列这样的问题，虽然递归能以极简的方式解决，但它会造成大量的重复计算，而迭代的解决方案却可以避免这个问题。</p>
+<p>在编程的世界里，递归就像是一把双刃剑，既能让我们的代码简洁有力，又能给我们带来挑战。在递归和迭代之间，没有绝对的好坏，只有最适合的选择。我想，这或许就是编程的魅力所在，一种寓教于乐，抽象与具象交织的哲学艺术。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E9%80%92%E5%BD%92%E7%B2%BE%E7%AE%80%E8%80%8C%E5%BC%BA%E5%A4%A7">递归：精简而强大</a></li>
+<li><a href="#%E9%80%92%E5%BD%92%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8C%91%E6%88%98">递归：复杂的挑战</a></li>
+<li><a href="#%E6%9D%83%E8%A1%A1%E5%92%8C%E6%8A%89%E6%8B%A9">权衡和抉择</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/a--3iR-jv/">
+              <h3 class="post-title">
+                探索垂直与小众：笔记软件的市场策略
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

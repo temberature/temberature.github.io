@@ -1,0 +1,235 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>程序员的修复之路：为什么我们无法避免Bug？ | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="程序员的修复之路：为什么我们无法避免Bug？ | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="作为一名有经验的软件工程师，我时常被问到一句词，这一句话像一个迷一样困扰着所有进入这一行业的人——“为什么我们不能写出没有bug的代码？” 在这篇文章中，我将带你深入了解编程的世界，解析bug存在的根本原因，并一同探索如何在此基础上提升我们..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              程序员的修复之路：为什么我们无法避免Bug？
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-07-22
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>作为一名有经验的软件工程师，我时常被问到一句词，这一句话像一个迷一样困扰着所有进入这一行业的人——“为什么我们不能写出没有bug的代码？” 在这篇文章中，我将带你深入了解编程的世界，解析bug存在的根本原因，并一同探索如何在此基础上提升我们的编程效率和创新力。</p>
+<h2 id="编程世界的未知与不完美">编程世界的“未知”与“不完美”</h2>
+<p>我们都希望自己能够写出无懈可击的代码，但实际情况却往往并非如此。在探索编程世界时，每一位程序员都可能会遇到预期之外的问题，这些就是我们所说的bug。我常常用开发电子邮件系统的案例来说明这个问题。当我们预见到邮件服务器可能会暂时不可用并编写相应的错误处理代码时，我们可能还未预见到硬盘满载导致无法存储邮件的情况。这就是一个bug——一个我们未曾预见到的情况。</p>
+<p>而即使是我们经验丰富的程序员，也无法避免出现bug。理由有很多，包括编程语言的复杂性，需求的变化，团队协作中的沟通问题，以及人的注意力和记忆力的局限性等。同样的错误可能会在不同的上下文中反复出现，因为每个项目和每个问题都有其独特性。</p>
+<p>从哲学的角度，这涉及到我们对完美的理解。荷兰计算机科学家Edsger Dijkstra曾经说过：“完美并非无法增加任何东西，而是无法去掉任何东西”。这就解释了为什么我们有时会发现，更简洁的代码其实更少出现bug。就像一位画家在他的画布上反复修改，去除冗余的线条，以求达到完美的效果，我们程序员在编写代码的过程中，也是如此。</p>
+<h2 id="创新与规范寻找平衡">创新与规范：寻找平衡</h2>
+<p>另一方面，我们需要意识到编程也是一种艺术。每个程序员都有他们独特的创作方式。bug并不总是坏事，有时候，它们甚至能够启发我们发现新的解决方案，或者找到更好的思路。为了保证代码质量，我们希望通过错误处理和编程技巧来避免错误，但有时候，这些努力可能会限制我们的创新力。因此，我们需要在保证代码质量和发挥创新之间找到平衡。</p>
+<h2 id="从错误中学习提升编程效率与创新力">从错误中学习：提升编程效率与创新力</h2>
+<p>在应对bug时，我们也需要找到提高编程效率和创新力的方法。一种有效的方式是采用更高级的编程语言和工具，它们可以帮助我们避免一些常见的错误。另一种方法是使用测试驱动开发（TDD）或行为驱动开发（BDD）等方法，它们让我们在编写代码前先明确预期的行为，帮助我们更早地发现和修复错误。我们还可以采用持续集成和持续部署（CI/CD）的方法，自动化测试和部署过程，以提高我们的工作效率。</p>
+<p>在编程的世界里，我们无法避免遇到bug，这是因为编程的本质复杂性，需求的变化，以及我们人类认知的局限性。然而，这并不是坏事，反而可以引导我们更深入地理解问题，提高我们的编程技能，发掘新的解决方案，增强我们的创新力。所以，下次当你在修复bug时，不妨换个角度看待它，或许你会发现一个新的世界，一个充满可能性的世界。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%BC%96%E7%A8%8B%E4%B8%96%E7%95%8C%E7%9A%84%E6%9C%AA%E7%9F%A5%E4%B8%8E%E4%B8%8D%E5%AE%8C%E7%BE%8E">编程世界的“未知”与“不完美”</a></li>
+<li><a href="#%E5%88%9B%E6%96%B0%E4%B8%8E%E8%A7%84%E8%8C%83%E5%AF%BB%E6%89%BE%E5%B9%B3%E8%A1%A1">创新与规范：寻找平衡</a></li>
+<li><a href="#%E4%BB%8E%E9%94%99%E8%AF%AF%E4%B8%AD%E5%AD%A6%E4%B9%A0%E6%8F%90%E5%8D%87%E7%BC%96%E7%A8%8B%E6%95%88%E7%8E%87%E4%B8%8E%E5%88%9B%E6%96%B0%E5%8A%9B">从错误中学习：提升编程效率与创新力</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/o0AT7Ba7X/">
+              <h3 class="post-title">
+                【真人】如何看待学习资料：再多的木材，也需要火花点燃
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

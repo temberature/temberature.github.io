@@ -1,0 +1,274 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>我是如何用Authy确保我的数字生活安全的：双重身份验证（2FA）详解 | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="我是如何用Authy确保我的数字生活安全的：双重身份验证（2FA）详解 | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="引言：数字世界的风险与机会
+生活在数字化日益高级的现代社会，我们的大部分信息和数据都储存在线上。从电子邮件到社交媒体，从银行账户到在线购物，无一不需要高级的安全保护措施。这也是为什么我一直在寻找更高效、更安全的方法来保护我的个人信息。经过一..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              我是如何用Authy确保我的数字生活安全的：双重身份验证（2FA）详解
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-08-29
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="引言数字世界的风险与机会">引言：数字世界的风险与机会</h2>
+<p>生活在数字化日益高级的现代社会，我们的大部分信息和数据都储存在线上。从电子邮件到社交媒体，从银行账户到在线购物，无一不需要高级的安全保护措施。这也是为什么我一直在寻找更高效、更安全的方法来保护我的个人信息。经过一番研究，我对双重身份验证（Two-Factor Authentication, 2FA）产生了浓厚的兴趣。尤其是当我发现了Authy这个应用后，我觉得我找到了一个非常好的解决方案。</p>
+<h2 id="双重身份验证2fa一个必要的安全层">双重身份验证（2FA）：一个必要的安全层</h2>
+<p>在网络安全领域，专家们经常强调多因素认证（Multi-Factor Authentication, MFA）的重要性，而双重身份验证是其中最常见的一种形式。基本上，2FA就是要求用户通过两种不同的方式来证明自己的身份，通常包括：</p>
+<ul>
+<li><strong>你知道的东西（Something you know）</strong>：通常是密码或PIN码。</li>
+<li><strong>你拥有的东西（Something you have）</strong>：如手机或安全令牌。</li>
+</ul>
+<p>其中，时间基准的一次性密码（Time-Based One-Time Password, TOTP）和备用代码（Backup Codes）是非常常见的2FA方式。</p>
+<h3 id="常见误解2fa不是银弹">常见误解：2FA不是银弹</h3>
+<p>在这里，我必须指出一个常见的误解：许多人认为一旦启用了2FA，他们的账户就百分之百安全了。这是不准确的。虽然2FA极大地增加了安全性，但没有任何安全措施是绝对完美的。</p>
+<h2 id="为什么我选择了authy">为什么我选择了Authy？</h2>
+<p>在研究了多个2FA解决方案后，我最终选择了Authy。这个选择并非偶然，而是基于以下几个优势：</p>
+<ol>
+<li><strong>多平台支持</strong>：不仅仅是手机，我还可以在我的电脑上使用。</li>
+<li><strong>云备份</strong>：即使我丢失了设备，我也可以轻松地从云端恢复我的2FA令牌。</li>
+<li><strong>多设备同步</strong>：这意味着我不需要在每个设备上重新设置2FA。</li>
+<li><strong>强加密</strong>：我特别关注我的数据安全，Authy在这方面给了我很高的信心。</li>
+</ol>
+<h3 id="一个实际例子如何在gmail中使用authy">一个实际例子：如何在Gmail中使用Authy</h3>
+<p>当我决定在我的Gmail账户上使用Authy时，整个过程非常简单。我进入Google的“安全”设置，选择“两步验证”，然后选择使用Authy作为我的2FA应用。几秒钟内，我的手机上的Authy应用就生成了一个TOTP，我输入这个密码，就完成了设置。非常简单，但极其有效。</p>
+<h2 id="反思一切都是权衡">反思：一切都是权衡</h2>
+<p>尽管Authy有很多优点，但我也意识到它并不是完美的。比如，依赖于云备份可能会增加某种形式的安全风险。但对我来说，方便性和安全性的平衡使Authy成为一个理想的选择。</p>
+<h2 id="结论数字安全是一个持续的过程">结论：数字安全是一个持续的过程</h2>
+<p>通过使用Authy和启用2FA，我明显地提高了我的数字安全水平。但我也知道，这只是一个持续的过程。安全永远是一个动态的目标，需要我们不断地学习和适应。</p>
+<h3 id="高层次的问题我们如何进一步增强个人在线安全">高层次的问题：我们如何进一步增强个人在线安全？</h3>
+<p>即使我已经采用了2FA，我仍然经常问自己：除了2FA，还有哪些其他个人身份验证方法可以增强在线安全性？这是一个需要我们所有人持续关注和研究的问题。</p>
+<h3 id="参考文献">参考文献</h3>
+<ul>
+<li>“The Art of Invisibility” by Kevin Mitnick</li>
+<li>NIST Special Publication 800-63B</li>
+</ul>
+<p>通过这篇文章，我希望能让更多的人了解到2FA和Authy的重要性，以及如何更有效地保护自己在数字世界中的身份。这不仅仅是技术的问题，更是一个影响我们所有人的全球问题。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%BC%95%E8%A8%80%E6%95%B0%E5%AD%97%E4%B8%96%E7%95%8C%E7%9A%84%E9%A3%8E%E9%99%A9%E4%B8%8E%E6%9C%BA%E4%BC%9A">引言：数字世界的风险与机会</a></li>
+<li><a href="#%E5%8F%8C%E9%87%8D%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%812fa%E4%B8%80%E4%B8%AA%E5%BF%85%E8%A6%81%E7%9A%84%E5%AE%89%E5%85%A8%E5%B1%82">双重身份验证（2FA）：一个必要的安全层</a>
+<ul>
+<li><a href="#%E5%B8%B8%E8%A7%81%E8%AF%AF%E8%A7%A32fa%E4%B8%8D%E6%98%AF%E9%93%B6%E5%BC%B9">常见误解：2FA不是银弹</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E9%80%89%E6%8B%A9%E4%BA%86authy">为什么我选择了Authy？</a>
+<ul>
+<li><a href="#%E4%B8%80%E4%B8%AA%E5%AE%9E%E9%99%85%E4%BE%8B%E5%AD%90%E5%A6%82%E4%BD%95%E5%9C%A8gmail%E4%B8%AD%E4%BD%BF%E7%94%A8authy">一个实际例子：如何在Gmail中使用Authy</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%8D%E6%80%9D%E4%B8%80%E5%88%87%E9%83%BD%E6%98%AF%E6%9D%83%E8%A1%A1">反思：一切都是权衡</a></li>
+<li><a href="#%E7%BB%93%E8%AE%BA%E6%95%B0%E5%AD%97%E5%AE%89%E5%85%A8%E6%98%AF%E4%B8%80%E4%B8%AA%E6%8C%81%E7%BB%AD%E7%9A%84%E8%BF%87%E7%A8%8B">结论：数字安全是一个持续的过程</a>
+<ul>
+<li><a href="#%E9%AB%98%E5%B1%82%E6%AC%A1%E7%9A%84%E9%97%AE%E9%A2%98%E6%88%91%E4%BB%AC%E5%A6%82%E4%BD%95%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%A2%9E%E5%BC%BA%E4%B8%AA%E4%BA%BA%E5%9C%A8%E7%BA%BF%E5%AE%89%E5%85%A8">高层次的问题：我们如何进一步增强个人在线安全？</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/dW96SktxA/">
+              <h3 class="post-title">
+                我与Excel：一个数据分析专家的视角
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

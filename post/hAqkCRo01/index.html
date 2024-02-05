@@ -1,0 +1,330 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>为克劳德的长上下文窗口进行快速工程化 Prompt engineering for Claude&#39;s long context window   | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="为克劳德的长上下文窗口进行快速工程化 Prompt engineering for Claude&#39;s long context window   | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="Sep 23, 2023 ● 8 min read
+2023年9月23日 ● 阅读时间8分钟
+
+Claude’s 100,000 token long context window enables the model to operate ..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              为克劳德的长上下文窗口进行快速工程化 Prompt engineering for Claude&#39;s long context window  
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-09-26
+              </span>
+              <span>
+                21 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>Sep 23, 2023 ● 8 min read<br>
+2023年9月23日 ● 阅读时间8分钟</p>
+<figure data-type="image" tabindex="1"><img src="https://efficient-manatee.transforms.svdcdn.com/production/images/Prompt-Eng-Long-Context_3.png?w=2880&amp;h=1620&amp;auto=compress%2Cformat&amp;fit=crop&amp;dm=1695487139&amp;s=6b10dc15ac18ea2ee71c02006e5fd9ba" alt="" loading="lazy"></figure>
+<p>Claude’s <a href="https://www.anthropic.com/index/100k-context-windows">100,000 token long context window</a> enables the model to operate over hundreds of pages of technical documentation, or even an <a href="https://twitter.com/AnthropicAI/status/1656700156518060033">entire book</a>. As we continue to scale the Claude API, we’re seeing increased demand for prompting guidance on how to maximize Claude’s potential. Today, we’re pleased to share a quantitative case study on two techniques that can improve Claude’s recall over long contexts:<br>
+克劳德的10万令牌长上下文窗口使模型能够在数百页的技术文档甚至整本书上运行。随着我们继续扩展克劳德API，我们看到了对如何最大化克劳德潜力的提示指导的需求增加。今天，我们很高兴分享一个定量案例研究，介绍了两种可以提高克劳德在长上下文中召回率的技术。</p>
+<ol>
+<li>Extracting reference quotes relevant to the question before answering<br>
+在回答问题之前，先提取与问题相关的参考引用</li>
+<li>Supplementing the prompt with examples of correctly answered questions about other sections of the document<br>
+在文档的其他部分提供正确回答问题的示例来补充提示内容</li>
+</ol>
+<p>Let’s get into the details.<br>
+让我们深入细节。</p>
+<p><strong>Testing long context recall: Multiple choice Q&amp;A<br>
+测试长篇内容回忆：多项选择题</strong></p>
+<p>Our goal with this experiment is to evaluate techniques to maximize Claude’s chance of correctly recalling a specific piece of information from a long document.<br>
+我们这个实验的目标是评估技术，以最大化克劳德从长篇文档中正确回忆特定信息的机会。</p>
+<p>As the underlying data source for our testing, we used a daily-issue, publicly available <a href="https://www.govinfo.gov/content/pkg/FR-2023-07-13/xml/FR-2023-07-13.xml">government document</a> that contains the meeting transcripts and activities of many different departments. We chose a document from July 13, which is after Claude’s training data cutoff. This minimizes the chance that Claude already knows the information in the document.<br>
+作为我们测试的基础数据源，我们使用了一份每日发布的、公开可获取的政府文件，其中包含了许多不同部门的会议记录和活动内容。我们选择了7月13日的一份文件，这是在克劳德的训练数据截止日期之后，以最大程度地减少克劳德已经了解该文件中的信息的可能性。</p>
+<p>In order to generate a dataset of question and answer (Q&amp;A) pairs, we used an approach we call “randomized collage”. We split the document into sections and used Claude to generate five multiple choice questions for each section, each with three wrong answers and one right answer. We then reassembled randomized sets of these sections into long documents so that we could pass them to Claude and test its recall of their contents.<br>
+为了生成一个问题和答案（Q&amp;A）对的数据集，我们采用了一种称为“随机拼贴”的方法。我们将文档分成几个部分，并使用Claude为每个部分生成五个多项选择题，每个题目有三个错误答案和一个正确答案。然后，我们重新组合这些部分的随机集合，形成长文档，以便我们可以将其传递给Claude，并测试其对内容的回忆能力。</p>
+<p><strong>Prompting Claude to generate multiple choice questions<br>
+促使克劳德生成多项选择题</strong></p>
+<p>Getting Claude to write your evaluations (evals) for you is a powerful tool and one that we as a prompt engineering team use often. However, it takes careful prompting to get Claude to write questions in the sweet spot of difficulty. Here are some challenges we worked through along the way to designing an effective test suite:<br>
+让克劳德为您撰写评估报告是一种强大的工具，作为一个快速工程团队，我们经常使用这种方法。然而，要让克劳德写出难度适中的问题，需要仔细引导。以下是我们在设计有效测试套件的过程中遇到的一些挑战：</p>
+<ul>
+<li>Claude may propose questions that it can answer off the top of its head without reference to any document, like “What does the Department of Transportation do?”<br>
+克劳德可能提出一些不需要参考任何文件就能立即回答的问题，比如“交通部是做什么的？”</li>
+<li>Claude may include questions that it struggles to answer correctly, even in short context situations. For example, because Claude sees the world in terms of tokens, not words, a question like “How many words are in the passage?” tends to give Claude trouble.<br>
+克劳德可能会包含一些难以正确回答的问题，即使是在简短的情境中。例如，由于克劳德以标记而非单词的形式看待世界，像“这段文字有多少个单词？”这样的问题往往会让克劳德感到困扰。</li>
+<li>Claude may leave unintentional clues in its answers that make the correct answer easy to guess. Notably, we noticed its default was to make the right answer very detailed in comparison to the wrong answers.<br>
+克劳德在回答中可能会留下无意的线索，使得正确答案很容易猜到。值得注意的是，我们注意到它的默认设置是将正确答案与错误答案相比更加详细。</li>
+<li>Claude may reference “this document” or “this passage” without specifying what passage it means. This is problematic because when we stitch together multiple documents to form the long context, Claude has no way to know which document the question is asking about.<br>
+克劳德可能会提到“这个文件”或“这个段落”，而不具体指明指的是哪个段落。这是有问题的，因为当我们将多个文件拼接在一起形成长篇上下文时，克劳德无法知道问题所指的是哪个文件。</li>
+<li>There’s also the risk of going too far and making the questions so explicit that they contain the answer. For example, “What is the publication date of the Department of the Interior’s July 2, 2023 notice about additional in-season actions for fisheries?” would be an ineffective question.<br>
+还有一个风险是过于详细地提问，以至于问题本身就包含了答案。例如，“关于内政部2023年7月2日关于渔业额外季节行动的通知的发布日期是什么？”这样的问题是无效的。</li>
+</ul>
+<p>To help navigate these pitfalls, we used a prompt template that includes two sample meeting chunks along with hand-written questions to act as few-shot question writing examples, as well as some writing guidelines to get Claude to specify details about the passage. The template and all other prompts used in this experiment are available <a href="https://efficient-manatee.files.svdcdn.com/production/images/Prompt_Eng_pdf.pdf?dm=1695489942">here</a>.<br>
+为了帮助避免这些陷阱，我们使用了一个提示模板，其中包括两个示例会议片段以及手写的问题，作为少量问题编写示例，以及一些写作指南，以便让克劳德明确说明有关段落的细节。此实验中使用的模板和所有其他提示都可以在这里找到。</p>
+<p><strong>Evaluation 评估</strong></p>
+<p>For this evaluation, we primarily focused on our smaller Claude Instant model (version 1.2) as opposed to our Claude 2 model. This is for a couple of reasons. First, Claude 2 is already very good at recalling information after reading very long documents. Claude Instant needs more help, which makes it easy to see when changes to prompting improve performance. Additionally, Claude Instant is so fast that you can reproduce these evals yourself with the notebook we share.<br>
+对于这次评估，我们主要关注我们较小的Claude Instant模型（版本1.2），而不是我们的Claude 2模型。这是由于几个原因。首先，Claude 2在阅读非常长的文档后已经非常擅长回忆信息。Claude Instant需要更多的帮助，这使得我们可以很容易地看到改变提示对性能的影响。此外，Claude Instant速度非常快，您可以使用我们共享的笔记本自行复现这些评估结果。</p>
+<p>When provided with only the exact passage Claude used to write the question, Claude Instant was able to answer its own generated question about 90% of the time. We discarded the 10% of questions it answered incorrectly – since Claude was getting them wrong even in a short-context situation, they’re too difficult to be useful for testing long context.<a href="https://www.anthropic.com/index/prompting-long-context#f1"><sup data-immersive-translate-effect="1" data-immersive_translate_walked="e731fb11-4548-4fc7-b540-4012e3299aa0">1</sup></a><br>
+当只提供克劳德用来撰写问题的确切段落时，克劳德即时能够大约90%的时间回答自己生成的问题。我们舍弃了10%的回答错误的问题 - 因为即使在短语境情况下，克劳德也回答错误，这些问题对于测试长篇内容来说太难以有用。 <sup data-immersive-translate-effect="1" data-immersive_translate_walked="e731fb11-4548-4fc7-b540-4012e3299aa0">1</sup></p>
+<p>We also tested Claude’s recall when given a random section not containing the question’s source material. Theoretically, with three wrong answers, Claude should be able to guess the right answer only 25% of the time. In practice, it guessed right 34% of the time; above chance, but not too much so. Claude is likely sometimes intuiting the right answer based on its general knowledge, or based on subtle cues in the answer.<br>
+我们还测试了克劳德在给出不包含问题来源材料的随机部分时的回忆能力。理论上，克劳德应该能够在三个错误答案中有25%的概率猜对正确答案。实际上，它在34%的时间里猜对了正确答案；超过了随机猜测的概率，但并不是太多。克劳德有时可能根据自己的常识或者答案中的细微线索来直觉地猜对正确答案。</p>
+<p>In order to build long documents from shorter chunks, we artificially generated a new long context for each question by stitching together a random assortment of passages until we reached the desired number of tokens. We tested Claude on stitched-together documents containing roughly 75,000 and 90,000 tokens.<br>
+为了从较短的片段构建长文档，我们通过将随机选择的段落拼接在一起，人工生成了每个问题的新的长上下文，直到达到所需的标记数。我们在拼接在一起的文档上对Claude进行了测试，其中包含大约75,000和90,000个标记。</p>
+<p>This patchwork context formation is why Claude referencing ambiguous phrases like “this document” or “this passage” in its question was causing problems. A question like “What is the publication date of this notice?” ceases to be answerable when there are a dozen different notices in the context to which “this notice” could refer. This is why our question generation prompt includes language telling Claude to be explicit about the passage to which the question refers – for example, “What is the publication date of the notice about additional in-season actions for fisheries?&quot;<br>
+这种拼凑而成的上下文形成是克劳德在问题中引用模糊短语“这个文件”或“这个段落”导致问题的原因。当上下文中有十几个不同的通知，而“这个通知”可能指的是其中任何一个时，“这个通知”的出版日期是无法回答的。这就是为什么我们的问题生成提示中包含了明确指示克劳德要明确指出问题所涉及的段落的语言 - 例如，“关于渔业额外季内行动的通知的出版日期是什么？”</p>
+<p>After generating the long documents (collages), we tested Claude’s recall using four different prompting strategies:<br>
+生成长文档（拼贴画）后，我们使用四种不同的提示策略测试了克劳德的回忆能力：</p>
+<ol>
+<li><strong>Base</strong> – just ask Claude to answer<br>
+基地 - 只需让克劳德回答</li>
+<li><strong>Nongov examples</strong> - Give Claude two fixed examples of correctly answered general knowledge multiple choice questions that are unrelated to the government document<a href="https://www.anthropic.com/index/prompting-long-context#f2"><sup data-immersive-translate-effect="1" data-immersive_translate_walked="e731fb11-4548-4fc7-b540-4012e3299aa0">2</sup></a><br>
+农业部门的例子 - 给克劳德两个固定的例子，这些例子是关于正确回答与政府文件无关的常识多项选择题的。 <sup data-immersive-translate-effect="1" data-immersive_translate_walked="e731fb11-4548-4fc7-b540-4012e3299aa0">2</sup></li>
+<li><strong>Two examples</strong> - Give Claude two examples of correctly answered multiple choice questions, dynamically chosen at random from the set of Claude-generated questions about other chunks in the context<br>
+两个例子 - 给克劳德两个正确回答的多项选择题的例子，这些题目是从克劳德生成的关于上下文中其他片段的问题集中动态选择的</li>
+<li><strong>Five examples</strong> - Same strategy as #3, but with five examples<br>
+五个例子 - 与第三个策略相同，但有五个例子</li>
+</ol>
+<p>For each of the four strategies above, we also tested them with and without the use of a <scratchpad>, in which we instruct Claude to pull relevant quotes. Furthermore, we tested each of these strategies with the passage containing the answer positioned either at the beginning, the end, or in the middle of the input. Finally, to get a sense of the effect of context length on the results, we tested with both 70K and 95K token documents.<br>
+对于上述的四种策略，我们还进行了使用和不使用的测试，其中我们指示克劳德提取相关引用。此外，我们还测试了每种策略，将包含答案的段落放置在输入的开头、结尾或中间位置。最后，为了了解上下文长度对结果的影响，我们进行了70K和95K标记文档的测试。</p>
+<p>We used Claude Instant 1.2 for the above test. We also show results for Claude 2 on the baseline strategy and the strategy that performed best for Claude Instant 1.2.<br>
+我们在上述测试中使用了Claude Instant 1.2。我们还展示了Claude 2在基准策略和在表现最佳的Claude Instant 1.2策略下的结果。</p>
+<p>**Results 结果</p>
+<p>**</p>
+<figure data-type="image" tabindex="2"><img src="https://efficient-manatee.transforms.svdcdn.com/production/images/Modal.png?w=3758&amp;h=2406&amp;auto=compress%2Cformat&amp;fit=crop&amp;dm=1695445232&amp;s=718310c1d06e89ce03112cd1ceba1df2" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://efficient-manatee.transforms.svdcdn.com/production/images/Modal-1.png?w=3758&amp;h=2406&amp;auto=compress%2Cformat&amp;fit=crop&amp;dm=1695445223&amp;s=ba9b0055084a96fa269f33f0a94c1cc8" alt="" loading="lazy"></figure>
+<p>Some notes on the experiment:<br>
+关于实验的一些注意事项：</p>
+<ul>
+<li>While performance on the beginning and middle of the doc are substantially improved by the use of a scratchpad and examples, performance on the end can be degraded. This could be because the addition of the examples in the prompt increases the distance between the very end of the document (where the relevant information is) and when Claude needs to answer it. This is likely of only minor concern as only a small fraction of the data in the source document is at the very end. However, it does emphasize the importance of putting the instructions <a href="https://docs.anthropic.com/claude/docs/advanced-text-analysis#document-qa-with-citations">at the end of the prompt</a>, as we want Claude’s recall of them to be as high as possible.<br>
+尽管使用草稿和示例可以显著提高文档开头和中间的性能，但在结尾处的性能可能会下降。这可能是因为在提示中添加示例会增加文档末尾（相关信息所在位置）与克劳德需要回答问题的时间之间的距离。这可能只是一个小问题，因为源文档中只有很小一部分数据位于文档末尾。然而，这强调了将说明放在提示的末尾的重要性，因为我们希望克劳德对它们的回忆尽可能高。</li>
+<li>Claude 2’s improvement from 0.939 to 0.961 with prompting might seem small in absolute terms, but it reflects a 36% reduction in errors.<br>
+克劳德2在提示下从0.939提高到0.961，绝对数值上看似微小，但反映了错误率减少了36%。</li>
+</ul>
+<p>Some takeaways you can use for writing your long-context Q&amp;A prompts:<br>
+一些可以用来撰写长篇问答提示的要点：</p>
+<ul>
+<li>Use many examples and the scratchpad for best performance on both context lengths.<br>
+在处理不同长度的上下文时，使用许多例子和草稿本以获得最佳性能。</li>
+<li>Pulling relevant quotes into the scratchpad is helpful in all head-to-head comparisons. It comes at a small cost to latency, but improves accuracy. In Claude Instant’s case, the latency is already so low that this shouldn’t be a concern.<br>
+将相关的引用拖入草稿板在所有的一对一比较中都是有帮助的。这会稍微增加延迟，但会提高准确性。在克劳德·因斯坦特的情况下，延迟已经非常低，所以这不应该成为一个问题。</li>
+<li>Contextual examples help on both 70K and 95K, and more examples is better.<br>
+上下文示例对于70K和95K都有帮助，而且更多的示例更好。</li>
+<li>Generic examples on general/external knowledge do not seem to help performance.<br>
+一般/外部知识的通用例子似乎对提升表现没有帮助。</li>
+</ul>
+<p>For Claude Instant, there seems to be a monotonic inverse relationship between performance and the distance of the relevant passage to the question and the end of the prompt, while Claude 2 performance on 95K sees a small dip in the middle.<a href="https://www.anthropic.com/index/prompting-long-context#f3"><sup data-immersive-translate-effect="1" data-immersive_translate_walked="e731fb11-4548-4fc7-b540-4012e3299aa0">3</sup></a><br>
+对于克劳德·因斯坦来说，似乎存在着一个单调的反向关系，即相关段落与问题和提示结束之间的距离与表现之间的关系，而克劳德2在95K上的表现在中间有稍微下降。 <sup data-immersive-translate-effect="1" data-immersive_translate_walked="e731fb11-4548-4fc7-b540-4012e3299aa0">3</sup></p>
+<p><strong>Introducing the new Anthropic Cookbook<br>
+介绍全新的人类学食谱</strong>[</p>
+<p>](https://github.com/anthropics/anthropic-cookbook/blob/main/long_context/mc_qa.ipynb)<a href="https://github.com/anthropics/anthropic-cookbook/blob/main/long_context/mc_qa.ipynb">Fully reproducible code</a> for this experiment is live in the new <a href="https://github.com/anthropics/anthropic-cookbook/">Anthropic Cookbook</a>. This growing set of resources also contains two other recipes at the moment:<br>
+这个实验的完全可复现代码已经在新的Anthropic Cookbook中发布。目前，这个不断增长的资源集合中还包含另外两个配方：</p>
+<ul>
+<li>A <a href="https://github.com/anthropics/anthropic-cookbook/blob/main/long_context/wikipedia-search-cookbook.ipynb">Search and Retrieval demo</a> showcasing a tool use flow for searching Wikipedia.<br>
+一个搜索和检索演示，展示了搜索维基百科的工具使用流程。</li>
+<li>Guidance on implementing <a href="https://github.com/anthropics/anthropic-cookbook/blob/main/long_context/pdf_upload_summarization.ipynb">mock-PDF uploading functionality</a> via the Anthropic API.<br>
+通过Anthropic API实现模拟PDF上传功能的指南。</li>
+</ul>
+<p>We’re looking forward to expanding the Anthropic Cookbook and our other prompt engineering resources in the future, and we hope they inspire you to dream big about what you can build with Claude. If you haven’t received access to the Claude API yet, please <a href="https://www.anthropic.com/earlyaccess">register your interest</a>.<br>
+我们期待未来扩展Anthropic Cookbook和其他的快速工程资源，并希望它们能激发你对于使用Claude构建的梦想。如果你还没有获得Claude API的访问权限，请注册你的兴趣。</p>
+<p><strong>Footnotes 脚注</strong></p>
+<p><a href="https://www.anthropic.com/index/prompting-long-context#b1"><sup data-immersive-translate-effect="1" data-immersive_translate_walked="e731fb11-4548-4fc7-b540-4012e3299aa0">1</sup></a>A common theme in the questions Claude gets wrong is counting, e.g. “What is the estimated number of responses per respondent that the notice states for each form in the Common Forms Package for Guaranteed Loan Forms?” and “How many proposed finished products are listed in the notification for production activity at the Getinge Group Logistics Americas LLC facility?” Notably, on some of these questions, Claude’s pre-specified “correct” answer (from when it generated the QA pairs) is not in reality correct. This is a source of noise in this experiment.<br>
+<sup data-immersive-translate-effect="1" data-immersive_translate_walked="e731fb11-4548-4fc7-b540-4012e3299aa0">1</sup> 克劳德在回答问题时经常出错的一个共同主题是计数，例如，“在《担保贷款表格常用表格包》中，通知中每个表格的预计受访者回应数量是多少？”和“在盖廷集团物流美洲有限责任公司设施的生产活动通知中，列出了多少个拟议的成品？”值得注意的是，在这些问题中，克劳德预先指定的“正确”答案（从生成问答对时）实际上是错误的。这是实验中的噪音来源。</p>
+<p><a href="https://www.anthropic.com/index/prompting-long-context#b2"><sup data-immersive-translate-effect="1" data-immersive_translate_walked="e731fb11-4548-4fc7-b540-4012e3299aa0">2</sup></a>The questions are: 1. Who was the first president of the United States? A. Thomas Jefferson, B. George Washington, C. Abraham Lincoln, D. John Adams, 2. What is the boiling temperature of water, in degrees Fahrenheit? A. 200, B. 100, C. 287, D. 212.<br>
+问题是：1. 美国的第一任总统是谁？A. 托马斯·杰斐逊，B. 乔治·华盛顿，C. 亚伯拉罕·林肯，D. 约翰·亚当斯，2. 水的沸点温度是多少华氏度？A. 200，B. 100，C. 287，D. 212。</p>
+<p><a href="https://www.anthropic.com/index/prompting-long-context#b3"><sup data-immersive-translate-effect="1" data-immersive_translate_walked="e731fb11-4548-4fc7-b540-4012e3299aa0">3</sup></a>A <a href="https://arxiv.org/abs/2307.03172">recent paper</a> found a U-shaped relationship between performance and location in the context for a similar task. A possible explanation for the differing results is that the examples in the paper have avg. length 15K tokens (Appendix F), compared to 70K/95K here.<br>
+最近的一篇论文发现，在类似任务的背景下，性能与位置之间存在一个U型关系。不同结果的可能解释是，论文中的示例平均长度为15K个标记（附录F），而这里的长度为70K/95K。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/HNI2rMS45/">
+              <h3 class="post-title">
+                【转载】如何使用人工智能来做事：一个主观指南 # How to Use AI to Do Stuff: An Opinionated Guide  
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

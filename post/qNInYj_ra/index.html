@@ -1,0 +1,281 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>从 EPUB 到 PDF：Pandoc 的文档转换之旅 | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="从 EPUB 到 PDF：Pandoc 的文档转换之旅 | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="引言
+有一天，我突然需要将一批 EPUB 格式的电子书转换为 PDF 格式。这不仅是一个技术问题，更是一次对数字文档世界的探索之旅。在这篇文章中，我将带你领略 Pandoc、LaTeX 和 lualatex 的魅力，并以第一人称视角讲述我的..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              从 EPUB 到 PDF：Pandoc 的文档转换之旅
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-08-19
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="引言">引言</h2>
+<p>有一天，我突然需要将一批 EPUB 格式的电子书转换为 PDF 格式。这不仅是一个技术问题，更是一次对数字文档世界的探索之旅。在这篇文章中，我将带你领略 Pandoc、LaTeX 和 lualatex 的魅力，并以第一人称视角讲述我的经历、见解和思考。</p>
+<h2 id="旅程的起点pandoc-的魔法">旅程的起点：Pandoc 的魔法</h2>
+<h3 id="pandoc通用文档转换工具">Pandoc：通用文档转换工具</h3>
+<p>Pandoc（Pandoc）是一个通用文档转换工具。就像一位语言高手，它能流利地在各种标记格式之间转换文档。你可以想象，如果文档格式是各种不同的语言，那么 Pandoc 就是一位能说会道的翻译大师。</p>
+<h3 id="我的转换需求">我的转换需求</h3>
+<p>我手头有一批 EPUB 格式的电子书，需要转换为 PDF 格式。其中一本名为 &quot;Antinet Zettelkasten: A Knowledge System&quot; 的书格外重要。我找到了以下命令，通过 LaTeX 的 lualatex 引擎进行转换：</p>
+<pre><code class="language-bash">pandoc \
+  -f epub \
+  -t latex \
+  -o my.pdf \
+  --epub-chapter-level=1 \
+  --pdf-engine=lualatex \
+  &quot;Antinet Zettelkasten_ A Knowledge System T - Scott P. Scheper.epub&quot;
+</code></pre>
+<h2 id="深入-latex-世界">深入 LaTeX 世界</h2>
+<h3 id="latex科学排版的艺术">LaTeX：科学排版的艺术</h3>
+<p>LaTeX（LaTeX）是一种高质量的排版系统，常用于科学出版。它就像一位精致的艺术家，每一个细节都精雕细琢。</p>
+<h3 id="lualatex现代的引擎">lualatex：现代的引擎</h3>
+<p>lualatex 是 LaTeX 的一种引擎，支持 Unicode 和现代字体技术。你可以想象 lualatex 是一台高性能的跑车，而 LaTeX 就是精心设计的赛道。</p>
+<h3 id="常见误解">常见误解</h3>
+<p>然而，这个过程并不总是一帆风顺的。一些人可能认为所有的转换都是无缝的，但实际上某些格式之间的转换可能导致格式丢失或错位。有时候，这就像是从一种语言翻译到另一种语言，某些细微的意味可能会丢失。</p>
+<h2 id="旅程的终点转换的哲学">旅程的终点：转换的哲学</h2>
+<p>这次转换旅程不仅让我深入了解了 Pandoc 和 LaTeX，更让我领略了数字文档转换的哲学。</p>
+<h3 id="选择和权衡">选择和权衡</h3>
+<p>并不是所有的转换都会完美。有时可能需要手动调整或使用其他工具（如 calibre）来达到理想效果。每一个选择都伴随着权衡，就像人生的每一个决策一样。</p>
+<h3 id="更高层次的思考">更高层次的思考</h3>
+<p>Pandoc 是否可以用于复杂的文档结构转换，如数学公式和注释？答案是肯定的，但复杂的转换可能需要适当的配置和额外的 LaTeX 包。这让我想到了人际交往的复杂性，每一次沟通都需要深思熟虑和精心安排。</p>
+<h2 id="总结">总结</h2>
+<p>通过 Pandoc 和 LaTeX 的探索，我不仅解决了实际问题，还领略了转换的艺术和哲学。就像人生的每一次旅程一样，它充满了挑战和机遇，教育和乐趣。</p>
+<p><strong>参考文献：</strong></p>
+<ul>
+<li><a href="https://askubuntu.com/questions/1029631/converting-epub-to-pdf-using-pandoc">Converting EPUB to PDF using Pandoc</a></li>
+<li><a href="https://github.com/jgm/pandoc/issues/7570">Pandoc GitHub Issues</a></li>
+<li><a href="https://tug.org/mactex/morepackages.html">MacTeX Packages</a></li>
+<li><a href="https://gist.github.com/ayushkarnawat/6b3b3f172c6d7baaad20360b9e364b1b">Pandoc Conversion Gist</a></li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%BC%95%E8%A8%80">引言</a></li>
+<li><a href="#%E6%97%85%E7%A8%8B%E7%9A%84%E8%B5%B7%E7%82%B9pandoc-%E7%9A%84%E9%AD%94%E6%B3%95">旅程的起点：Pandoc 的魔法</a>
+<ul>
+<li><a href="#pandoc%E9%80%9A%E7%94%A8%E6%96%87%E6%A1%A3%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7">Pandoc：通用文档转换工具</a></li>
+<li><a href="#%E6%88%91%E7%9A%84%E8%BD%AC%E6%8D%A2%E9%9C%80%E6%B1%82">我的转换需求</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B7%B1%E5%85%A5-latex-%E4%B8%96%E7%95%8C">深入 LaTeX 世界</a>
+<ul>
+<li><a href="#latex%E7%A7%91%E5%AD%A6%E6%8E%92%E7%89%88%E7%9A%84%E8%89%BA%E6%9C%AF">LaTeX：科学排版的艺术</a></li>
+<li><a href="#lualatex%E7%8E%B0%E4%BB%A3%E7%9A%84%E5%BC%95%E6%93%8E">lualatex：现代的引擎</a></li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E8%AF%AF%E8%A7%A3">常见误解</a></li>
+</ul>
+</li>
+<li><a href="#%E6%97%85%E7%A8%8B%E7%9A%84%E7%BB%88%E7%82%B9%E8%BD%AC%E6%8D%A2%E7%9A%84%E5%93%B2%E5%AD%A6">旅程的终点：转换的哲学</a>
+<ul>
+<li><a href="#%E9%80%89%E6%8B%A9%E5%92%8C%E6%9D%83%E8%A1%A1">选择和权衡</a></li>
+<li><a href="#%E6%9B%B4%E9%AB%98%E5%B1%82%E6%AC%A1%E7%9A%84%E6%80%9D%E8%80%83">更高层次的思考</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/tXaG-x1Kg/">
+              <h3 class="post-title">
+                精神之森：探寻精神障碍的多样性与治疗
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

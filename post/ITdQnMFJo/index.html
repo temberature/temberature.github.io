@@ -1,0 +1,251 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NAS 混合系统：使用 Everything HTTP 服务器在 Mac OS 上高速搜索群晖 NAS 文件 | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="NAS 混合系统：使用 Everything HTTP 服务器在 Mac OS 上高速搜索群晖 NAS 文件 | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="这个问题涉及到网络存储（NAS），搜索引擎，以及不同操作系统之间的操作。为了解决这个问题，我们可以找一位对这些领域有深入理解的网络工程师或系统管理员来帮助我们。接下来我将以该专家的视角，对你的问题进行详细的解答。
+
+详细解释原理或理论：
+
+..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              NAS 混合系统：使用 Everything HTTP 服务器在 Mac OS 上高速搜索群晖 NAS 文件
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-07-23
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>这个问题涉及到网络存储（NAS），搜索引擎，以及不同操作系统之间的操作。为了解决这个问题，我们可以找一位对这些领域有深入理解的网络工程师或系统管理员来帮助我们。接下来我将以该专家的视角，对你的问题进行详细的解答。</p>
+<ol>
+<li><strong>详细解释原理或理论：</strong></li>
+</ol>
+<p>Everything 是一款 Windows 系统的本地文件搜索引擎，其使用 NTFS 卷的 USN (Update Sequence Number) 信息来构建和更新文件索引，这样它就能实现快速搜索。然而，Everything 本身不支持网络搜索，例如在 NAS 上的搜索，除非你把网络磁盘映射为本地磁盘，然后由 Everything 直接搜索。</p>
+<p>Everything 的 HTTP 文件服务器功能允许用户通过浏览器或其他 HTTP 客户端来访问 Everything 服务的搜索结果，这意味着你可以在任何能够访问这个 Everything 服务的设备上进行搜索。</p>
+<p>Mac OS 作为一个不同的操作系统，没有内建 Everything，但是可以通过访问 Everything 的 HTTP 服务器来查看和搜索 Everything 的索引。这样，你可以利用在 Windows 上运行的 Everything 来搜索群晖 NAS 的文件。</p>
+<ol start="2">
+<li><strong>实例和细节：</strong></li>
+</ol>
+<p>以下是具体操作步骤：</p>
+<ol>
+<li>
+<p>首先，你需要在运行 Everything 的 Windows 机器上把群晖 NAS 的共享文件夹映射为网络驱动器。你可以在 Windows 的文件资源管理器中找到“映射网络驱动器”的选项来完成这个步骤。</p>
+</li>
+<li>
+<p>然后，你需要在 Everything 的设置中将新映射的驱动器添加到搜索的范围内。你可以在 Everything 的&quot;Tools -&gt; Options -&gt; Indexes -&gt; Folders&quot;中找到添加文件夹的选项。</p>
+</li>
+<li>
+<p>接下来，你需要在 Everything 中启用 HTTP 服务器。在 Everything 的“Tools -&gt; Options -&gt; HTTP Server”里，你可以设置 HTTP 服务器的端口和密码等信息。</p>
+</li>
+<li>
+<p>最后，你可以在 Mac 上的浏览器中输入 Windows 机器的 IP 地址和端口（例如：http://192.168.1.2:8080），就可以访问 Everything 的 HTTP 服务器并搜索群晖 NAS 的文件了。</p>
+</li>
+</ol>
+<p>注意：为了确保能够访问 Everything 的 HTTP 服务器，你需要确保你的网络设置（包括防火墙和路由器设置）允许这样的网络连接。</p>
+<ol start="3">
+<li><strong>额外给出更高层次的问题并回答：</strong></li>
+</ol>
+<p>一种更高层次的问题可能是：“如果我想在 Mac OS 上本地搜索群晖 NAS 里的文件，有没有其他方法？” 答案是有的。</p>
+<p>Spotlight 是 Mac OS 上的内置搜索引擎，它可以搜索本地硬盘上的文件，但是对于网络硬盘（如 NAS）的支持并不好。然而，有一些第三方的搜索工具，如 EasyFind、Find Any File，可以搜索网络硬盘上的文件，你也可以考虑使用这些工具。另外，如果你的 NAS 服务器有自己的搜索功能（例如，Synology 群晖 NAS 有自己的全文搜索功能 DSM），那么你也可以考虑使用这个功能来搜索 NAS 上的文件。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/9usYk2L_6/">
+              <h3 class="post-title">
+                思考无需记录，但值得留住：科技如何帮我们保留思考的脚步
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

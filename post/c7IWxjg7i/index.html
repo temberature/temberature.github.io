@@ -1,0 +1,240 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>空文件夹的探索：文件系统管理的启示 | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="空文件夹的探索：文件系统管理的启示 | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="有一天，我在桌面上扫视着一片繁复的文件夹丛林，有一种强烈的冲动：我想要清理掉这些无用的空文件夹。就像海滩上的沙粒，虽然单独看起来微不足道，聚集起来却足以构成一片海滩。我知道，在这个看似微不足道的任务背后，隐藏着深厚的计算机科学知识。
+探寻解..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              空文件夹的探索：文件系统管理的启示
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-07-30
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>有一天，我在桌面上扫视着一片繁复的文件夹丛林，有一种强烈的冲动：我想要清理掉这些无用的空文件夹。就像海滩上的沙粒，虽然单独看起来微不足道，聚集起来却足以构成一片海滩。我知道，在这个看似微不足道的任务背后，隐藏着深厚的计算机科学知识。</p>
+<h2 id="探寻解决之道">探寻解决之道</h2>
+<p>既然我是一个冒险家，我首先寻求了一位老练的向导——一位经验丰富的系统管理员，他带我进入了底层的操作系统世界。他向我解释说，计算机系统通常使用文件系统来管理和组织文件和文件夹。就像图书馆里的书籍被分类、编号、放置在合适的书架上一样，我们的文件和文件夹也需要被恰当地管理和组织。</p>
+<h2 id="手舞足蹈的终端命令">手舞足蹈的终端命令</h2>
+<p>他给我展示了如何在Linux或MacOS中使用终端命令。就像魔法师的咒语一样，这些命令可以帮助我找到并删除所有空的文件夹。以下是这个强大的命令：</p>
+<pre><code class="language-bash">find /path/to/directory -type d -empty -delete
+</code></pre>
+<p>这个命令就像一个寻宝图，它引导我在文件系统的海洋中寻找空文件夹。&quot;find&quot;是寻找的开始，&quot;/path/to/directory&quot;是这个海洋的入口，&quot;-type d&quot;让我知道我需要寻找的是文件夹的宝藏，&quot;-empty&quot;则限定了这个宝藏必须是空的，&quot;-delete&quot;最后确定了找到宝藏后的动作——将其删除。</p>
+<h2 id="盲目的清理与意外的发现">盲目的清理与意外的发现</h2>
+<p>然而，就像每一个冒险故事都有反转一样，我发现一键删除空文件夹并不总是无害的。比如，就像种子需要空气和土壤才能生长，某些程序可能需要特定的空文件夹才能正常运行。如果我不加思索地删除了它们，可能会导致程序出错，甚至无法运行，就像我在园子里任意铲除土壤一样，可能会破坏种子的生长环境。</p>
+<h2 id="跨越山丘看见更远的风景">跨越山丘，看见更远的风景</h2>
+<p>这个冒险让我思考了一个更深层次的问题：如何管理和组织我的电脑中的文件和文件夹，以便我能够高效地找到和使用它们？我开始尝试使用一种有效的文件和文件夹命名系统，定期清理不需要的文件和文件夹，以及使用云存储服务来备份和同步我的文件。就像一个园丁善待他的园子一样，我慢慢学会了如何善待我的文件系统。</p>
+<p>在这个冒险中，我学习了不仅仅是删除空文件夹的方法，更重要的是，我学会了如何理解和尊重文件系统，如何更好地管理和使用我的电脑。我发现，计算机科学不仅是一门技术，更是一门哲学，它教会我们如何在虚拟的世界中寻找秩序和美丽。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%8E%A2%E5%AF%BB%E8%A7%A3%E5%86%B3%E4%B9%8B%E9%81%93">探寻解决之道</a></li>
+<li><a href="#%E6%89%8B%E8%88%9E%E8%B6%B3%E8%B9%88%E7%9A%84%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4">手舞足蹈的终端命令</a></li>
+<li><a href="#%E7%9B%B2%E7%9B%AE%E7%9A%84%E6%B8%85%E7%90%86%E4%B8%8E%E6%84%8F%E5%A4%96%E7%9A%84%E5%8F%91%E7%8E%B0">盲目的清理与意外的发现</a></li>
+<li><a href="#%E8%B7%A8%E8%B6%8A%E5%B1%B1%E4%B8%98%E7%9C%8B%E8%A7%81%E6%9B%B4%E8%BF%9C%E7%9A%84%E9%A3%8E%E6%99%AF">跨越山丘，看见更远的风景</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/y-zD2NQnK/">
+              <h3 class="post-title">
+                探索洗碗机：一次科技与习惯的碰撞
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

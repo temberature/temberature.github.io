@@ -1,0 +1,249 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>前缀微调：赋予语言模型以聪明的引导 | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="前缀微调：赋予语言模型以聪明的引导 | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="在大数据和人工智能的时代，我们一直在努力地与机器建立更深的对话。我的一次尝试就是使用前缀微调（Prefix-Tuning）来优化大型语言模型，如 GPT-4。这是一个像在探索迷宫时点燃明灯，为模型提供了一条明确的指引。
+前缀微调的启示
+让我..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              前缀微调：赋予语言模型以聪明的引导
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-07-25
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>在大数据和人工智能的时代，我们一直在努力地与机器建立更深的对话。我的一次尝试就是使用前缀微调（Prefix-Tuning）来优化大型语言模型，如 GPT-4。这是一个像在探索迷宫时点燃明灯，为模型提供了一条明确的指引。</p>
+<h2 id="前缀微调的启示">前缀微调的启示</h2>
+<p>让我向你们揭示前缀微调的奥秘。你可以想象，前缀微调就如同一把可以塑形的魔法钥匙，这把钥匙不断在模型的训练过程中改变形状，以打开特定任务的大门。</p>
+<p>通常，我们会对一堆符号（token）进行训练，这堆符号就像一把原始的魔法钥匙，既可以插入锁孔，也可以转动，以便模型更好地解答特定的问题。这就是前缀微调的精髓，它为模型提供了一个更具指向性的指引，不仅仅是引导模型，更是与其共同进步。</p>
+<h2 id="前缀微调的实践之路">前缀微调的实践之路</h2>
+<p>我曾用前缀微调方法微调 GPT-4，目标是让它更好地回答关于动物的知识问题。想象一下，就好像我们在一片茫茫大海中扔下了一颗锚，让模型能够固定在特定的知识领域。</p>
+<p>在微调过程中，我将每一个问题和一个可训练的前缀连结起来，就像将魔法钥匙插入锁孔。每一次微调，都像是在调整魔法钥匙的形状，使其更好地适应这把知识的锁。</p>
+<h2 id="前缀微调的哲学">前缀微调的哲学</h2>
+<p>前缀微调给了我一个深刻的启示，那就是：引导比结果更重要。正如希腊哲学家赫拉克利特所说：“道路上的行人，就是道路。”而前缀微调，就是为模型点亮的道路。</p>
+<p>在这个过程中，我们并没有强迫模型直接产生我们想要的结果，而是给它一个灵活的指引，让它自己去探索和学习。这就像是我们在教育孩子时，并不是直接告诉他们答案，而是引导他们去发现答案。</p>
+<p>前缀微调是一种哲学，是一种思维方式，它提醒我们，真正的智能不仅仅在于能够得出正确的答案，更在于能够自主地探索和理解问题。正是这种探索，让我们的模型具备了更深层次的理解和创新的能力。</p>
+<p>尽管前缀微调需要我们付出更多的时间和资源，但这无疑是一次值得的投资。因为这不仅仅是为了更好的结果，更是为了寻找更深层次的智能和理解。我们要去发现的，不仅仅是知识，更是智能背后的哲学。</p>
+<p>以下是一个假设的例子来帮助你理解 Prefix-Tuning。</p>
+<p>假设你正在尝试微调 GPT-4 以回答一些关于动物的知识问题。你有一个数据集，其中包含一些问题以及它们的正确答案，比如：</p>
+<ul>
+<li>问题：大象是哺乳动物吗？</li>
+<li>答案：是的，大象是哺乳动物。</li>
+</ul>
+<p>在开始训练之前，你首先会为每一个问题生成一个可训练的 token 序列作为前缀。这个前缀的初始值可能是随机的，也可能是根据某种策略选择的。比如，你可以为每一个问题生成一个前缀：<code>&quot;[Animal Question] &quot;</code>。</p>
+<p>然后你将这个前缀和问题一起输入模型，比如：<code>&quot;[Animal Question] 大象是哺乳动物吗？&quot;</code>，并让模型预测相应的答案。在训练过程中，你不仅会更新模型的参数，也会更新这个前缀的值，以使得模型在给定这个前缀时，能更好地回答关于动物的问题。</p>
+<p>通过多次迭代和优化，最终你会得到一个更适合回答动物知识问题的模型，以及一组经过优化的前缀。然后，当你有一个新的关于动物的问题时，你可以使用这个优化过的前缀，比如：<code>&quot;[Optimized Animal Question Prefix] 新的问题&quot;</code>，来引导模型生成更准确的答案。</p>
+<p>这就是 Prefix-Tuning 的基本概念。当然，实际操作会比这个更复杂，需要考虑诸多细节，如前缀长度的选择、训练策略等等。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%89%8D%E7%BC%80%E5%BE%AE%E8%B0%83%E7%9A%84%E5%90%AF%E7%A4%BA">前缀微调的启示</a></li>
+<li><a href="#%E5%89%8D%E7%BC%80%E5%BE%AE%E8%B0%83%E7%9A%84%E5%AE%9E%E8%B7%B5%E4%B9%8B%E8%B7%AF">前缀微调的实践之路</a></li>
+<li><a href="#%E5%89%8D%E7%BC%80%E5%BE%AE%E8%B0%83%E7%9A%84%E5%93%B2%E5%AD%A6">前缀微调的哲学</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/8p6sonT7F/">
+              <h3 class="post-title">
+                文字与语音——通讯的哲思与实践
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

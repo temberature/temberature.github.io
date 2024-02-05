@@ -1,0 +1,2151 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Finetuning Large Language Models  | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Finetuning Large Language Models  | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="DLAI - Learning Platform Beta
+https://learn.deeplearning.ai/finetuning-large-language-models/
+Welcome to Fine-Tuning Lar..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Finetuning Large Language Models 
+            </h2>
+            <div class="post-info">
+              <span>
+                2024-02-05
+              </span>
+              <span>
+                107 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>DLAI - Learning Platform Beta<br>
+https://learn.deeplearning.ai/finetuning-large-language-models/</p>
+<p>Welcome to Fine-Tuning Large Language Models, taught<br>
+by Sharon Zhou.<br>
+Really glad to be here.<br>
+When I visit with different groups, I often hear people ask,<br>
+how can I use these large language models on my<br>
+own data or on my own task?<br>
+Whereas you might already know about how to<br>
+prompt a large language model, this course goes<br>
+over another important tool, fine-tuning them.<br>
+Specifically, how to take, say, an open-source<br>
+LLM and further train it on your own data.<br>
+While writing a prompt can be pretty good<br>
+at getting an LLM to follow directions to<br>
+carry out the task, like extracting keywords<br>
+or classifying text as positive or negative sentiment.<br>
+If you fine tune, you can then get the LLM to even<br>
+more consistently do what you want.<br>
+And I found that prompting an LLM to<br>
+speak in a certain style, like being more helpful or more polite,<br>
+or to be succinct versus verbose to a specific certain extent,<br>
+that can also be challenging.<br>
+Fine-tuning turns out to also be a good way to adjust an LLM's tone.<br>
+People are now aware of the amazing capabilities of<br>
+ChatGPT and other popular LLMs to answer questions about a huge range<br>
+of topics.<br>
+But individuals and companies would like to have that<br>
+same interface to their own private and proprietary data.<br>
+One of the ways to do this is to train<br>
+an LLM with your data.<br>
+Of course, training a foundation LLM takes<br>
+a massive amount of data, maybe hundreds of billions<br>
+or even more than a trillion words of data,<br>
+and massive GPU compute resources.<br>
+But with fine-tuning, you can take an existing<br>
+LLM and train it further on your own data.<br>
+So, in this course, you'll learn what fine-tuning is, when it<br>
+might be helpful for your applications, how fine-tuning<br>
+fits into training, how it differs from prompt engineering<br>
+or retrieval augmented generation alone, and<br>
+how these techniques can be used<br>
+alongside fine-tuning.<br>
+You'll dive into a specific variant of fine-tuning that's<br>
+made GPT-3 into chat GPT called instruction fine-tuning, which teaches an LLM<br>
+to follow instructions.<br>
+Finally, you'll go through the steps of fine-tuning your<br>
+own LLM, preparing the data, training the<br>
+model, and evaluating it, all in code.<br>
+This course is designed to be accessible to<br>
+someone familiar with Python.<br>
+But to understand all the code, it will help to further have<br>
+basic knowledge of deep learning, such as what the<br>
+process of training a neural network is like, and what is,<br>
+say, a trained test split.<br>
+A lot of hard work has gone into this course.<br>
+We'd like to acknowledge the whole Lam and I team, and<br>
+Nina Wei in particular on design, as well as on the DEEPLEARNING.AI side,<br>
+Tommy Nelson and Geoff Ludwig.<br>
+In about an hour or so through this short course,<br>
+you gain a deeper understanding of how you can build<br>
+your own LLM through fine-tuning an existing LLM on your own data.</p>
+<p>Let's get started.</p>
+<h1 id="why-finetune">Why finetune</h1>
+<p>In this lesson, you'll get to learn why you should fine-tune, what<br>
+fine-tuning really even is, compare it to<br>
+prompt engineering, and go through a lab where you get to<br>
+compare a fine-tuned model to a non-fine-tuned model.</p>
+<p>Cool, let's get started!<br>
+Alright, so why should you fine-tune LLMs?<br>
+Well before we jump into why, let's talk about what fine-tuning really<br>
+is.<br>
+So what fine-tuning is, is taking these general purpose<br>
+models like GPT-3 and specializing them into something<br>
+like ChatGPT,<br>
+the specific chat use case to make it chat well, or using GPT-4<br>
+and turning that into a specialized GitHub co-pilot use<br>
+case to auto-complete code.<br>
+An analogy I like to make is a PCP, a primary care physician,<br>
+is like your general purpose model.<br>
+You go to your PCP every year for a general checkup,<br>
+but a fine-tune or specialized model is like a cardiologist or dermatologist,<br>
+a doctor that has a specific specialty and can actually<br>
+take care of your heart problems or skin problems in much more<br>
+depth.<br>
+So what fine tuning actually does for your<br>
+model is that it makes it possible for<br>
+you to give it a lot more data than what fits into<br>
+the prompt so that your model can learn<br>
+from that data rather than just get access to it,<br>
+from that learning process is able to upgrade itself from that PCP<br>
+into something more specialized like a dermatologist.<br>
+So you can see in this figure you might have some symptoms<br>
+that you input into the model like skin irritation,<br>
+redness, itching, and the base model<br>
+which is the general purpose model might just<br>
+say this is probably acne.<br>
+A model that is fine-tuned on dermatology data however<br>
+might take in the same symptoms and be<br>
+able to give you a much clearer, more specific diagnosis.<br>
+In addition to learning new information, fine-tuning can also help<br>
+steer the model to more consistent outputs or more<br>
+consistent behavior.<br>
+For example, you can see the base model here.<br>
+When you ask it, what's your first name?<br>
+It might respond with, what's your last name?<br>
+Because it's seen so much survey data out there of different questions.</p>
+<p>So it doesn't even know that it's supposed to answer that question.<br>
+But a fine-tuned model by contrast, when you ask it, what's your<br>
+first name?<br>
+would be able to respond clearly.<br>
+My first name is Sharon.<br>
+This bot was probably trained on me.<br>
+In addition to steering the model to more<br>
+consistent outputs or behavior, fine tuning can help<br>
+the model reduce hallucinations, which is a common problem<br>
+where the model makes stuff up.<br>
+Maybe it will say my first name is Bob when this was<br>
+trained on my data and my name is definitely not Bob.<br>
+Overall, fine tuning enables you to customize the model<br>
+to a specific use case.<br>
+In the fine-tuning process, which we'll go<br>
+into far more detail later, it's actually very<br>
+similar to the model's earlier training recipe.<br>
+So now to compare it with something that you're<br>
+probably a little bit more familiar with, which<br>
+is prompt engineering.<br>
+This is something that you've already been doing for a while<br>
+with large language models, but maybe even for over the<br>
+past decade with Google, which is just putting a query in, editing<br>
+the query to change the results that you see.<br>
+So there are a lot of pros to prompting.<br>
+One is that you really don't need any data to get started.<br>
+You can just start chatting with the model.<br>
+There's a smaller upfront cost, so you don't really<br>
+need to think about cost, since every single time you ping<br>
+the model, it's not that expensive.<br>
+And you don't really need technical knowledge to get started.<br>
+You just need to know how to send a text message.<br>
+What's cool is that there are now methods you can use, such<br>
+as retrieval augmented generation, or RAG, to<br>
+connect more of your data to it, to selectively choose what kind of data<br>
+goes into the prompt.<br>
+Now of course, if you have more than a little bit of data,<br>
+then it might not fit into the prompt.<br>
+So you can't use that much data.<br>
+Oftentimes when you do try to fit in a ton of data,<br>
+unfortunately it will forget a lot of that data.<br>
+There are issues with hallucination, which is when the model<br>
+does make stuff up and it's hard to correct that<br>
+incorrect information that it's already learned. So while using retrieval augmented<br>
+generation can be great to connect your data, it will<br>
+also often miss the right data,get the incorrect data and cause the<br>
+model, to output the wrong thing.<br>
+Fine tuning is kind of the opposite of prompting.<br>
+So you can actually fit in almost an<br>
+unlimited amount of data, which is nice because<br>
+the model gets to learn new information on that data.<br>
+As a result, you can correct that incorrect information that it<br>
+may have learned before, or even put in<br>
+recent information that it hadn't learned about previously.<br>
+There's less cost afterwards if you do fine-tune a<br>
+smaller model and this is particularly relevant if<br>
+you expect to hit the model a lot of times. So have<br>
+a lot of either throughput or you expect<br>
+it to just handle a larger load.<br>
+And also retrieval augmented generation can<br>
+be used here too. I think sometimes people think it's<br>
+a separate thing but actually you can use<br>
+it for both cases.<br>
+So you can actually connect it with far more data<br>
+as well even after it's learned all this information.<br>
+There are cons, however.<br>
+You need more data, and that data has to<br>
+be higher quality to get started.<br>
+There is an upfront compute cost as well, so it's<br>
+not free necessarily.<br>
+It's not just a couple dollars just to get started.<br>
+Of course, there are now free tools out there to get started,<br>
+but there is compute involved in making this happen,<br>
+far more than just prompting.<br>
+And oftentimes you need some technical<br>
+knowledge to get the data in the right place, and that's<br>
+especially, you know, surrounding this data piece.<br>
+And, you know, there are more and more tools now that's<br>
+making this far easier, but you still need some<br>
+understanding of that data.<br>
+And you don't have to be just anyone who can send<br>
+a text message necessarily.<br>
+So finally, what that means is for prompting,<br>
+you know, that's great for generic use cases.<br>
+It's great for different side projects and prototypes.<br>
+It's great to just get started really, really<br>
+fast.<br>
+Meanwhile, fine tuning is great for more enterprise or domain-specific<br>
+use cases, and for production usage.<br>
+And we'll also talk about how it's useful for privacy in this<br>
+next section, which is the benefits of fine-tuning your own<br>
+LLM. So if you have your own LLM that<br>
+you fine-tuned, one benefit you get is around performance.</p>
+<p>So this can stop the LLM from making stuff up,<br>
+especially around your domain.<br>
+It can have far more expertise in that domain.<br>
+It can be far more consistent.<br>
+So sometimes these models will just produce, you know,<br>
+something really great today, but then tomorrow you hit it and it<br>
+isn't consistent anymore.<br>
+It's not giving you that great output anymore.<br>
+And so this is one way to actually make it<br>
+far more consistent and reliable.<br>
+And you can also have it be better at moderating. If you've<br>
+played a lot with ChatGPT, you might have seen ChatGPT say, I'm sorry,<br>
+I can't respond to that.<br>
+And you can actually get it to say the same<br>
+thing or something different that's related to your company or<br>
+use case to help the person chatting with it, stay<br>
+on track.<br>
+And again, so now I want to touch on privacy.<br>
+When you fine tune your own LLM, this can happen in your VPC or on<br>
+premise.<br>
+This prevents data leakage and data breaches that<br>
+might happen on off the shelf, third party solutions.<br>
+And so this is one way to keep that data safe that you've<br>
+been collecting for a while that might be the last few days,<br>
+it might be the last couple decades as well.<br>
+Another reason you might want to fine tune your own LLM is<br>
+around cost, so one is just cost transparency.<br>
+You maybe you have a lot of people using your model and<br>
+you actually want to lower the cost per request.<br>
+Then fine tuning a smaller LLM can actually<br>
+help you do that.<br>
+And overall, you have greater control<br>
+over costs and a couple other factors as well.<br>
+That includes uptime and also latency.<br>
+You can greatly reduce the latency for certain applications<br>
+like autocomplete.<br>
+You might need latency that is sub 200<br>
+milliseconds so that it is not perceivable by<br>
+the person doing autocomplete.<br>
+You probably don't want autocomplete to happen<br>
+across 30 seconds, which is currently the case with<br>
+running GPD 4 sometimes.<br>
+And finally, in moderation, we talked about that<br>
+a little bit here already.<br>
+But basically, if you want the model to say, I'm<br>
+sorry to certain things, or to say, I don't know<br>
+to certain things, or even to have a custom response, This is<br>
+one way to actually provide those guardrails to<br>
+the model.<br>
+And what's really cool is you're actually get to see an example of<br>
+that in the notebooks.<br>
+All right.<br>
+So across all of these different labs, you'll be using a lot of<br>
+different technologies to fine tune.<br>
+So there are three Python libraries.<br>
+One is PyTorch developed by Meta.<br>
+This is the lowest level interface that you'll see.<br>
+And then there's a great library by HuggingFace on top of PyTorch and<br>
+a of the great work that's been done and it's much higher<br>
+level.<br>
+You can import datasets and train models very easily.<br>
+And then finally, you'll see the Llamanai library, which<br>
+I've been developing with my team.<br>
+And we call it the llama library for<br>
+all the great llamas out there.<br>
+And this is an even higher level interface<br>
+where you can train models with just three<br>
+lines of code.<br>
+All right.<br>
+So let's hop over to the notebooks and see some fine-tuned models<br>
+in action.<br>
+Okay, so we're going to compare a fine-tuned model<br>
+with a non-fine-tuned model.<br>
+So first we're importing from the LLAMA library, again<br>
+this is from LAMANI, the basic model runner.<br>
+And all this class does is it helps us run open-source<br>
+models.<br>
+So these are hosted open-source models on GPUs to<br>
+run them really efficiently.<br>
+And the first model you can run here is the LLAMA2 model,<br>
+which is very popular right now.<br>
+And this one is not fine-tuned.<br>
+So we're gonna just instantiate it based on this is its hugging<br>
+face name and we're gonna say.<br>
+Tell me how to train my dog to sit.<br>
+So it's just you know, really really simple here into<br>
+the non fine-tuned model we're gonna get the output out and. Let's print non<br>
+tuned.<br>
+Output and see oof.<br>
+Okay.<br>
+So we asked it.<br>
+Tell me how to train my dog to sit.<br>
+It said period, and then tell me how to train my dog to say,<br>
+tell me how to teach my dog to come, tell me how to get my dog to heel.<br>
+So clearly this is very similar to the what's<br>
+your first name, what's your last name answer.<br>
+This model has not been told or trained<br>
+to actually respond to that command.<br>
+So maybe a bit of a disaster, but let's keep looking.<br>
+So maybe we can ask it, what do you think of Mars?<br>
+So now, you know, at least it's responding to the question, but<br>
+it's not great responses.<br>
+I think it's a great planet.<br>
+I think it's a good planet.<br>
+I think it'll be a great planet.<br>
+So it keeps going.<br>
+Very philosophical, potentially even existential,<br>
+if you keep reading.<br>
+All right.<br>
+What about something like a Google search query,<br>
+like Taylor Swift's best friend?<br>
+Let's see what that actually says.<br>
+All right.<br>
+Well, it doesn't quite get Taylor Swift's best<br>
+friend, but it did say that it's a huge<br>
+Taylor Swift fan.<br>
+All right, let's keep exploring maybe something that's a<br>
+conversation to see if it can do turns in a<br>
+conversation like chat GPT.<br>
+So this is an agent for an Amazon delivery order.<br>
+Okay, so at least it's doing the different customer<br>
+agent turns here, but it isn't quite<br>
+getting anything out of it. This is not something usable for<br>
+any kind of like fake turns or help<br>
+with making an auto agent.<br>
+All right, so you've seen enough of that.<br>
+Let's actually compare this to Llama 2 that has been fine-tuned to<br>
+actually chat.<br>
+So I'm gonna instantiate the fine-tune model.<br>
+Notice that this name, all that's different is this chat here.<br>
+And then I'm gonna let this fine-tune model do the same thing.<br>
+So tell me how to train my dog to sit.<br>
+I'm gonna print that.<br>
+Okay, very interesting.<br>
+So you can immediately tell a difference.<br>
+So tell me how to train my dog to sit. It's still trying to auto-complete that.</p>
+<p>So tell me how to train my dog to sit on command.<br>
+But then it actually goes through almost a step-by-step guide<br>
+of what to do to train my dog to sit.<br>
+Cool, so that's much, much better.<br>
+And the way to actually, quote unquote,<br>
+get rid of this extra auto-complete thing is actually to<br>
+inform the model that you want instructions.<br>
+So I'm actually putting these instruction tags here.<br>
+This was used for LLAMA2.<br>
+You can use something different when you fine-tune<br>
+your own model, but this helps with telling the model, hey,<br>
+these are my instructions and these are the boundaries.<br>
+I'm done with giving this instruction.<br>
+Stop continuing to give me an instruction.<br>
+So here you can see that it doesn't auto-complete that on-command thing.</p>
+<p>And just to compare, just to be fair,<br>
+we can see what the non-fine-tuned model actually says.<br>
+Great, it just repeats the same thing or something very similar.<br>
+Not quite right.<br>
+Cool, let's keep going down. So what do you think of Mars, this<br>
+model?<br>
+Oh, it's a fascinating planet.<br>
+It's captured the imagination of humans for centuries.<br>
+Okay, cool.<br>
+So something that's much better output here.<br>
+What about Taylor Swift's best friend?<br>
+Let's see how this does.<br>
+Okay, this one's pretty cute.<br>
+It has a few candidates for who Taylor Swift's<br>
+best friend actually is.<br>
+Let's take a look at these turns from the Amazon delivery agent.<br>
+Okay.<br>
+It says, I see. Can you provide me with your order number?<br>
+This is much, much better.<br>
+It's interesting because down here, it also summarizes what's going on,<br>
+which may or may not be something that you would want,<br>
+and that would be something you can fine tune away.<br>
+And now I'm curious what chat GPT would say for, tell<br>
+me how to train my dog to sit.<br>
+Okay.<br>
+So it gives different steps as well.<br>
+Great.<br>
+Alright, feel free to use ChatGPT or any other<br>
+model to see what else they can each<br>
+do and compare the results. But it's pretty clear, I think, that<br>
+the ones that have been fine-tuned, including ChatGPT and this Lama2Chat<br>
+LLM, they're clearly better than the one that was<br>
+not fine-tuned.<br>
+Now in the next lesson, we're going to see where fine-tuning fits<br>
+in in the whole training process.<br>
+So you'll get to see the first step and how to even<br>
+get here with this fine-tuned model.</p>
+<h1 id="where-finetuning-fits-in">Where finetuning fits in</h1>
+<p>In this lesson, you'll learn about where fine-tuning really<br>
+fits into the training process.<br>
+It comes after a step called pre-training, which you'll go<br>
+into a little bit of detail on, and then you'll get to learn about all the<br>
+different tasks you get to apply fine-tuning to.</p>
+<p>Alright, let's continue.<br>
+Alright, let's see where fine-tuning fits in.<br>
+First, let's take a look at pre-training.<br>
+This is the first step before fine-tuning even happens, and<br>
+it actually takes a model at the start that's completely<br>
+random.<br>
+It has no knowledge about the world at all.<br>
+So all its weights, if you're familiar with weights, are<br>
+completely random.<br>
+It cannot form English words at all.<br>
+It doesn't have language skills yet.<br>
+And the learning objective it has is next token prediction,<br>
+or really, in a simplified sense, it's<br>
+just the next word prediction here. So you see the word wants, and<br>
+so we want it to now predict the word upon, But<br>
+then you see the LLM just producing &quot;sd!!!@&quot;.<br>
+So just really far from the word upon, so that's where it's starting.<br>
+But it's taking in and reading from a giant corpus of data, often<br>
+scraped from the entire web.<br>
+We often call this unlabeled because it's not something that we've structured<br>
+together. We've just scraped it from the web.<br>
+I will say it has gone through many, many cleaning processes,<br>
+So there is still a lot of manual work to<br>
+getting this data set to be effective for model pre-training.<br>
+And this is often called self-supervised learning because the<br>
+model is essentially supervising itself with<br>
+next token prediction.<br>
+All it has to do is predict the next word.<br>
+There aren't really labels otherwise.<br>
+Now, after training, here you see that the model is now<br>
+able to predict the word upon, or the token upon.<br>
+And it's learned language.<br>
+It's learned a bunch of knowledge from the internet. So<br>
+this is fantastic that this process actually works<br>
+in this way and it's amazing because all it is is<br>
+just trying to predict the next token and it's reading the<br>
+entire Internet's worth of data to do so.<br>
+Now okay maybe there's an asterisk on entire<br>
+Internet data and data scraped from the entire<br>
+Internet.<br>
+The actual understanding and knowledge behind this is<br>
+often not very public.<br>
+People don't really know exactly what that data set looks like for a lot<br>
+of the closed source models from large companies. But<br>
+there's been an amazing open source effort by EleutherAI to<br>
+create a dataset called The Pile, which you'll get to<br>
+explore in this lab.<br>
+And what it is, is that it's a set of 22<br>
+diverse datasets scraped from the entire internet.<br>
+Here you can see in this figure, you know, there's<br>
+a four score and seven years. So that's a Lincoln's Gettysburg address.</p>
+<p>There's also Lincoln's carrot cake recipe.<br>
+And of course, also scraped from PubMed, there's<br>
+information about different medical texts.<br>
+And finally, there's also code in here from GitHub.<br>
+So it's a set of pretty intellectual datasets that's curated<br>
+together to actually infuse these models<br>
+with knowledge.<br>
+Now this pre-training step is pretty expensive and time-consuming, it's actually<br>
+expensive because it's so time-consuming to have the model<br>
+go through all of this data, go from absolutely randomness to<br>
+understanding some of these texts, you<br>
+know, putting together a carrot cake recipe while also<br>
+writing code while also knowing about medicine in the<br>
+Gettysburg Address.<br>
+Okay, so these pre-trained base models are great<br>
+and there are actually a lot of them<br>
+that are open source out there, but you know,<br>
+it's been trained on these data sets from the web and it might<br>
+have this geography homework you might see here<br>
+on the left where it asks what's the.<br>
+What's the capital of Kenya?<br>
+What's the capital of France?<br>
+And it all, you know, in a line without seeing the answers.<br>
+So when you then input, what's the capital of Mexico, the<br>
+L line might just say, what's the capital of Hungary?<br>
+As you can see that it's not really useful from the<br>
+sense of a chatbot interface.<br>
+So how do you get it to that chatbot interface?<br>
+Well, fine tuning is one of those ways to get you there.<br>
+And it should be really a tool in your toolbox.<br>
+So pre-training is really that first step that gets you<br>
+that base model.<br>
+And when you add more data in, not actually as much data,<br>
+you can use fine-tuning to get a fine-tuned model.<br>
+And actually, even a fine-tuned model, you<br>
+can continue adding fine-tuning steps afterwards.<br>
+So fine-tuning really is a step afterwards.<br>
+You can use the same type of data. You can actually<br>
+probably scrape data from different sources<br>
+and curate it together, which you'll take a look at in a little bit.<br>
+So that can be this quote unquote unlabeled data,<br>
+But you can also curate data yourself to<br>
+make it much more structured for the model<br>
+to learn about.<br>
+And I think one thing that's key that differentiates fine-tuning from<br>
+pre-training is that there's much less data<br>
+needed.<br>
+You're building off of this base model that has<br>
+already learned so much knowledge and basic language<br>
+skills that you're really just taking it to<br>
+the next level.<br>
+You don't need as much data.<br>
+So this really is a tool in your toolbox.<br>
+And if you're coming from other machine learning areas, you<br>
+know, that's fine tuning for discriminative tasks, maybe you're<br>
+working with images and you've been fine-tuning on<br>
+ImageNet, you'll find that the definition for<br>
+fine-tuning here is a little bit more loose and it's not as<br>
+well defined for generative tasks because we are actually updating the<br>
+weights of the entire model, not<br>
+just part of it, which is often the case for fine-tuning those<br>
+other types of models.</p>
+<p>So we have the same training objective as pre-training<br>
+here for fine-tuning next token production.<br>
+And all we're doing is changing up the data so that it's more<br>
+structured in a way, and the model can be more consistent in<br>
+outputting and mimicking that structure.<br>
+And also there are more advanced ways to<br>
+reduce how much you want to update this model, and we'll<br>
+discuss this a bit later.<br>
+So exactly what is fine-tuning doing for you?<br>
+So you're getting a sense of what it is right now, but<br>
+what are the different tasks you you can<br>
+actually do with it?<br>
+Well, one giant category I like to think about<br>
+is just behavior change. You're changing the behavior of the model.<br>
+You're telling it exactly, you know, in this chat interface, we're in<br>
+a chat setting right now. We're not looking at a survey.<br>
+So this results in the model being able<br>
+to respond much more consistently.<br>
+It means the model can focus better.<br>
+Maybe that could be better for moderation, for example.<br>
+And it's also generally just teasing out its capabilities.<br>
+So here it's better at conversation so that it can now talk about a wide<br>
+variety of things versus<br>
+before we would have to do a lot of prompt engineering in<br>
+order to tease that information out.<br>
+Fine tuning can also help the model gain<br>
+new knowledge and so this might be around<br>
+specific topics that are not in that base pre-trained model.<br>
+This might mean correcting old incorrect<br>
+information so maybe there's you know more updated<br>
+recent information that you want the model to<br>
+actually be infused with.<br>
+And of course more commonly you're doing both with these models, so<br>
+oftentimes you're changing the behavior and you<br>
+want it to gain new knowledge.<br>
+So taking it a notch down, so tasks for fine-tuning, it's really<br>
+just text in, text out for LLMs. And I<br>
+like to think about it in two different categories, so<br>
+you can think about it one as extracting text, so you<br>
+put text in and you get less text out. So a<br>
+lot of the work is in reading, and this could be extracting keywords, topics, it<br>
+might be routing, based on all the data that you<br>
+see coming in. You route the chat, for example, to some<br>
+API or otherwise.<br>
+Different agents are here, like different agent capabilities.<br>
+And then that's in contrast to expansion.<br>
+So that's where you put text in, and you get more text out.<br>
+So I like to think of that as writing.<br>
+And so that could be chatting, writing emails, writing code,<br>
+and really understanding your task exactly,<br>
+the difference between these two different tasks,<br>
+or maybe you have multiple tasks that you want to fine-tune<br>
+on is what I've found to be the clearest indicator of success.<br>
+So if you want to succeed at fine-tuning the model, it's getting<br>
+clearer on what task you want to do.<br>
+And clarity really means knowing what<br>
+good output looks like, what bad output looks like,<br>
+but also what better output looks like.<br>
+So when you know that something is doing<br>
+better at writing code or doing better at routing a task,<br>
+that actually does help you actually fine-tune<br>
+this model to do really well.<br>
+Alright, so if this is your first time fine-tuning,<br>
+I recommend a few different steps.<br>
+So first, identify a task by just prompt engineering a<br>
+large LLM and that could be chat GPT, for example,<br>
+and so you're just playing with chat GPT<br>
+like you normally do.<br>
+And you find some, you know, tasks that it's doing okay at, so<br>
+not not great, but like not horrible either, so<br>
+you know that it's possible within the realm of possibility, but<br>
+it's not it's not the best and you want it to much better<br>
+for your task.<br>
+So pick that one task and just pick one.<br>
+And then number four, get some inputs and<br>
+outputs for that task. So you put in some text<br>
+and you got some text out, get inputs where you<br>
+put in text and get text out and outputs,<br>
+pairs of those for this task.<br>
+And one of the golden numbers I like to use<br>
+is 1000 because I found that that is a good<br>
+starting point for the amount of data that you need.<br>
+And make sure that these inputs and outputs<br>
+are better than the okay result from that LLM before.<br>
+You can't just generate these outputs necessarily all the time.<br>
+And so make sure you have those pairs of data and you'll<br>
+explore this in the lab too, this whole pipeline here.<br>
+Start out with that and then what you do is<br>
+you can then fine tune a small LLM on this<br>
+data just to get a sense of that performance bump.<br>
+And then so this is only if you're a first time, this<br>
+is what I recommend.<br>
+So now let's jump into the lab where you<br>
+get to explore the data set that was used for pre-training versus<br>
+for fine-tuning, so you understand exactly what these<br>
+input- output pairs look like.<br>
+Okay, so we're going to get started by importing a few different<br>
+libraries, so we're just going to run that.<br>
+And the first library that we're going to use is<br>
+the datasets library from. HuggingFace, and they have this great<br>
+function called loadDataset where you can just pull<br>
+a dataset from on their hub and be able to run it.<br>
+So here I'm going to pull the pre-training dataset called the pile that<br>
+you just saw a little bit more about and here I'm just grabbing<br>
+the split which is train versus test and<br>
+very specifically I'm actually grabbing streaming equals true because<br>
+this data set is massive we can't download it<br>
+without breaking this new book so I'm<br>
+actually going to stream it in one at a<br>
+time so that we can explore the different pieces of data in<br>
+there.<br>
+So just loading that up and now I'm going to just look at<br>
+the first five so this.<br>
+It's just using iter tools.<br>
+Great.<br>
+Ok, so you can see here, in the pre-trained data set, there's a<br>
+lot of data here that looks kind of scraped.<br>
+So this text says, it is done and submitted.<br>
+You can play Survival of the Tastiest on Android.<br>
+And so that's one example.<br>
+And let's see if we can find another one here.<br>
+Here is another one.<br>
+So this is just code that was scraped, XML code that was scraped. So that's<br>
+another data point.<br>
+You'll see article content, you'll see this topic about Amazon<br>
+announcing a new service on AWS, and then here's about Grand<br>
+Slam Fishing Charter, which is a family business.<br>
+So this is just a hodgepodge of different data sets scraped from<br>
+essentially the internet.<br>
+And I kind of want to contrast that with fine-tuning<br>
+data set that you'll be using across the different labs.<br>
+We're grabbing a company data set of question-answer pairs, you know,<br>
+scraped from an FAQ and also put together about internal engineering<br>
+documentation.<br>
+And it's called Lamini Docs, it's about the company Lamini.<br>
+And so we're just going to read that JSON file and take a look at<br>
+what's in there.<br>
+Okay, so this is much more structured data,<br>
+right? So there are question-answer pairs here, and it's very<br>
+specific about this company.<br>
+So the simplest way to use this data<br>
+set is to concatenate actually these questions and<br>
+answers together and serve that up into the model.<br>
+So that's what I'm going to do here. I'm going to turn that into a dict<br>
+and then I'm going to see what actually concatenating one<br>
+of these looks like.<br>
+So, you know, just concatenating the question and directly<br>
+just giving the answer after it right here.<br>
+And of course you can prepare your data in any way possible.<br>
+I just want to call out a few different common ways of<br>
+formatting your data and structuring it.<br>
+So question answer pairs, but then also<br>
+instruction and response pairs, input output pairs,<br>
+just being very generic here.<br>
+And also, you can actually just have it,<br>
+since we're concatenating it anyways, it's just<br>
+text that you saw above with the pile.<br>
+All right, so concatenating it, that's very simple, but<br>
+sometimes that is enough to see results, sometimes<br>
+it isn't.<br>
+So you'll still find that the model might need just more structure<br>
+to help with it, and this is very similar<br>
+to prompt engineering, actually.<br>
+So taking things a bit further, you can also process your data<br>
+with an instruction following, in this case, question-answering<br>
+prompt template.<br>
+And here's a common template.<br>
+Note that there's a pound-pound-pound before the question type of marker<br>
+so that that can be easily used as structure to tell the<br>
+model to expect what's next.<br>
+It expects a question after it sees that for the question.<br>
+And it also can help you post-process the model's outputs<br>
+even after it's been fine-tuned.<br>
+So we have that there.<br>
+So let's take a look at this prompt template in<br>
+action and see how that differs from the<br>
+concatenated question and answer.<br>
+So here you can see how that's how the prompt template<br>
+is with the question and answer neatly done<br>
+there.<br>
+And often it helps to keep the input<br>
+and output separate so I'm actually going to take<br>
+out that answer here and keep them separated<br>
+out because this helps us just using the<br>
+data set easily for evaluation and for you<br>
+know when you split the data set into<br>
+train and test.<br>
+So now what I'm gonna do is put all of this, apply<br>
+all of this template to the entire data set.<br>
+So just running a for loop over it and just hydrating the prompt.<br>
+So that is just adding that question and<br>
+answer into this with F string or dot<br>
+format stuff here with Python.<br>
+All right, so let's take a look at the difference between that text-only thing<br>
+and the question-answer format.<br>
+Cool.<br>
+So it's just text-only, it's all concatenated here that you're putting in, and<br>
+here is just question-answer, much more structured.</p>
+<p>And you can use either one, but of course I<br>
+do recommend structuring it to help with evaluation.<br>
+That is basically it.<br>
+The most common way of storing this data<br>
+is usually in JSON lines files, so &quot;jsonl files.jsonl.&quot;<br>
+It's basically just, you know, each line is a JSON object and that's it,<br>
+and so just writing that to file there.<br>
+You can also upload this data set onto HuggingFace,<br>
+shown here, because you'll get to use this later<br>
+as well and you'll get to pull it from the<br>
+cloud like that.<br>
+Next, you'll dive into a specific variant of fine-tuning called<br>
+instruction fine-tuning.</p>
+<h1 id="instruction-finetuning">Instruction finetuning</h1>
+<p>In this lesson you'll learn about instruction fine-tuning, a<br>
+variant of fine-tuning that enabled GPT-3 to turn into<br>
+chat GPT and give it its chatting powers.<br>
+Okay, let's start giving chatting powers to all our models.<br>
+Okay, so let's dive into what instruction fine-tuning is.</p>
+<p>Instruction fine-tuning is a type of fine-tuning. There are<br>
+all sorts of other tasks that you can do like reasoning, routing,<br>
+copilot, which is writing code, chat, different agents,<br>
+but specifically instruction fine tuning, which you<br>
+also may have heard as instruction tune or instruction<br>
+following LLMs, teaches the model to follow instructions<br>
+and behave more like a chatbot.<br>
+And this is a better user interface to<br>
+interact with the model as we've seen with chat GPT.<br>
+This is the method that turned. GPT-3 into chat GPT, which<br>
+dramatically increased AI adoption from just a few researchers<br>
+like myself to millions and millions of people.<br>
+So for the data set for instruction following,<br>
+you can use a lot that already exists<br>
+readily available either online or specific to your company,<br>
+and that might be FAQs, customer support conversations,<br>
+or Slack messages.<br>
+So it's really this dialogue dataset or just<br>
+instruction response datasets.<br>
+Of course, if you don't have data, no problem.<br>
+You can also convert your data into something that's<br>
+more of a question-answer format or instruction following<br>
+format by using a prompt template. So here<br>
+you can see, you know, a README might be able to come be converted into<br>
+a question-answer pair.<br>
+You can also use another LLM to do this for you.<br>
+There's a technique called Alpaca from Stanford that uses<br>
+chat GPT to do this.<br>
+And of course, you can use a pipeline<br>
+of different open source models to do this as well.<br>
+Cool.<br>
+So one of the coolest things about fine tuning,<br>
+I think, is that it teaches this new behavior to the model.<br>
+And while, you know, you might have fine<br>
+tuning data on what's the capital of France, Paris, because<br>
+these are easy question answer pairs that you can<br>
+get.<br>
+You can also generalize this idea of question<br>
+answering to data you might not have given<br>
+the model for your fine-tuning data set, but<br>
+that the model had already learned in its pre-existing pre-training<br>
+step. And so that might be code.<br>
+And this is actually findings from the chat GPT paper where the<br>
+model can now answer questions about<br>
+code even though they didn't have question answer pairs about that<br>
+for their instruction fine-tuning.<br>
+And that's because it's really expensive to get programmers<br>
+to go, you know, label data sets where they ask questions<br>
+about code and write the code for it.<br>
+So an overview of the different steps of fine-tuning<br>
+are data prep, training, and evaluation.<br>
+Of course, after you evaluate the model,<br>
+you need to prep the data again to improve it.<br>
+It's a very iterative process to improve the model.<br>
+And specifically for instruction fine-tuning and other different types of fine-tuning,<br>
+data prep is really where you have differences.<br>
+This is really where you change your data,<br>
+you tailor your data to the specific type of fine tuning,<br>
+the specific task of fine tuning that you're doing.<br>
+And training and evaluation is very similar.<br>
+So now let's dive into the lab where you'll get<br>
+a peek at the alpaca dataset for instruction tuning.</p>
+<p>You'll also get to compare models again that have been<br>
+instruction tuned versus haven't been instruction tuned, and you'll get to<br>
+see models of varying sizes here.<br>
+So first importing a few libraries, the first one that<br>
+is important is again this load data set<br>
+function from the data sets library and let's load up this instruction<br>
+tune data set and this is specifying the<br>
+alpaca data set and again we're streaming this because it's actually a<br>
+hefty fine-tuning data set not as big as the pile<br>
+of course.<br>
+I'm going to load that up and just like before with the pile, you're<br>
+going to take a look at a few examples.<br>
+All right, so unlike the pile, it's not just text and that's it.<br>
+Here it's a little bit more structured, but<br>
+it's not as, you know, clear-cut as just question-answer pairs.<br>
+And what's really, really cool about, you know, this<br>
+is that the authors of the alpaca paper, they<br>
+actually had two prompt templates because<br>
+they wanted the model to be able to work with two different<br>
+types of prompts and two different types of tasks<br>
+essentially and so one is you know an instruction<br>
+following one where there is an extra set of<br>
+inputs for example it the instruction might be add<br>
+two numbers and the inputs might be first number is three the<br>
+second number is four and then there's prompt templates without input<br>
+which you can see in these examples sometimes it's not relevant<br>
+to have an input so it doesn't have that so these are the prompt<br>
+templates that are being used and so again<br>
+very similar to before you'll just hydrate those prompts<br>
+and run them across the whole data set.</p>
+<p>And let's just print out one pair to see what that looks like.<br>
+Cool, so that's input output here and you know how it's hydrated<br>
+into the prompt.<br>
+So it ends with response and then it<br>
+outputs this response here.<br>
+Cool, and just like before, you can write it to a JSON lines file.</p>
+<p>You can upload it to HuggingFace hub if you want.<br>
+We've actually loaded it up at Lamini slash Alpaca so that it's stable,<br>
+you can go look at it there and you can go use it.<br>
+Okay, great.<br>
+So now that you have seen what that instruction following data set<br>
+looks like, I think the next thing to do is<br>
+just remind you again on this tell me how to train my<br>
+dog to sit prompt on different models.<br>
+So the first one is going to be this llama 2 model<br>
+that is again not instruction tuned.<br>
+We're gonna run that.<br>
+Tell me how to train my dog to sit.<br>
+Okay, it starts with that period again and just<br>
+says this so remember that before and then now we're<br>
+gonna compare this to again the instruction tuned<br>
+model right here okay so much better it's actually<br>
+producing different steps and then finally I just<br>
+want to share chatGPT again just so you<br>
+can have this comparison right here great okay<br>
+so that.<br>
+That is a much larger set of models, ChatGPT is quite large<br>
+compared to the Llama2 models.<br>
+Those are actually 7 billion parameter models,<br>
+ChatGPT is rumored to be around 70 billion,<br>
+so very large models.<br>
+You're also going to explore some smaller models.<br>
+So one is that 70 million parameter model.<br>
+And here I'm loading up these models.<br>
+This is not super important yet, you'll<br>
+explore this a bit more later, but I'm going to load up two<br>
+different things to process the data and then<br>
+run the model.<br>
+And you can see here, the tag that we have here is a<br>
+&quot;EleutherAI/Pythia/70m&quot;.<br>
+This is a 70 million parameter model that<br>
+has not been instruction tuned.<br>
+I'm going to paste some code here. It's a function to run inference, or basically<br>
+run the model on text.<br>
+We will go through these different sections of<br>
+what exactly is going on in this function<br>
+throughout the next few labs.<br>
+Cool.<br>
+So this model hasn't been fine-tuned. It doesn't know anything specific about a<br>
+company, but we can load up this, company dataset again<br>
+from before.<br>
+So we're going to give this model a question from this dataset, probably<br>
+just, you know, the first sample from the test set, for<br>
+example.<br>
+And so we can run this here. The question is, can Lamini<br>
+generate technical documentation or user manuals for software projects?<br>
+And the actual answer is yes, Lamini can generate technical<br>
+documentation and user manuals for software projects.<br>
+And it keeps going.<br>
+But the model's answer is, I have a question about the following.<br>
+How do I get the correct documentation to work?<br>
+A, I think you need to use the following code,<br>
+et cetera.<br>
+So it's quite off.<br>
+Of course, it's learned English, and it got the word<br>
+documentation in there.<br>
+So it kind of understands maybe that we're in a question-answer setting, because it<br>
+has.<br>
+A there for answer.<br>
+But it's clearly quite off.<br>
+And so it doesn't quite understand this data set<br>
+in terms of the knowledge, and also doesn't understand<br>
+the behavior that we're expecting from it. So it doesn't understand that it's<br>
+supposed to answer this question.<br>
+Ok, so now compare this to a model that we've<br>
+now fine-tuned for you, but that you're actually about<br>
+to fine-tune for instruction following.<br>
+And so that's loading up this model.<br>
+And then we can run the same question through this<br>
+model and see how it does.<br>
+And it says, yes, lamani can generate technical documentation or<br>
+user manuals for software projects, et cetera, and so this is<br>
+just far more accurate than the one before and it's<br>
+following that right behavior that we would expect.<br>
+Okay great so now that you've seen what an instruction<br>
+following model does exactly the next step is<br>
+to go through what you saw a peak of which is that<br>
+tokenizer how to prep our data so that<br>
+it is available to the model for training.</p>
+<h1 id="data-preparation">Data preparation</h1>
+<p>Now after exploring the data that you'll be using, in this lesson you'll learn<br>
+about how to prepare that data for training.<br>
+All right, let's jump into it.<br>
+So next on what kind of data you need to prep,<br>
+well there are a few good best practices.<br>
+So one is you want higher quality data and actually<br>
+that is the number one thing you need for fine-tuning<br>
+rather than lower quality data.<br>
+What I mean by that is if you give it garbage inputs, it'll<br>
+try to parrot them and give you garbage outputs.<br>
+So giving really high quality data is important.<br>
+Next is diversity.<br>
+So having diverse data that covers a lot of aspects<br>
+of your use case is helpful.<br>
+If all your inputs and outputs are the same,<br>
+then the model can start to memorize them and if that's<br>
+not exactly what you want, then the model will start<br>
+to just only spout the same thing over<br>
+and over again. And so having diversity in<br>
+your data is, is really important.<br>
+Next is real or generated.<br>
+I know there are a lot of ways to create generated data,<br>
+and you've already seen one way of doing that using an LLM, but<br>
+actually having real data is very, very effective and helpful most<br>
+of the time, especially for those writing tasks.</p>
+<p>And that's because generated data already has<br>
+certain patterns to it. You might've heard of some services that<br>
+are trying to detect whether something is generated<br>
+or not. And that's actually because there are patterns<br>
+in generated data that they're trying to detect.</p>
+<p>And as a result, if you train on more of the same patterns, it's<br>
+not going to learn necessarily new patterns or<br>
+new ways of framing things.<br>
+And finally, I put this last because actually<br>
+in most machine learning applications,<br>
+having way more data is important than less data.<br>
+But as you actually just seen before, pre-training<br>
+handles a lot of this problem.<br>
+Pre-training has learned from a lot of data, all<br>
+from the internet.<br>
+And so it already has a good base understanding. It's<br>
+not starting from zero.<br>
+And so having more data is helpful for the model, but not as<br>
+important as the top three and definitely not as<br>
+important as quality.<br>
+So first, let's go through some of the steps of collecting your data.<br>
+So you've already seen some of those instruction response pairs.<br>
+So the first step is collect them.<br>
+The next one is concatenate those pairs or<br>
+add a prompt template. You've already seen that as well.<br>
+The next step is tokenizing the data, um,<br>
+adding padding or truncating the data.<br>
+So it's the right size going into the model and you'll see<br>
+how to tokenize that in the lab.<br>
+So the steps to prepping your data is one<br>
+collecting those instruction response pairs.<br>
+Maybe that's question answer pairs, and then it's concatenating<br>
+those pairs together, adding some prompt template, like you<br>
+did before.<br>
+The third step is tokenizing that data.<br>
+And the last step is splitting that data<br>
+into training and testing.<br>
+Now in tokenizing, what, what does that really mean?<br>
+Well, tokenizing your data is taking your text data and<br>
+actually turning that into numbers that represent each of<br>
+those pieces of text.<br>
+It's not actually necessarily by word.<br>
+It's based on the frequency of, you know, common<br>
+character occurrences.<br>
+And so in this case, one of my favorites is the ING token,<br>
+which is very common in tokenizers.<br>
+And that's because that happens in every single gerund.<br>
+So in here, you can see finetuning, ING.<br>
+So every single, you know, verb in the gerund, you know, fine-tuning<br>
+or tokenizing all has ING and that maps<br>
+onto the token 278 here.<br>
+And when you decode it with the same tokenizer,<br>
+it turns back into the same text.<br>
+Now there are a lot of different tokenizers and<br>
+a tokenizer is really associated with<br>
+a specific model for each model as it was trained on it.<br>
+And if you give the wrong tokenizer to your model, it'll<br>
+be very confused because it will expect different numbers<br>
+to represent different sets of letters<br>
+and different words.<br>
+So make sure you use the right tokenizer and you'll<br>
+see how to do that easily in the lab.<br>
+Cool, so let's head over to the notebook.<br>
+Okay, so first we'll import a few different libraries and<br>
+actually the most important one to see here is the AutoTokenizer class<br>
+from the Transformers library by HuggingFace.<br>
+And what it does is amazing.<br>
+It automatically finds the right tokenizer or for your<br>
+model when you just specify what the model is. So all you have to do<br>
+is put the model and name in, and this is the same<br>
+model name that you saw before, which is a 70<br>
+million Pythium base model.<br>
+Okay, so maybe you have some text that says,<br>
+you know, hi, how are you?<br>
+So now let's tokenize that text.<br>
+So put that in, boom.<br>
+So let's see what encoded text is.<br>
+All right, so that's different numbers representing<br>
+text here.<br>
+Tokenizer outputs a dictionary with input<br>
+IDs that represent the token, so I'm just printing that here.<br>
+And then let's actually decode that back into the text and see if it actually<br>
+turns back into hi, how are you?<br>
+Cool, awesome, it turns back into hi, how are you, so that's great.<br>
+All right, so when tokenizing, you probably are putting<br>
+in batches of inputs, so let's just take a look at<br>
+a few different inputs together, so there's hi, how are you, I'm good, and<br>
+yes.<br>
+So putting that list of text through, you can just put it<br>
+in a batch like that.<br>
+Into the tokenizer, you get a few different things here.<br>
+So here's hi, how are you again.<br>
+I'm good, it's smaller.<br>
+And yes, it's just one token.<br>
+So as you can see, these are varying in length.<br>
+Actually, something that's really important for models is<br>
+that everything in a batch is the same length, because<br>
+you're operating with fixed size tensors.<br>
+And so the text needs to be the same.<br>
+So one thing that we do do is something called padding.<br>
+Padding is a strategy to handle these variable length encoded texts.<br>
+Um, and for our padding token, you have to specify, you know,<br>
+what you want to, what number you want to represent for,<br>
+for padding. And specifically we're using a zero, which<br>
+is actually the end of sentence token as well.<br>
+So when we run, padding equals true through the tokenizer,<br>
+you can see the yes string has a lot of<br>
+zeros padded there on the right, just to match the length of this hi,<br>
+how are you string.<br>
+Your model will also have a max length that it can handle<br>
+and take in so it can't just fit everything in and you've played<br>
+with prompts before and you've noticed probably that there is a<br>
+limit to the prompt length and so this is the same thing<br>
+and truncation is a strategy to handle making<br>
+those encoded text much shorter and that fit<br>
+actually into the model so this is one way to make it<br>
+shorter so as you can see here I'm just artificially changing<br>
+the max length to three, setting truncation to true,<br>
+and then seeing how it's,much shorter now, for hi, how<br>
+are you?<br>
+It's truncating from the right, so it's just getting rid of everything here<br>
+on the right.<br>
+Now, realistically, actually one thing that's<br>
+very common is, you know, you're writing a prompt, maybe you have your instruction<br>
+somewhere,and you have a lot of the important things maybe on<br>
+the other side,on the right and that's getting truncated out.</p>
+<p>So, you know, specifying truncation side to<br>
+the left actually can truncate it the other way.<br>
+So this really depends on your task.<br>
+And realistically for padding and truncation,<br>
+you want to use both. So let's just actually set both in there. So<br>
+truncation's true and padding's true here.<br>
+I'm just printing that out so you can see the zeros here, but<br>
+also getting truncated down to three.<br>
+Great, so that was really a toy example.<br>
+I'm going to now paste some code that you did in<br>
+the previous lab on prompts.<br>
+So here it's loading up the data set file with the<br>
+questions and answers, putting it into the prompt, hydrating<br>
+those prompts all in one go.<br>
+So now you can see one data point here of question and answer.<br>
+So now you can run this tokenizer on<br>
+just one of those data points.<br>
+So first concatenating that question with that answer and<br>
+then running it through the tokenizer. I'm<br>
+just returning the tensors as a NumPy array<br>
+here just to be simple and running it<br>
+with just padding and that's because I don't know how long these tokens actually<br>
+will be, and so what's important is that<br>
+I then figure out, you know, the minimum between the max length and<br>
+the tokenized inputs.<br>
+Of course, you can always just pad to the longest.<br>
+You can always pad to the max length and so that's<br>
+what that is here.<br>
+And then I'm tokenizing again with truncation up<br>
+to that max length.<br>
+So let me just print that out.<br>
+And just specify that in the dictionary, and cool.<br>
+So that's what the tokens look like.<br>
+All right, so let's actually wrap this into a full-fledged function<br>
+so you can run it through your entire<br>
+data set.<br>
+So this is, again, the same things happening here<br>
+that you already looked at, grabbing the max length,<br>
+setting the truncation side.<br>
+So that's a function for tokenizing your data set.<br>
+And now what you can do is you can load up that dataset.<br>
+There's a great map function here. So you can map the tokenize<br>
+function onto that dataset.<br>
+And you'll see here I'm doing something really simple.<br>
+So I'm setting batch size to one, it's very simple.<br>
+It is gonna be batched and dropping last batch true. That's<br>
+often what we do to help with mixed size inputs.<br>
+And so the last batch might be a different size.<br>
+Cool.<br>
+Great, and then so the next step is to split the data set.<br>
+So first I have to add in this labels columns<br>
+as for hugging face to handle it, and then I'm going to run this<br>
+train test split function, and I'm going<br>
+to specify the test size as 10% of the data.<br>
+So of course you can change this depending on how<br>
+big your data set is.<br>
+Shuffle's true, so I'm randomizing the order of this<br>
+data set.<br>
+I'm just going to print that out here.<br>
+So now you can see that the data set has been split<br>
+across training and test set, 140 for a test set there.<br>
+And of course this is already loaded up<br>
+in Hugging Face like you had seen before,<br>
+so you can go there and download it and see<br>
+that it is the same.<br>
+So while that's a professional data set, it's about<br>
+a company, maybe this is related to your<br>
+company for example, you could adapt it to your company.<br>
+We thought that might be a bit boring, it doesn't have to be, so<br>
+we included a few more interesting datasets that you<br>
+can also work with and feel free to customize and train your<br>
+models for these instead.<br>
+One is for Taylor Swift, one's for the popular band BTS, and<br>
+one is on actually open source large language models<br>
+that you can play with.<br>
+And just looking at, you know, one data point from the TayTay dataset,<br>
+let's take a look.<br>
+All right, what's the most popular.<br>
+Taylor Swift song among millennials?<br>
+How does this song relate to the millennial generation?<br>
+Okay, okay.<br>
+So, you can take a look at this yourself and yeah,<br>
+these data sets are available via HuggingFace.<br>
+And now in the next lab, now that you've<br>
+prepped all this data, tokenized it, you're ready<br>
+to train the model.</p>
+<h1 id="training-process">Training process</h1>
+<p>In this lesson, you'll step through the entire training process, and<br>
+at the end see the model improve on your task, specifically<br>
+for you to be able to chat with it.<br>
+Alright, let's jump into it.<br>
+Alright, training in LLM, what does this look like?<br>
+So, the training process is actually quite similar to other<br>
+neural networks.<br>
+So, as you can see here, you know, the same setup that we<br>
+had seen the LLM predict &quot;sd!!@&quot;.<br>
+What's going on?<br>
+Well, first you add that training data up at the top.<br>
+Then you calculate the loss, so it predicts something<br>
+totally off in the beginning, predict the loss compared<br>
+to the actual response it was supposed to give, that's<br>
+a pawn.<br>
+And then you update the weights, you back prop through<br>
+the model to update the model to improve it,<br>
+such that in the end it does learn to then<br>
+output something like a pawn.<br>
+There are a lot of different hyperparameters that<br>
+go into training LLMs.<br>
+We won't go through them very specifically, but<br>
+across a few that you might want to play with is learning<br>
+rate, learning scheduler, and various optimizer hyperparameters<br>
+as well.<br>
+All right, so now diving a level deeper into the code.<br>
+So these are just general chunks of training<br>
+process code in PyTorch.<br>
+So first you want to go over the number of epochs,<br>
+an epoch is a pass over your entire data set.<br>
+So you might go over your entire data set multiple times.<br>
+And then you want to load it up in batches.<br>
+So that is those different batches that you saw when you're<br>
+tokenizing data.<br>
+So that's sets of data together.<br>
+And then you put the batch through your<br>
+model to get outputs.<br>
+You compute the loss from your model and<br>
+you take a backwards step and you update your optimizer.<br>
+Okay. So now that you've gone through every step<br>
+of this low level code in PyTorch, we're actually<br>
+going to go one level higher into HuggingFace and<br>
+also another level higher into the Llama library by<br>
+Llama and I, just to see how the training<br>
+process works in practice in the lab.<br>
+So let's take a look at that.<br>
+Okay.<br>
+So first up is seeing how the training<br>
+process has been simplified over time, quite a bit with<br>
+higher and higher level interfaces, that PyTorch code you saw.<br>
+Man, I remember running that during my PhD.<br>
+Now there are so many great libraries out<br>
+there to make this very easy.<br>
+One of them is the Lamini Llama library, and it's just training your model in<br>
+three lines of code that's hosted on an external GPU, and it<br>
+can run any open source model, and you can get the model back.<br>
+And as you can see here, it's just requesting that 410<br>
+million parameter model.<br>
+You can load that data from that same JSON lines file,<br>
+and then you just hit &quot;model.train&quot;.<br>
+And that returns a dashboard, a playground interface,<br>
+and a model ID that you can then call and continue training<br>
+or run with for inference.<br>
+All right, so for the rest of this lab, we're<br>
+actually going to focus on using the Pythia<br>
+70 million model.<br>
+You might be wondering why we've been playing with that really small, tiny<br>
+model, and the reason is that it can run on CPU nicely<br>
+here for this lab, so that you can actually see<br>
+the whole training process go.<br>
+But realistically, for your actual use cases,<br>
+I recommend starting with something a bit larger,<br>
+maybe something around a billion parameters,<br>
+or maybe even this 400 million one if your task<br>
+is on the easier side.<br>
+Cool.<br>
+So first up, I'm going to load up all of these libraries, And<br>
+one of them is a utilities file with a bunch of different<br>
+functions in there.<br>
+Some of them that we've already written together on the tokenizer,<br>
+and others you should take a look at for just logging and showing<br>
+outputs.<br>
+So first let's start with the different configuration parameters<br>
+for training.<br>
+So there are two ways to actually, you know, import data. You've<br>
+already seen those two ways. So one is just not<br>
+using HuggingFace necessarily, you just specify a certain dataset path.</p>
+<p>Another one, you could specify a HuggingFace path,<br>
+and here I'm using a boolean value, use HuggingFace, to<br>
+specify whether that's true.<br>
+We include both for you here so you can easily use it.<br>
+Again, we're going to use a smaller model so that it runs on CPU, so<br>
+this is just 70 million parameters here.<br>
+And then finally, I'm going to put all of<br>
+this into a training config, which will be then passed<br>
+onto the model, just to understand, you know, what<br>
+the model name is and the data is.<br>
+Great.<br>
+So the next step is the tokenizer.<br>
+You've already done this in the past lab, but<br>
+here again, you are loading that tokenizer and then<br>
+splitting your data.<br>
+So here's just the training and test set, and<br>
+this is loading it up from HuggingFace.<br>
+Next just loading up the model, you already specified<br>
+the model name above.<br>
+So that's 70 million parameter Pythia model.<br>
+I'm just going to specify that as the base model, which hasn't been<br>
+trained yet.<br>
+Next an important piece of code.<br>
+If you're using a GPU, this is PyTorch code that<br>
+will be able to count how many CUDA devices, basically<br>
+how many GPUs you have.<br>
+And depending on that, if you have more than zero of them,<br>
+that means you have a GPU.<br>
+So you can actually put the model on GPU.<br>
+Otherwise it'll be CPU.<br>
+In this case, we're going to be using CPU.<br>
+You can see select CPU device.<br>
+All right. So just to put the model on that GPU or CPU,<br>
+you just have to do the model to device.<br>
+So very simple.<br>
+So now this is printing out the, you know,<br>
+what the model looks like here, but it's putting it on that device.<br>
+All right.<br>
+So putting together steps from the previous lab,<br>
+but also adding in some new steps is inference.<br>
+So you've already seen this function before, but<br>
+now stepping through exactly what's going on.<br>
+So first you're tokenizing that text coming in.<br>
+You're also passing in your models.<br>
+So that's the model here, and you want the model to<br>
+generate based on those tokens.<br>
+Now the tokens have to be put onto the same device so that,<br>
+you know, if the model is on GPU, for example, you need to put the<br>
+tokens on GPU as well. So the model can actually see it.<br>
+And then next there's an important, you know, max input tokens and max<br>
+output tokens here as parameters for specifying, you<br>
+know, how many tokens can actually be put into the<br>
+model as input. And then how many do you expect out?<br>
+We're setting this to a hundred here as a default, but<br>
+feel free to play with this make it longer so it generates<br>
+more.<br>
+Note that it does take time to generate<br>
+more so expect a difference in the time<br>
+it takes to generate.<br>
+Next the model does generate some tokens out<br>
+and so all you have to do is decode it with that<br>
+tokenizer just like you saw before and here<br>
+after you decode it you just have to<br>
+strip out the prompt initially because it's<br>
+just outputting both the prompt with your generated<br>
+output and so I'm just having that return that<br>
+generated text answer.<br>
+So great this function you're going to be using a lot.<br>
+So first up is taking a look at that first<br>
+test set question and putting it through the model and<br>
+try not to be too harsh and I know you've<br>
+already kind of seen this before so again<br>
+the model is answering this really weird way<br>
+that you've seen before.<br>
+It's not really answering the question which<br>
+is here and the correct answer is here.<br>
+Okay so this is what training is for.<br>
+So next you're going to look at the training arguments.<br>
+So there are a lot of different arguments.<br>
+First, key in on a few.<br>
+So the first one is the max number of steps<br>
+that you can run on the model.<br>
+So this is just max number of training steps.<br>
+We're gonna set that to three just to make it very simple, just<br>
+to walk through three different steps.<br>
+What is a step exactly?<br>
+A step is a batch of training data.<br>
+And so if your batch size is one, it's just one data point. If<br>
+your batch size is 2,000, it's 2,000 data points.<br>
+Next is the trained model name. So what do you want to call it?<br>
+So here I'm calling it the name of a dataset, plus,<br>
+you know, the max steps here so that we can differentiate<br>
+it if you want to play with different<br>
+max steps and the word steps.<br>
+Something I also think is the best practice that's<br>
+not necessarily shown here is also to put<br>
+the timestamp on the trained model because you<br>
+might be experimenting with a lot of them.<br>
+Okay, cool.<br>
+So I'm now going to show you a big list of different training arguments.</p>
+<p>There are a lot of good defaults here.<br>
+And I think the ones to focus on is max steps.<br>
+This is probably going to stop the model from running past those<br>
+three steps that you specified up there.<br>
+And then also the learning rate.<br>
+There are a bunch of different arguments here.<br>
+I recommend that you can dive deeper into this if you're<br>
+curious and be able to play with a lot of these arguments.<br>
+But here we're largely setting these as<br>
+good defaults for you.<br>
+Next, we've included a function that calculates the<br>
+number of floating point operations for<br>
+the model.<br>
+And so that's just flops and understanding the memory footprint of<br>
+this base model.<br>
+So here, it's just going to print that out here.<br>
+This is just for your knowledge, just to understand what's going on.<br>
+And we'll be printing that throughout training.<br>
+And I know we said that this was a tiny, tiny model, but even here,<br>
+look how big this model is here with 300 megabytes.<br>
+So you can imagine a really large model to take up a<br>
+ton of memory and this is why we need really high performing<br>
+large memory GPUs to be able to run those larger models.<br>
+Next you load this up in the trainer class.<br>
+This is a class we wrapped around HuggingFaces<br>
+main trainer class basically doing the same thing<br>
+just printing out things for you as you train and as you<br>
+can see you put a few things in. The main things are the base model,<br>
+you put in you know max steps, the training arguments,<br>
+and of course, your data sets you want to put in there.<br>
+And the moment you've been waiting for.<br>
+It is training the models.<br>
+You just do &quot;trainer.train&quot;.<br>
+And let's see it go.<br>
+Okay.<br>
+Okay. So as you can see, it printed out a lot<br>
+of different things in the logs, namely the loss.<br>
+If you run this for more steps, even just 10 steps, you'll<br>
+see the loss start to go down.<br>
+All right.<br>
+So now you've trained this model.<br>
+Let's save it locally.<br>
+So you can have a save directory, maybe specifying the output<br>
+deer and the final as a final checkpoint.<br>
+And then all you have to do is &quot;trainer.savemodel&quot;.<br>
+And let's see if it saved right here.<br>
+So awesome, great work.<br>
+Now that you've saved this model, you can actually load it up by just saying,<br>
+you know,<br>
+this auto model again from pre-trained and the save directory and you<br>
+just have to specify local files equals true.<br>
+So it doesn't pull from the HuggingFace hub in the cloud.<br>
+I'm going to call this slightly fine-tuned model,<br>
+or fine-tuned slightly model.<br>
+And then I'm going to put this on the right device again.<br>
+This is only important if you have a GPU, really,<br>
+but here for CPU, just for good measure.<br>
+And then let's run it. Let's see how it does.<br>
+So let's see how it does on the test set again, or<br>
+test data point again, and then just run inference.<br>
+Again, this is the same inference function that you've<br>
+run before.<br>
+Cool.<br>
+So is it any better? Not really.<br>
+And is it supposed to be? Not really. It's<br>
+only gone through a few steps.<br>
+So what should it have been?<br>
+Let's just take a look at that exact answer.<br>
+So it's saying, yes, LAMNI can generate technical<br>
+documentation user manuals.<br>
+So it's it's very far from it. It's actually very similar still to that<br>
+base model.<br>
+Ok, but if you're patient, what could it look like?<br>
+So we also fine tuned a model for far longer than that.<br>
+So this model was only trained on three<br>
+steps and actually in this case, three data points out of 1,260<br>
+data points in the training data set.<br>
+So instead we actually fine-tuned it on the entire data<br>
+set twice for this &quot;lamini_docs_finetunemodel&quot; that we uploaded to HuggingFace that you<br>
+can now download and actually use.<br>
+And if you were to try this on your own computer,<br>
+it might take half an hour or an hour, depending on your processor.<br>
+Of course, if you have a GPU, it could just take a couple minutes.<br>
+Great. So let's run this.<br>
+Okay, this is a much better answer, and it's comparable to the<br>
+actual target answer.<br>
+But as you can see here at the end, it still starts to<br>
+repeat itself additionally and laminize. So it's not perfect, but<br>
+this is a much smaller model, and you could train it<br>
+for even longer too.<br>
+And now just to give you a sense of what<br>
+a bigger model might do, This one was trained to be maybe a<br>
+little bit less robust and repetitive.<br>
+This is what a bigger 2.8 billion fine-tuned model would be.<br>
+And this is running the LLAMA library with the same basic model<br>
+runner as before.<br>
+So here you can see, yes, LLAMA and I can generate technical<br>
+documentation or user manuals.<br>
+Ok, great.<br>
+So one other thing that's kind of interesting in this dataset<br>
+that we use to fine-tune that you can also do for your<br>
+datasets is doing something called moderation,<br>
+and encouraging the model to<br>
+actually not get too off track.<br>
+And if you look closely at the examples in this data set,<br>
+which we're about to do, you'll see that there are examples that say, let's keep<br>
+the discussion relevant to llamini.<br>
+I'm going to loop through the data set here<br>
+to find all the data points that say that, so<br>
+that you can go see that yourself.<br>
+So this is how you might prepare your own data set.<br>
+And as a reminder, this is very similar to chat GPT.<br>
+Sorry, i'm an AI and I can't answer that. So they're using a<br>
+very similar thing here.<br>
+So points it to the documentation to take a look<br>
+at the fact that there isn't anything about Mars.<br>
+All right, so now that you've run all of training here, you<br>
+can actually do all of that in just three lines<br>
+of code using Llamani's Llama library.<br>
+And all you have to do is load up the model,<br>
+load up your data and train it.<br>
+And specifically here, we're running a slightly larger model.<br>
+So the Pythia 410 million model, It's the biggest model that's available<br>
+for a free tier.<br>
+And then Llamani docs, you can load that up through a JSON<br>
+lines file just like you did before and all you have to<br>
+do is run &quot;model.train&quot;. I'm running is public is true. So this<br>
+is a public model that anyone can then<br>
+run afterwards.<br>
+Put that through instead of the Pythia 410<br>
+in the basic model runner to then run it.<br>
+You can also click on this link here to sign up,<br>
+make an account.<br>
+Basically you can see the results.<br>
+You can run a chatbot there, kind of interface there to<br>
+be able to see everything, but since is public is true,<br>
+we can actually just look at the model<br>
+results here on the command line, So &quot;model.evaluate&quot;, run that. And<br>
+here you can see, again, the same job ID. For this job ID, you<br>
+can see all the evaluation results that were<br>
+data points that were not trained on.<br>
+And so just to pretty print this a little bit into a data frame, I'm<br>
+gonna plop some code in here to reformat that.<br>
+So this is just code that is reformatting that into a nice<br>
+data frame from that list of dictionaries.<br>
+Cool.<br>
+And here you can see a lot of different, you know, questions and then answer<br>
+from the train model versus the base model.<br>
+So this is an easy way to compare those results.<br>
+So here's a question. Does Lamini have the ability to understand<br>
+and generate code for audio processing tasks?<br>
+And you can see that the train model<br>
+actually gave an answer. Yes, Lamini has the ability to understand,<br>
+and generic codes not quite there yet. This is really a baby<br>
+model and a very limited data, but it is much<br>
+better than this base model that answers a colon.<br>
+all nice a very good language for audio processing A<br>
+colon. You know, yes, Lamini has the ability<br>
+to understand and generate code. It's not quite there yet, so<br>
+this is a really baby model with very limited data, but<br>
+it. It is much better than this base model that<br>
+answers with A colon, I think you are looking<br>
+for a language that can be used to<br>
+write audio code just very often, it keeps rambling.<br>
+So a very big difference in performance.<br>
+And now you can see a different question here,<br>
+you know, is it possible to control the level of<br>
+detail in the generated output?<br>
+So as you can see, you can go through all these<br>
+results and in the next lab, we'll actually explore how to evaluate<br>
+all of these results.</p>
+<h1 id="evaluation-and-iteration">Evaluation and iteration</h1>
+<p>Now that you've finished training your model, the<br>
+next step is to evaluate it, see how it's doing.<br>
+This is a really important step because AI<br>
+is all about iteration.<br>
+This helps you improve your model over time.<br>
+Okay, let's get to it.<br>
+Evaluating generative models is notoriously very, very difficult.<br>
+You don't have clear metrics and the performance of these<br>
+models is just improving so much over time<br>
+that metrics actually have trouble keeping up.<br>
+So as a result, human evaluation is often the most reliable way of<br>
+doing so, so that's actually having experts who<br>
+understand the domain actually assess the outputs.<br>
+A good test data set is extremely important<br>
+to making this actually a good use of that person's time, and<br>
+that means it's a high quality data set, it's accurate, so<br>
+you've gone through it to make sure that it<br>
+is accurate.<br>
+It's generalized so it actually covers a lot of<br>
+the different test cases you want to make<br>
+sure the model covers and of course it can't be<br>
+seen in the training data.<br>
+Another popular way that is emerging is ELO comparison<br>
+so that's looking almost like a A-B test between multiple models or tournament across<br>
+multiple models.<br>
+ELO rankings are used in chess specifically and so this is one<br>
+way of also being able to understand and which<br>
+models are performing well or not.<br>
+So one really common open LLM benchmark is a suite of different<br>
+evaluation methods.<br>
+So it's actually taking a bunch of different possible evaluation methods<br>
+and averaging them all together to rank models.<br>
+And this one is developed by EleutherAI, and it's a set of different<br>
+benchmarks put together.<br>
+So one is ARC. It's a set of grade school questions.<br>
+HellaSwag is a test of common sense.<br>
+MMLU covers a lot of elementary school subjects,<br>
+and TruthfulQA measures the model's ability to reproduce<br>
+falsehoods that you can commonly find online.<br>
+And so these are a set of benchmarks<br>
+that were developed by researchers over time and<br>
+now have been used in this common evaluation suite.<br>
+And you can see here this is the latest ranking as of this recording,<br>
+but I'm sure this changes all the time.<br>
+Llama 2 is doing well.<br>
+This is actually not necessarily sorted by the average here.<br>
+Llama 2 is doing well. There's recently a free willy<br>
+model that was fine-tuned on top of the Llama 2<br>
+model using what's known as the Orca method, which is why<br>
+it's called free willy.<br>
+Not going to go into that too much.<br>
+There are a lot of animals going on right here,<br>
+but feel free to go check it out yourself.<br>
+Okay, so one other framework for analyzing<br>
+and evaluating your model is called error analysis.<br>
+And what this is is categorizing errors so that you understand the<br>
+types of errors that are very common, and going after the<br>
+very common errors and the very catastrophic errors first.</p>
+<p>This is really cool because error analysis usually requires<br>
+you to first train your model first beforehand.<br>
+But of course, for fine-tuning, you already have a base model that's been<br>
+pre-trained. So you can already perform error analysis before you<br>
+even fine-tune the model.<br>
+This helps you understand and characterize how the<br>
+base model is doing, so that you know what<br>
+kind of data will give it the biggest lift for fine-tuning.<br>
+And so there are a lot of different categories.<br>
+I'll go through a few common ones that you can take a look at.<br>
+So one is just misspellings. This is very straightforward,<br>
+very simple.<br>
+So here it says, go get your liver or lover checked,<br>
+and it's misspelled.<br>
+And so just fixing that example in your<br>
+data set is important to just spell it correctly.<br>
+Length is a very common one that I hear about chat GPT<br>
+or generative models in general.<br>
+They really are very verbose.<br>
+And so one example is just making sure your data set is<br>
+less verbose to make it so that it actually is answering the<br>
+question very succinctly. And you've already seen that in the<br>
+training notebook where we're able to do a bit of that in the models, less<br>
+verbose and less repetitive.<br>
+And speaking of repetitive, these models do tend<br>
+to be very repetitive.<br>
+And so one way to do that is to fix it with either stop tokens<br>
+more explicitly, those prompt templates you saw,<br>
+but of course, also making sure your<br>
+dataset includes examples that don't have as much repetition<br>
+and do have diversity.<br>
+Cool, so now on to a lab where you get to run the model across a test<br>
+dataset and then be able to run a few different metrics,<br>
+but largely inspect it manually and also run<br>
+on one of those LLM benchmarks that you saw, Arc.<br>
+Okay, so this actually can be done in just a line of code,<br>
+which is running your model on your entire test data<br>
+set in a batched way that's very efficient on GPUs. And<br>
+so I just wanted to share that here, which is you can load<br>
+up your model here and instantiate it and<br>
+then have it just run on a list of your entire test data set. And<br>
+then it's automatically batched on GPUs<br>
+really quickly.<br>
+Now we're really largely running on CPUs here.<br>
+So for this lab, you'll get to actually just run<br>
+it on a few of the test data points.<br>
+And then of course you can do more on your own as well.<br>
+Okay, great.<br>
+So I think the first thing is to load up<br>
+the test data set that we've been working with.<br>
+And then let's take a look at what one of those data points looks like.<br>
+So I'm just going to print question answer pair.<br>
+All right, so this is one that we've been looking at.<br>
+And then we want to load up the model to<br>
+run it over this entire data set.<br>
+So this is the same as before.<br>
+I'm going to pull out the actual fine-tuned model<br>
+from HuggingFace.<br>
+Okay so now we've loaded up our model and I'm gonna<br>
+load up one really basic evaluation metric just<br>
+for you to get a sense of this generative task and it's gonna be<br>
+whether it's an exact match between two strings of<br>
+course stripping a little bit of white space<br>
+but just getting a sense of whether it<br>
+can be an exact match.<br>
+This is really hard for those writing tasks because it's<br>
+generating content there are actually a lot of different<br>
+possible to write answers, so it's not<br>
+a super valid evaluation metric.<br>
+For reading, quote unquote, tasks, those reading tasks,<br>
+you might be extracting topics out. You might be<br>
+extracting some information out. So maybe in those cases where it's<br>
+closer to classification, this might make more sense.<br>
+But I just want to run this through.<br>
+You can run different evaluation metrics through as well.<br>
+An important thing when you're running a model in evaluation<br>
+mode is to do &quot;model.eval&quot; to make sure things like dropout<br>
+is disabled.<br>
+And then just like in previous labs, you can run this<br>
+inference function to be able to generate output.<br>
+So let's run that first test question again.<br>
+Again, you get that output and look at the actual answer,<br>
+compare it to that, and it's similar, but it's not quite there.<br>
+So of course, when you run exact match, it's<br>
+not perfect.<br>
+And that's not to say there aren't other ways of measuring these models.<br>
+This is a very very simple way.<br>
+Sometimes people also will take you know these<br>
+outputs and put it into another LLM to<br>
+ask it and grade it to see how well you know how<br>
+close is it really.<br>
+You can also use embedding so you can embed the actual answer<br>
+and actually embed the generated answer and see how<br>
+close they are in distance.<br>
+So there are a lot of different approaches<br>
+that you can take.<br>
+Cool so now to run this across your entire data set,<br>
+this is what that might look like.<br>
+So let's just actually run it over 10 since it takes quite<br>
+a bit of time.<br>
+You're going to iterate over that data set, pull<br>
+out the question and answers.<br>
+Here I'm also trying to take the predicted answer and<br>
+actually append it with the other answers so<br>
+that you can inspect it manually later, and<br>
+then take a look at the number of exact matches, and<br>
+it's just evaluating here.<br>
+So the number of exact matches is zero, and that's not actually super surprising<br>
+since this is a very generative task.<br>
+And typically for these tasks, you know, there again are a lot of<br>
+different ways of approaching evaluation,<br>
+but at the end of the day, what's been found to be<br>
+significantly more effective by a large margin is<br>
+using manual inspection on a very curated test set.<br>
+And so this is what that data frame looks like.<br>
+So now you can go inspect it and see, okay, for every predicted answer,<br>
+what was the target and how close was it really?<br>
+Okay, cool. So that's only on a subset of the data.<br>
+We also did evaluate it on all of the data here that you can go load<br>
+from HuggingFace and be able to basically see<br>
+and evaluate manually all the data.<br>
+And last but not least, you'll get to see running Arc, which<br>
+is a benchmark.<br>
+So if you're curious about academic benchmarks, this<br>
+was one that you just explored across that test suite of different<br>
+LLM benchmarks. And this ARC benchmark, as<br>
+a reminder, is one of those four that EleutherAI came up<br>
+with and put together, and these are from academic papers.</p>
+<p>And for this one, if you inspect the data set, you'll<br>
+find science questions that may or may not be related to your<br>
+task.<br>
+And these evaluation metrics, especially here, are just very good<br>
+for academic contests or understanding, you know,<br>
+general model abilities sometimes around these,<br>
+in this case, basic grade school questions.<br>
+But I actually really recommend, you know, even even as<br>
+you run these to not necessarily be too caught up on the<br>
+performance on these benchmarks, even though this is how<br>
+people are ranking models now, and that's because they don't correlate<br>
+with your use case.<br>
+They are not necessarily related to what your company cares about,<br>
+what you actually care about for your end<br>
+use case for that fine-tuned model.<br>
+And as you can probably see, the fine-tuned models are able to<br>
+basically get tailored to a ton of different<br>
+tasks which require a ton of different ways<br>
+of evaluating them.<br>
+Okay, so the ARC benchmark just finished running and<br>
+the score is right here, 0.31, and actually that is lower<br>
+than the base model score in the paper, which<br>
+is 0.36, which is crazy because you saw it improve<br>
+so much on this.<br>
+But it's because it improves so much on this company<br>
+dataset related to this company, related<br>
+to question answering for it, and not grade school science.<br>
+So that's what ARC is really measuring.<br>
+Of course, if you fine-tune a model on general tasks, so<br>
+if you fine-tune it on alpaca, for example, you should see a little bit<br>
+of a bump in that performance for this<br>
+specific benchmark. And if you use a larger model you'll also see<br>
+a likely bump as well because it's learned much more.</p>
+<p>And that's basically it. So as you can see this.<br>
+ARC benchmark probably only matters if you're<br>
+looking at general models and comparing general models.<br>
+Maybe that's finding a base model for you to use but not<br>
+for your actual fine-tuning task. It's not very<br>
+useful unless you're fine-tuning the model to do grade school science questions.</p>
+<p>All right and that's a for the notebooks.<br>
+In the last lesson you'll learn some practical tips for fine-tuning and<br>
+then a sneak peek of more advanced methods.</p>
+<h1 id="consideration-on-getting-started-now">Consideration on getting started now</h1>
+<p>All right, you made it to our last lesson and<br>
+these will be some considerations you should take<br>
+on getting started now, some practical tips, and also a bit<br>
+of a sneak preview on more advanced training methods.<br>
+So first, some practical steps to fine-tuning.<br>
+Just to summarize, first you want to figure out your task,<br>
+you want to collect data that's related to your tasks<br>
+inputs and outputs and structure it as such.<br>
+If you don't have enough data, no problem, just generate some or use<br>
+a prompt template to create some more.<br>
+And first, you want to fine tune a small model.<br>
+I recommend a 400 million to a billion<br>
+parameter model just to get a sense of<br>
+where the performance is at with this model.<br>
+And you should vary the amount of data you actually give to<br>
+the model to understand how much data actually influences<br>
+where the model is going.<br>
+And then you can evaluate your model to see what's<br>
+going well or not.<br>
+And finally, you want to collect more data to improve<br>
+the model through your evaluation.<br>
+Now, from there, you can now increase your task complexity,<br>
+so you can make it much harder now.<br>
+And then you can also increase the model<br>
+size for performance on that more complex task.<br>
+So for task-defined tune, you learned about, you know, reading<br>
+tasks and writing tasks.<br>
+Writing tasks are a lot harder.<br>
+These are the more expansive tasks like chatting,<br>
+writing emails, writing code, and that's because there are more<br>
+tokens that are produced by the model.<br>
+So this is a harder task in general for the model.<br>
+And harder tasks tend to result in needing<br>
+larger models to be able to handle them.<br>
+Another way of having a harder task is<br>
+just having a combination of tasks, asking the model to<br>
+do a combination of things instead of just one task.<br>
+And that could mean having an agent be<br>
+flexible and do several things at once or in just in one<br>
+step as opposed to multiple steps.<br>
+So now that you have a sense of model sizes that you<br>
+need for your task complexity, there's also a compute requirement<br>
+basically around hardware of what you need to run your models.</p>
+<p>For the labs that you ran, you saw those 70 million<br>
+parameter models that ran on CPU.<br>
+They weren't the best models out there.<br>
+And I recommend starting with something a little<br>
+bit more performant in general.<br>
+So if you see here in this table, the first row,<br>
+I want to call out of a &quot;1 V100&quot; GPU that's available, for example, on<br>
+AWS, but also any other cloud platform and you see<br>
+that it has 16 gigabytes of memory and<br>
+that means it can run a 7 billion parameter model for inference<br>
+but for training, training needs far more memory for to<br>
+store the gradients and the optimizers so it only can actually fit<br>
+a 1 billion parameter model and if you want to fit a<br>
+larger model you can see some of the other options available here<br>
+great so maybe you thought that that was not enough for you<br>
+you want to work with much larger models?<br>
+Well, there's something called PEFT or parameter efficient fine tuning, which<br>
+is a set of different methods that help<br>
+you do just that, be much more efficient in how you're using<br>
+your parameters and training your models.<br>
+And one that I really like is LoRa, which stands for low rank adaptation.</p>
+<p>And what LoRa does is that it reduces<br>
+the number of parameters you have to train<br>
+weights that you have to train by a huge amount.<br>
+For GPT-3, for example, they found that they could<br>
+reduce it by 10,000x, which resulted in 3x less memory needed<br>
+from the GPU.<br>
+And while you do get slightly below accuracy to fine<br>
+tuning, this is still a far more efficient way<br>
+of getting there and you get the same<br>
+inference latency at the end.<br>
+So what is exactly happening with LoRa?<br>
+Well, you're actually training new weights in<br>
+some of the layers of the model and you're freezing<br>
+the main pre-trained weights, which you see<br>
+here in blue.<br>
+So that's all frozen and you have these new orange weights.<br>
+Those are the LoRa weights.<br>
+And the new weights, and this gets a little bit mathy,<br>
+are the rank decomposition matrices of<br>
+the original weights change.<br>
+But what's important is less so, you know, the math behind that here, it's<br>
+that you can train these separately, alternatively to<br>
+the pre-trained weights, but then at<br>
+inference time be able to merge them back into the<br>
+main pre-trained weights and get that fine-tuned model more efficiently.</p>
+<p>What I'm really excited about to use LoRa for is adapting it to new<br>
+tasks and so that means you could train<br>
+a model with LoRa on one customer's data<br>
+and then train another one on another customer's data and<br>
+then be able to merge them each in at inference time when<br>
+you need them.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>All right, you made it to our last lesson and<br>
+these will be some considerations you should take<br>
+on getting started now, some practical tips, and also a bit<br>
+of a sneak preview on more advanced training methods.<br>
+So first, some practical steps to fine-tuning.<br>
+Just to summarize, first you want to figure out your task,<br>
+you want to collect data that's related to your tasks<br>
+inputs and outputs and structure it as such.<br>
+If you don't have enough data, no problem, just generate some or use<br>
+a prompt template to create some more.<br>
+And first, you want to fine tune a small model.<br>
+I recommend a 400 million to a billion<br>
+parameter model just to get a sense of<br>
+where the performance is at with this model.<br>
+And you should vary the amount of data you actually give to<br>
+the model to understand how much data actually influences<br>
+where the model is going.<br>
+And then you can evaluate your model to see what's<br>
+going well or not.<br>
+And finally, you want to collect more data to improve<br>
+the model through your evaluation.<br>
+Now, from there, you can now increase your task complexity,<br>
+so you can make it much harder now.<br>
+And then you can also increase the model<br>
+size for performance on that more complex task.<br>
+So for task-defined tune, you learned about, you know, reading<br>
+tasks and writing tasks.<br>
+Writing tasks are a lot harder.<br>
+These are the more expansive tasks like chatting,<br>
+writing emails, writing code, and that's because there are more<br>
+tokens that are produced by the model.<br>
+So this is a harder task in general for the model.<br>
+And harder tasks tend to result in needing<br>
+larger models to be able to handle them.<br>
+Another way of having a harder task is<br>
+just having a combination of tasks, asking the model to<br>
+do a combination of things instead of just one task.<br>
+And that could mean having an agent be<br>
+flexible and do several things at once or in just in one<br>
+step as opposed to multiple steps.<br>
+So now that you have a sense of model sizes that you<br>
+need for your task complexity, there's also a compute requirement<br>
+basically around hardware of what you need to run your models.</p>
+<p>For the labs that you ran, you saw those 70 million<br>
+parameter models that ran on CPU.<br>
+They weren't the best models out there.<br>
+And I recommend starting with something a little<br>
+bit more performant in general.<br>
+So if you see here in this table, the first row,<br>
+I want to call out of a &quot;1 V100&quot; GPU that's available, for example, on<br>
+AWS, but also any other cloud platform and you see<br>
+that it has 16 gigabytes of memory and<br>
+that means it can run a 7 billion parameter model for inference<br>
+but for training, training needs far more memory for to<br>
+store the gradients and the optimizers so it only can actually fit<br>
+a 1 billion parameter model and if you want to fit a<br>
+larger model you can see some of the other options available here<br>
+great so maybe you thought that that was not enough for you<br>
+you want to work with much larger models?<br>
+Well, there's something called PEFT or parameter efficient fine tuning, which<br>
+is a set of different methods that help<br>
+you do just that, be much more efficient in how you're using<br>
+your parameters and training your models.<br>
+And one that I really like is LoRa, which stands for low rank adaptation.</p>
+<p>And what LoRa does is that it reduces<br>
+the number of parameters you have to train<br>
+weights that you have to train by a huge amount.<br>
+For GPT-3, for example, they found that they could<br>
+reduce it by 10,000x, which resulted in 3x less memory needed<br>
+from the GPU.<br>
+And while you do get slightly below accuracy to fine<br>
+tuning, this is still a far more efficient way<br>
+of getting there and you get the same<br>
+inference latency at the end.<br>
+So what is exactly happening with LoRa?<br>
+Well, you're actually training new weights in<br>
+some of the layers of the model and you're freezing<br>
+the main pre-trained weights, which you see<br>
+here in blue.<br>
+So that's all frozen and you have these new orange weights.<br>
+Those are the LoRa weights.<br>
+And the new weights, and this gets a little bit mathy,<br>
+are the rank decomposition matrices of<br>
+the original weights change.<br>
+But what's important is less so, you know, the math behind that here, it's<br>
+that you can train these separately, alternatively to<br>
+the pre-trained weights, but then at<br>
+inference time be able to merge them back into the<br>
+main pre-trained weights and get that fine-tuned model more efficiently.</p>
+<p>What I'm really excited about to use LoRa for is adapting it to new<br>
+tasks and so that means you could train<br>
+a model with LoRa on one customer's data<br>
+and then train another one on another customer's data and<br>
+then be able to merge them each in at inference time when<br>
+you need them.</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#why-finetune">Why finetune</a></li>
+<li><a href="#where-finetuning-fits-in">Where finetuning fits in</a></li>
+<li><a href="#instruction-finetuning">Instruction finetuning</a></li>
+<li><a href="#data-preparation">Data preparation</a></li>
+<li><a href="#training-process">Training process</a></li>
+<li><a href="#evaluation-and-iteration">Evaluation and iteration</a></li>
+<li><a href="#consideration-on-getting-started-now">Consideration on getting started now</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/RQfND9th0/">
+              <h3 class="post-title">
+                OpenAI CEO Sam Altman | AI for the Next Era - YouTube
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

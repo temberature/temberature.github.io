@@ -1,0 +1,281 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>从LED灯到电源管理：一个电子工程师的深入解析 | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="从LED灯到电源管理：一个电子工程师的深入解析 | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="引言
+作为一名电子工程师，我经常被问到一些关于LED（Light Emitting Diode，发光二极管）和电源管理的问题。这不仅涉及到LED灯的基本工作原理，还包括如何将其接入家用电路，以及LED驱动器与电脑电源适配器之间的区别。今天，..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              从LED灯到电源管理：一个电子工程师的深入解析
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-08-29
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="引言">引言</h2>
+<p>作为一名电子工程师，我经常被问到一些关于LED（Light Emitting Diode，发光二极管）和电源管理的问题。这不仅涉及到LED灯的基本工作原理，还包括如何将其接入家用电路，以及LED驱动器与电脑电源适配器之间的区别。今天，我想把这些问题一一拆解，给大家一个全面而深入的解释。</p>
+<h2 id="led灯的工作原理">LED灯的工作原理</h2>
+<h3 id="基础原理">基础原理</h3>
+<p>LED灯的核心是一个叫做<strong>PN结</strong>（PN Junction）的组件，由P型和N型半导体构成。当电流通过这个结构时，发生了<strong>载流子复合</strong>（Carrier Recombination）现象，即电子和空穴在PN结处结合。这个过程导致了<strong>能级跃迁</strong>（Energy Band Transition）和<strong>光子发射</strong>（Photon Emission），从而产生光。</p>
+<h3 id="常见误解">常见误解</h3>
+<ul>
+<li><strong>LED灯是白光源</strong>：其实，最初的LED只能发射单色光。白光LED是通过使用草率或者蓝色LED激发黄色荧光粉来产生的。</li>
+<li><strong>LED灯不会发热</strong>：虽然LED比传统光源更节能，但它还是会产生一定的热量。</li>
+</ul>
+<h3 id="实例和参考文献">实例和参考文献</h3>
+<p>例如，在交通信号灯中使用LED是因为它们具有更长的寿命和更高的能效。关于这一主题的更多信息，可以参考E. Fred Schubert的书籍 &quot;Light-Emitting Diodes&quot;（Cambridge University Press, 2006）。</p>
+<h2 id="家用电路与led">家用电路与LED</h2>
+<h3 id="是否能直接接入">是否能直接接入？</h3>
+<p>答案是一般不能。家用电路的电压通常是110V或220V交流电，而LED需要低电压和恒定的电流。这就需要使用特殊的电子组件来进行电压和电流的调整。</p>
+<h3 id="如何解决">如何解决？</h3>
+<p>最常用的解决方案是使用<strong>LED驱动器</strong>（LED Driver）或者<strong>电阻器</strong>（Resistor）来限制电流和降低电压。</p>
+<h3 id="实例和参考文献-2">实例和参考文献</h3>
+<p>LED灯泡通常包含一个内置的驱动器，这使得它们可以直接插入家用电路中。更多详细信息可参考Omar Manasreh的书 &quot;Introduction to Organic Electronic and Optoelectronic Materials and Devices&quot;（CRC Press, 2016）。</p>
+<h2 id="led驱动器不仅仅是电源转换">LED驱动器：不仅仅是电源转换</h2>
+<h3 id="驱动器的工作原理">驱动器的工作原理</h3>
+<p>LED驱动器的核心任务包括<strong>整流</strong>（Rectification），<strong>降压</strong>（Buck Conversion），以及<strong>电流调节</strong>（Current Regulation）。</p>
+<h3 id="实例和参考文献-3">实例和参考文献</h3>
+<p>在智能家居照明系统中，LED驱动器还可能包含用于调整亮度和色温的微控制器。有关这方面的更多信息，可以参考Steve Winder的书 &quot;Power Supplies for LED Driving&quot;（Elsevier, 2017）。</p>
+<h2 id="led驱动器与电脑电源适配器的区别">LED驱动器与电脑电源适配器的区别</h2>
+<p>两者都是电源设备，但它们服务的目标和需求完全不同。LED驱动器更加强调精确的电流控制，而电脑电源适配器更关注电压的稳定。</p>
+<h3 id="实例和参考文献-4">实例和参考文献</h3>
+<p>电脑的电源适配器通常具有一个内置的风扇和多个不同类型的输出插头，而LED驱动器一般没有这些。详细信息可参考Marty Brown的书 &quot;Power Sources and Supplies: World Class Designs&quot;（Elsevier, 2008）。</p>
+<h2 id="结论">结论</h2>
+<p>LED灯和相关的电源管理是一个复杂但极其有趣的主题。了解其工作原理不仅可以帮助我们更合理地使用这些设备，还能深化我们对电子工程这一领域的理解。希望我的这篇文章能为你带来一些有用的信息和启发。</p>
+<p>这样，我就把关于LED灯、家用电路接入，以及LED驱动器与电脑电源适配器的区别等问题做了一个全面的解析。如果你有更多的问题或想法，欢迎随时提出。谢谢！</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%BC%95%E8%A8%80">引言</a></li>
+<li><a href="#led%E7%81%AF%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86">LED灯的工作原理</a>
+<ul>
+<li><a href="#%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86">基础原理</a></li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E8%AF%AF%E8%A7%A3">常见误解</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E5%92%8C%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">实例和参考文献</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%B6%E7%94%A8%E7%94%B5%E8%B7%AF%E4%B8%8Eled">家用电路与LED</a>
+<ul>
+<li><a href="#%E6%98%AF%E5%90%A6%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8E%A5%E5%85%A5">是否能直接接入？</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3">如何解决？</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E5%92%8C%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE-2">实例和参考文献</a></li>
+</ul>
+</li>
+<li><a href="#led%E9%A9%B1%E5%8A%A8%E5%99%A8%E4%B8%8D%E4%BB%85%E4%BB%85%E6%98%AF%E7%94%B5%E6%BA%90%E8%BD%AC%E6%8D%A2">LED驱动器：不仅仅是电源转换</a>
+<ul>
+<li><a href="#%E9%A9%B1%E5%8A%A8%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86">驱动器的工作原理</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E5%92%8C%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE-3">实例和参考文献</a></li>
+</ul>
+</li>
+<li><a href="#led%E9%A9%B1%E5%8A%A8%E5%99%A8%E4%B8%8E%E7%94%B5%E8%84%91%E7%94%B5%E6%BA%90%E9%80%82%E9%85%8D%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB">LED驱动器与电脑电源适配器的区别</a>
+<ul>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E5%92%8C%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE-4">实例和参考文献</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BB%93%E8%AE%BA">结论</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/JGGWyqzKd/">
+              <h3 class="post-title">
+                我是如何用Authy确保我的数字生活安全的：双重身份验证（2FA）详解
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

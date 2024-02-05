@@ -1,0 +1,243 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>正则表达式：神秘的文本模式匹配工具 | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="正则表达式：神秘的文本模式匹配工具 | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="在计算机科学的世界里，我发现一种工具，用它来解决文本匹配、搜索和分析问题——它就是正则表达式。
+专家引介：Brian Kernighan
+让我先给你介绍一个在这个领域具有深度见解的专家——Brian Kernighan。他并不是一个随便的人..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              正则表达式：神秘的文本模式匹配工具
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-07-22
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>在计算机科学的世界里，我发现一种工具，用它来解决文本匹配、搜索和分析问题——它就是正则表达式。</p>
+<h2 id="专家引介brian-kernighan">专家引介：Brian Kernighan</h2>
+<p>让我先给你介绍一个在这个领域具有深度见解的专家——Brian Kernighan。他并不是一个随便的人，他是UNIX系统的设计者之一，并且是AWK编程语言的开发者，这是一种广泛使用正则表达式的语言。我们要谈论的正则表达式，在Brian的编程世界里，就如同我们在谈论的日常用语一样简单。</p>
+<h2 id="正则表达式的理论之源">正则表达式的理论之源</h2>
+<p>Brian Kernighan会告诉你，正则表达式起源于理论计算机科学的一个分支——正则语言和自动机理论。这可能听起来有些深奥，但其实它就像是一种为字符串设计的乐高积木。通过组合不同的积木（元字符和操作符），你可以构建出一个描述特定字符串集合的模型。例如，&quot;a*b&quot;这样的模型可以描述所有以任意数量的'a'字符开头，以'b'字符结束的字符串，比如&quot;b&quot;、&quot;ab&quot;、&quot;aab&quot;等等。</p>
+<h2 id="正则表达式的积木字符-元字符和操作符">正则表达式的积木：字符、元字符和操作符</h2>
+<p>当我要构建一个正则表达式时，我需要的基本元素包括字符、元字符和操作符。字符包括所有的可打印和不可打印字符；元字符如 . ^ $ * + ? { [ ] \ | ( ) 等，它们在正则表达式中扮演着特殊角色，如同乐高积木的特殊组件，可以创建出复杂且强大的模型；操作符则是这些元素的粘合剂，将它们结合在一起形成更复杂的模型。</p>
+<h2 id="示例找寻电子邮件地址">示例：找寻电子邮件地址</h2>
+<p>举一个实例，如果我要在一段文本中找到所有的电子邮件地址，我可能会创建一个这样的正则表达式：&quot;\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Z|a-z]{2,}\b&quot;。这个表达式的含义是：找到一个单词的边界，然后寻找一系列可以包括字母、数字、点、下划线、百分号、加号或减号的字符，然后跟着一个@符号，再跟着一个或多个可以包括字母、数字、点或减号的字符，然后是一个点，接着是两个或更多的字母，最后再以一个单词边界结束。</p>
+<h2 id="一步之遥正则表达式与unicode字符">一步之遥：正则表达式与Unicode字符</h2>
+<p>然而，知识的海洋是无尽的。当我们掌握了正则表达式的基本概念后，更高层次的问题出现了：正则表达式如何处理Unicode字符？</p>
+<p>Unicode字符，包括了我们日常使用的各种文字、标点符号、符号等。在Python、Java等编程语言中，正则表达式引擎支持Unicode字符的匹配。但是，Unicode字符的复杂性在于，有些字符可以使用一个或多个码点表示，这使得匹配变得困难。解决这个问题的方案可能包括规范化字符的表示方式，或者使用特殊的Unicode属性来匹配字符。</p>
+<p>探索正则表达式就像是走进一个神秘的迷宫，每一步都有新的发现，每一个问题的解决都会带来新的问题。这就是学习的乐趣所在，是我们对知识永无止境的追求的体现。</p>
+<p>https://chat.openai.com/share/912820e9-d1e2-49e5-9b94-be64d05491c6</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%93%E5%AE%B6%E5%BC%95%E4%BB%8Bbrian-kernighan">专家引介：Brian Kernighan</a></li>
+<li><a href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E7%90%86%E8%AE%BA%E4%B9%8B%E6%BA%90">正则表达式的理论之源</a></li>
+<li><a href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E7%A7%AF%E6%9C%A8%E5%AD%97%E7%AC%A6-%E5%85%83%E5%AD%97%E7%AC%A6%E5%92%8C%E6%93%8D%E4%BD%9C%E7%AC%A6">正则表达式的积木：字符、元字符和操作符</a></li>
+<li><a href="#%E7%A4%BA%E4%BE%8B%E6%89%BE%E5%AF%BB%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E5%9C%B0%E5%9D%80">示例：找寻电子邮件地址</a></li>
+<li><a href="#%E4%B8%80%E6%AD%A5%E4%B9%8B%E9%81%A5%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8Eunicode%E5%AD%97%E7%AC%A6">一步之遥：正则表达式与Unicode字符</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/UkNM-pXfc/">
+              <h3 class="post-title">
+                【真人】我最常用的Chrome浏览器扩展
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

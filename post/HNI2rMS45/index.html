@@ -1,0 +1,406 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>【转载】如何使用人工智能来做事：一个主观指南 # How to Use AI to Do Stuff: An Opinionated Guide   | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="【转载】如何使用人工智能来做事：一个主观指南 # How to Use AI to Do Stuff: An Opinionated Guide   | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="Covering the state of play as of Summer, 2023
+截至2023年夏季的现状概述
+Ethan Mollick 伊桑·莫利克
+Jul 15, 2023 2023年7月15日
+Increasingly p..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              【转载】如何使用人工智能来做事：一个主观指南 # How to Use AI to Do Stuff: An Opinionated Guide  
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-09-25
+              </span>
+              <span>
+                34 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h3 id="covering-the-state-of-play-as-of-summer-2023">Covering the state of play as of Summer, 2023</h3>
+<p>截至2023年夏季的现状概述</p>
+<p><a href="https://substack.com/@oneusefulthing">Ethan Mollick 伊桑·莫利克</a></p>
+<p>Jul 15, 2023 2023年7月15日</p>
+<p>Increasingly powerful AI systems are being released at an increasingly rapid pace. This week saw the debut of Claude 2, likely the second most capable AI system available to the public. The week before, Open AI released Code Interpreter, the most sophisticated mode of AI yet available. The week before that, some AIs <a href="https://www.oneusefulthing.org/p/on-giving-ai-eyes-and-ears">got the ability to see images</a>.<br>
+越来越强大的人工智能系统以越来越快的速度发布。本周，Claude 2首次亮相，很可能是公众可用的第二强大的人工智能系统。在此之前的一周，Open AI发布了Code Interpreter，这是迄今为止最复杂的人工智能模式。再往前一周，一些人工智能获得了看图像的能力。</p>
+<p>And yet not a single AI lab seems to have provided any user documentation. Instead, the only user guides out there appear to be Twitter influencer threads. Documentation-by-rumor is a weird choice for organizations claiming to be concerned about proper use of their technologies, but here we are.<br>
+然而，似乎没有一个人工智能实验室提供任何用户文档。相反，唯一的用户指南似乎只存在于Twitter上的影响者的帖子中。以传闻为基础的文档编写对于声称关心其技术正确使用的组织来说是一个奇怪的选择，但事实就是如此。</p>
+<p>I can’t claim that this is going to be a complete user guide, but it will serve as a bit of orientation to the current state of AI. I have been putting together a Getting Started Guide to AI for my students (and interested readers) every few months, and each time, it requires major modifications. The last couple of months have been particularly insane.<br>
+我不能说这将是一本完整的用户指南，但它将作为对当前人工智能状况的一点定位。我每隔几个月都会为我的学生（和感兴趣的读者）编写一份人工智能入门指南，每次都需要进行重大修改。最近几个月尤其疯狂。</p>
+<p>This guide is opinionated, based on my experience, and focused on how to pick the right tool to do things. I have written separately about <a href="https://www.oneusefulthing.org/p/on-boarding-your-ai-intern">the kinds of tasks you may want AI to do</a>, which might be useful to read first.<br>
+这个指南是主观的，基于我的经验，并且专注于如何选择合适的工具来完成任务。我已经单独写过关于你可能希望人工智能完成的任务类型的文章，你可能会觉得有用，建议先阅读一下。</p>
+<h1 id="the-major-large-language-models">The Major Large Language Models</h1>
+<p>主要的大型语言模型</p>
+<p>When we talk about AI right now, we are usually talking about Large Language Models, or LLMs. Most AI applications are powered by LLMs, of which there are just a few Foundation Models, created by a handful of organizations. Each company gives direct access to their models via a Chatbot: OpenAI makes GPT-3.5 and GPT-4, which power <a href="https://chat.openai.com/">ChatGPT</a> and Microsoft’s <a href="https://www.bing.com/search?q=Bing+AI&amp;showconv=1&amp;FORM=hpcodx&amp;sydconv=1">Bing</a> (access it on an Edge browser). Google has a variety of models under the label of <a href="https://bard.google.com/">Bard</a>. And Anthropic makes Claude and <a href="https://claude.ai/">Claude 2</a>.<br>
+当我们现在谈论人工智能时，通常是指大型语言模型，即LLMs。大多数人工智能应用都是由LLMs驱动的，其中只有少数几个基础模型是由少数几个组织创建的。每家公司都通过一个聊天机器人直接提供对其模型的访问：OpenAI推出了GPT-3.5和GPT-4，用于驱动ChatGPT和微软的Bing（在Edge浏览器上访问）。谷歌有许多以Bard为标签的模型。Anthropic则推出了Claude和Claude 2。</p>
+<p>There are other LLMs I won’t be discussing. The first is <a href="https://pi.ai/talk">Pi</a>, a chatbot built by Inflection. Pi is optimized for conversation, and really, really wants to be your friend (seriously, try it to see what I mean). It does not like to do much besides chat, and trying to get it to do work for you is an exercise in frustration. We also won’t cover the variety of open source models that anyone can use and modify. They are generally not accessible or useful for the casual user today, but have real promise. Future guides may include them.<br>
+还有其他的LLMs我不会讨论。首先是由Inflection开发的聊天机器人Pi。Pi专注于对话，并且非常非常想成为你的朋友（真的，试一试就知道我在说什么）。它不喜欢做太多事情，试图让它为你工作只会让你感到沮丧。我们也不会涉及各种任何人都可以使用和修改的开源模型。虽然它们对于普通用户来说目前通常不太可用或有用，但确实有很大的潜力。未来的指南可能会包括它们。</p>
+<p>So here is your quick reference chart, summarizing the state of LLMs:<br>
+这是你的快速参考表，总结了LLM的状态</p>
+<p>[</p>
+<figure data-type="image" tabindex="1"><img src="https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F158ee53f-0551-4381-988d-20f2d9b7adb2_2006x1169.png" alt="" loading="lazy"></figure>
+<p>](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F158ee53f-0551-4381-988d-20f2d9b7adb2_2006x1169.png)</p>
+<p>The first four (including Bing) are all OpenAI systems. There are basically two major OpenAI AIs today: 3.5 and 4. The 3.5 model kicked off the current AI craze in November, the 4 model premiered in the Spring and is much more powerful. A new variation uses plugins to connect to the internet and other apps. There are a lot of plugins, most of which are not very useful, but you should feel free to explore them as needed. Code Interpreter as is an extremely powerful version of ChatGPT that can run Python programs. If you have never paid for OpenAI, you have only used 3.5. Aside from the plugins variation, and a temporarily suspended version of GPT-4 with browsing, none of these models are connected to the internet. Microsoft’s Bing uses a mix of 4 and 3.5, and is usually the first model in the GPT-4 family to roll out new features. For example, it can both create and view images, and it can read documents in the web browser. It is connected to the internet. <a href="https://oneusefulthing.substack.com/p/power-and-weirdness-how-to-use-bing">Bing is a bit weird to use, but powerful.</a><br>
+前四个（包括Bing）都是OpenAI系统。目前有两个主要的OpenAI人工智能：3.5和4。3.5模型在去年11月引发了当前的人工智能热潮，4模型在春季首次亮相，更加强大。一种新的变体使用插件连接到互联网和其他应用程序。有很多插件，其中大部分并不是很有用，但您可以根据需要自由探索它们。Code Interpreter是ChatGPT的一个非常强大的版本，可以运行Python程序。如果您从未为OpenAI付费，那么您只使用过3.5版本。除了插件变体和一个暂时停用的带浏览功能的GPT-4版本外，这些模型都没有连接到互联网。微软的Bing使用了4和3.5的混合模型，并且通常是GPT-4系列中首个推出新功能的模型。例如，它既可以创建和查看图像，还可以在Web浏览器中阅读文档。它与互联网连接。Bing的使用方法有点奇怪，但功能强大。</p>
+<p>Google has been testing its own AI for consumer use, which they call Bard, but which is powered by a variety of Foundation Models, most recently one called PaLM 2. For the company that developed LLM technology, they have been pretty disappointing, although improvements announced yesterday show they are still working on the underlying technology, so I have hope. It has already gained the capability to run limited code and interpret images, but I would generally avoid it for now.</p>
+<p>The final company, Anthropic has released Claude 2. Claude is most notable for having a very large context window - essentially the memory of the LLM. Claude can hold almost an entire book, or many PDFs, in memory. It has been built to be less likely to act maliciously than other Large Language Models, which means, practically, that it tends to scold you a bit about stuff.</p>
+<p>Now, on to some uses:</p>
+<h1 id="write-stuff">Write stuff</h1>
+<p><strong>Best free options:</strong> <a href="https://www.bing.com/search?q=Bing+AI&amp;showconv=1&amp;FORM=hpcodx">Bing</a> and <a href="https://claude.ai/">Claude 2</a><br>
+<strong>Paid option:</strong> <a href="https://chat.openai.com/chat">ChatGPT</a> 4.0/ChatGPT with plugins</p>
+<p>For right now, GPT-4 is still the most capable AI tool for writing, which you can access at Bing (select“creative mode”) for free or by purchasing a $20/month subscription to ChatGPT. Claude, however, is a close second, and has a limited free option available.</p>
+<p>These tools are also being integrated directly into common office applications. Microsoft Office will include a copilot powered by GPT and Google Docs will integrate suggestions from Bard. <a href="https://www.oneusefulthing.org/p/setting-time-on-fire-and-the-temptation">The implications of what these new innovations mean for writing are pretty profound.</a></p>
+<p>Here are some ways to use AI to help you write.</p>
+<ul>
+<li>
+<p>Writing drafts of anything. Blog posts, essays, promotional material, speeches, lectures, chose-you-own adventures, scripts, short stories - you name it, AI does it, and pretty well. All you have to do is prompt it. Prompt crafting is not magic, but basic prompts result in boring writing, <a href="https://www.oneusefulthing.org/p/on-boarding-your-ai-intern">but getting better at prompting is not that hard, just work interactively with the system.</a> You will find AI systems to be much more capable as writers with a little practice.<br>
+写任何东西的草稿。博客文章、论文、宣传材料、演讲、讲座、选择自己的冒险、剧本、短篇小说 - 你说了算，AI都能做得很好。你只需要给它提示。提示的制作并不是魔法，但基本的提示会导致乏味的写作，但要提高提示的能力并不难，只需要与系统进行互动式的工作。通过一些练习，你会发现AI系统在写作方面更加有能力。</p>
+</li>
+<li>
+<p>Make your writing better. Paste your text into an AI. Ask it to improve the content, or for suggestions about how to make it better for a particular audience. Ask it to create 10 drafts in radically different styles. Ask it to make things more vivid, or add examples. Use it to inspire you to do better work.<br>
+让你的写作更好。将你的文字粘贴到一个人工智能中。请它改进内容，或者为特定受众提出建议以使其更好。请它以截然不同的风格创建10个草稿。请它使事物更生动，或者添加例子。用它来激励你做得更好。</p>
+</li>
+<li>
+<p>Help you with tasks. AI can do things you don’t have the time to do. Use it like an intern to write emails, create sales templates, give you next steps in a business plan, and a lot more. <a href="https://oneusefulthing.substack.com/p/superhuman-what-can-ai-do-in-30-minutes">Here is what I could accomplish with it in 30 minutes in supporting a product launch.</a><br>
+帮助您完成任务。人工智能可以帮您处理您没有时间做的事情。像一个实习生一样使用它来撰写电子邮件、创建销售模板、为您的商业计划提供下一步行动建议等等。以下是我在30分钟内使用它来支持产品发布所能完成的任务。</p>
+</li>
+<li>
+<p><a href="https://oneusefulthing.substack.com/p/how-to-use-ai-to-unstick-yourself">Unblock yourself.</a> It is very easy to get distracted from a task by one difficult challenge. AI provides a way of giving yourself momentum.<br>
+解除阻塞。一个困难的挑战很容易让我们在工作中分心。人工智能为我们提供了一种让自己保持动力的方式。</p>
+</li>
+</ul>
+<p>[</p>
+<figure data-type="image" tabindex="2"><img src="https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F66591236-914c-4842-82a6-e79cbeac1e5d_2175x1312.png" alt="" loading="lazy"></figure>
+<p>](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F66591236-914c-4842-82a6-e79cbeac1e5d_2175x1312.png)</p>
+<p><em>Some things to worry about:</em> In a bid to respond to your answers, it is very easy for the AI to “hallucinate” and generate plausible facts. It can generate entirely false content that is utterly convincing. Let me emphasize that: <em><strong>AI lies continuously and well</strong></em>. Every fact or piece of information it tells you may be incorrect. You will need to check it all. Particularly dangerous is asking it for references, quotes, citations, and information for the internet (for the models that are not connected to the internet). Bing will usually hallucinate less than other models, because GPT-4 is generally more grounded and because Bing’s internet connection means it can actually pull in relevant facts. <a href="https://oneusefulthing.substack.com/p/how-to-get-an-ai-to-lie-to-you-in">Here is a guide to avoiding hallucinations</a>, but they are impossible to completely eliminate.<br>
+一些需要担心的事情：为了回应你的问题，AI很容易“产生幻觉”并生成似乎合理的事实。它可以生成完全错误但令人信服的内容。让我强调一下：AI会不断地撒谎，而且说得很好。它告诉你的每一个事实或信息都可能是错误的。你需要对其进行核实。特别危险的是向它询问参考资料、引用、引证和互联网信息（对于没有连接互联网的模型）。Bing通常会比其他模型产生更少的幻觉，因为GPT-4通常更加扎实，并且Bing的互联网连接意味着它可以真正获取相关的事实。这是一个避免产生幻觉的指南，但是完全消除它们是不可能的。</p>
+<p>And also note that AI doesn’t explain itself, it only makes you think it does. If you ask it to explain why it wrote something, it will give you a plausible answer that is completely made up. When you ask it for its thought process, is not interrogating its own actions, it is just generating text that sounds like it is doing so. This makes understanding biases in the system very challenging, even though those biases almost certainly exist.<br>
+还要注意，人工智能不会解释自己，它只会让你觉得它在解释。如果你要求它解释为什么写了某个东西，它会给你一个看似合理但完全是虚构的答案。当你询问它的思考过程时，它并不是在审问自己的行为，而只是生成一段听起来像是在思考的文本。这使得理解系统中的偏见变得非常具有挑战性，尽管这些偏见几乎肯定存在。</p>
+<p>It also can be used unethically to manipulate or cheat. You are responsible for the output of these tools.<br>
+它也可以被不道德地用来操纵或欺骗。你对这些工具的输出负有责任。</p>
+<h1 id="make-images-制作图像">Make images 制作图像</h1>
+<p><strong>Most transparent option:</strong> <a href="https://www.adobe.com/sensei/generative-ai/firefly.html">Adobe Firefly</a><br>
+最透明的选择：Adobe Firefly**<br>
+Open Source Option:** <a href="https://stable-diffusion-ui.github.io/">Stable Diffusion</a><br>
+开源选择：稳定传播<br>
+<strong>Best free option:</strong> Bing or <a href="https://www.bing.com/images/create">Bing Image Creator</a> (which uses DALL-E), <a href="https://playgroundai.com/">Playgound</a> (which lets you use multiple models)<br>
+最佳免费选择：必应或必应图像生成器（使用DALL-E），Playground（可使用多个模型）<br>
+<strong>Best quality images:</strong> <a href="https://midjourney.com/">Midjourney</a><br>
+最佳质量的图片：Midjourney</p>
+<p>There are four big image generators available for most people:<br>
+对于大多数人来说，有四种主要的图像生成器可供选择：</p>
+<ol>
+<li>
+<p>Stable Diffusion, which is open source and you can run from any high-end computer. It takes effort to get started, since you have to learn to craft prompts properly, but once you do it can produce great results. It is especially good for combining AI with images from other sources. <a href="https://www.jonstokes.com/p/stable-diffusion-20-and-21-an-overview">Here is a nice guide to Stable Diffusion if you go that route (be sure to read both parts 1 and part 2).</a><br>
+稳定扩散是开源的，你可以在任何高端电脑上运行。开始时需要一些努力，因为你需要学会正确地构建提示，但一旦掌握了技巧，它能产生出色的结果。它特别适合将人工智能与其他来源的图像结合使用。如果你选择这条路线，这里有一份很好的稳定扩散指南（确保阅读第一部分和第二部分）。</p>
+</li>
+<li>
+<p>DALL-E, from OpenAI, which is incorporated into Bing (you have to use creative mode) and Bing image creator. This system is solid, but worse than Midjourney.<br>
+DALL-E，来自OpenAI，已经整合到Bing（你必须使用创意模式）和Bing图像创作工具中。这个系统很可靠，但比Midjourney差一些。</p>
+</li>
+<li>
+<p>Midjourney, which is the best system in mid-2023. It has the lowest learning-curve of any system: just type in &quot;thing-you-want-to-see --v 5.2&quot; (the --v 5.2 at the end is important, it uses the latest model) and you get a great result. Midjourney requires Discord. <a href="https://www.pcworld.com/article/540080/how-to-use-discord-a-beginners-guide.html">Here is a guide to</a> using Discord.<br>
+Midjourney，在2023年中期是最好的系统。它是所有系统中学习曲线最低的：只需输入&quot;thing-you-want-to-see --v 5.2&quot;（末尾的--v 5.2很重要，它使用最新的模型），你就会得到一个很棒的结果。Midjourney需要使用Discord。这里是使用Discord的指南。</p>
+</li>
+<li>
+<p>Adobe Firefly, built into a variety of Adobe products, but it lags DALL-E and Midjourney in terms of quality. However, while the other two models have been unclear about the source images that they used to train their AIs, Adobe has declared that it is only using images it has the right to use.<br>
+Adobe Firefly是内置在各种Adobe产品中的一个功能，但在质量方面它不如DALL-E和Midjourney。然而，尽管其他两个模型对于训练AI所使用的源图像并不清楚，Adobe已经声明只使用具备合法使用权的图像。</p>
+</li>
+</ol>
+<p>Here is how they compare (each image is labelled with the model):<br>
+以下是它们的比较（每张图片都标有型号）：</p>
+<p>[</p>
+<figure data-type="image" tabindex="3"><img src="https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f85b2f7-8586-4d2a-ad73-64a9e6fad8b1_2062x2063.png" alt="" loading="lazy"></figure>
+<p>](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f85b2f7-8586-4d2a-ad73-64a9e6fad8b1_2062x2063.png)</p>
+<p>Prompt: “Fashion photoshoot of sneakers inspired by Van Gogh” - the first images that were created by each model<br>
+时尚运动鞋的拍摄灵感来自梵高 - 每位模特创作的首批图片</p>
+<p><em>Some things to worry about:</em> These systems are built around models that have built-in biases due to their training on Internet data (if you ask it to create a picture of an entrepreneur, for example, you will likely see more pictures featuring men than women, unless you specify “female entrepreneur”), you can use <a href="https://huggingface.co/spaces/society-ethics/DiffusionBiasExplorer">this explorer</a> to see these biases at work.<br>
+一些需要担心的事情：这些系统是基于模型构建的，由于它们在互联网数据上进行训练，所以存在内置的偏见（例如，如果你要求它创建一张企业家的图片，你很可能会看到更多男性而不是女性的图片，除非你明确指定“女性企业家”），你可以使用这个浏览器来观察这些偏见的表现。</p>
+<p>These systems are also trained on existing art on the internet in ways that are not transparent and <a href="https://www.nytimes.com/2022/09/02/technology/ai-artificial-intelligence-artists.html">potentially legally and ethically questionable</a>. Though technically you own copyright of the images created, legal rules are still hazy.<br>
+这些系统还通过互联网上现有的艺术进行训练，其方式并不透明，可能在法律和道德上存在问题。虽然从技术上讲，你拥有所创作的图像的版权，但法律规定仍然模糊不清。</p>
+<p>Also, right now, they don’t create text, just a bunch of stuff that looks like text. But Midjourney has nailed hands.<br>
+此外，现在他们并没有创造文本，只是一堆看起来像文本的东西。但是Midjourney已经掌握了技巧。</p>
+<h1 id="come-up-with-ideas-提出想法">Come up with ideas 提出想法</h1>
+<p><strong>Best free option:</strong> <a href="https://www.bing.com/search?q=Bing+AI&amp;showconv=1&amp;FORM=hpcodx">Bing</a> 最佳免费选择：必应<br>
+<strong>Paid option:</strong> <a href="https://chat.openai.com/chat">ChatGPT</a> 4.0, but Bing is likely better because of its internet connections<br>
+付费选项：ChatGPT 4.0，但由于其互联网连接，Bing可能更好。</p>
+<p>Despite of (or in fact, because of) all its constraints and weirdness, AI is perfect for idea generation. You often need to have a lot of ideas to have good ideas, and AI is good at volume. With the right prompting, you can also force it to be very creative. Ask Bing in creative mode to look up your favorite unusual idea generation techniques, like Brian Eno's oblique strategies or Mashall McLuhan's tetrads, and apply them. Or ask for something weird, like ideas inspired by a random patent, or your favorite superhero…<br>
+尽管AI有着各种限制和怪异之处，但正是因为这些，它非常适合于创意生成。要有好的创意，通常需要有很多想法，而AI擅长于产生大量的想法。只要给予适当的提示，你还可以迫使它变得非常有创造力。以创意模式询问Bing，寻找你喜欢的非常规创意生成技巧，比如布莱恩·伊诺的&quot;斜向策略&quot;或马歇尔·麦克卢汉的&quot;四元组&quot;，然后应用它们。或者要求它提供一些奇怪的想法，比如受到随机专利或你最喜欢的超级英雄启发的想法...</p>
+<p>[</p>
+<figure data-type="image" tabindex="4"><img src="https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F62d8bc29-d7dd-4355-aa59-5543466317d3_4800x1634.png" alt="" loading="lazy"></figure>
+<p>](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F62d8bc29-d7dd-4355-aa59-5543466317d3_4800x1634.png)</p>
+<h1 id="make-videos-制作视频">Make videos 制作视频</h1>
+<p><strong>Best animation tool:</strong> <a href="https://www.d-id.com/">D-i</a>D for animating faces in videos. <a href="https://app.runwayml.com/">Runway v2</a> for creating videos from text<br>
+最佳动画工具：D-iD用于在视频中给脸部添加动画效果。Runway v2用于根据文本创建视频。<br>
+<strong>Best voice cloning:</strong> <a href="https://beta.elevenlabs.io/speech-synthesis">ElevenLabs</a><br>
+最佳语音克隆：ElevenLabs</p>
+<p>It is now trivial to generate a video with a completely AI generated character, reading a completely AI-written script, talking in an AI-made voice, animated by AI. <a href="https://oneusefulthing.substack.com/p/a-quick-and-sobering-guide-to-cloning">It can also deepfake people, as you can see in this link where I deepfaked myself. Instructions and more information here.</a> Use with caution, but this can be great for explainer videos and introductions.<br>
+现在生成一个完全由人工智能生成的角色的视频已经变得微不足道，这个角色可以读一份完全由人工智能编写的剧本，用人工智能制作的声音进行对话，并由人工智能进行动画制作。它还可以进行深度伪造，就像你在这个链接中看到的我伪造自己一样。使用说明和更多信息请点击这里。请谨慎使用，但这对于解说视频和介绍非常有用。</p>
+<p>The first commercially available text-to-video tool was also recently released, Runway v2. It creates short 4-second clips, and is more of a demonstration of what is to come, but is worth taking a look at if you want a sense of the future development in this space.<br>
+最近发布了第一个商业化的文本到视频工具，名为Runway v2。它可以创建4秒钟的短视频片段，更多地是对未来发展的展示，但如果你想了解这个领域未来的发展方向，不妨一看。</p>
+<p><em>Some things to worry about:</em> Deep fakes are a huge concern, and these systems need to be used ethically.<br>
+一些需要担心的事情：深度伪造技术是一个巨大的问题，这些系统需要在道德上使用。</p>
+<h1 id="work-with-documents-and-data">Work with documents and data</h1>
+<p>处理文件和数据</p>
+<p><strong>For data (And also any weird ideas you have with code):</strong> Code Interpreter<br>
+数据（以及你对代码的任何奇怪想法）：代码解释器<br>
+<strong>For documents:</strong> Claude 2 for large documents or many documents at once, Bing Sidebar for smaller documents and webpages (the sidebar, part of the Edge browsers can “see” what is in your browser, letting Bing work with that information, though the size of the context window is limited)<br>
+对于大型文档或同时处理多个文档，使用Claude 2；对于较小的文档和网页，使用Bing侧边栏（侧边栏是Edge浏览器的一部分，可以“看到”浏览器中的内容，让Bing与该信息一起工作，尽管上下文窗口的大小有限）</p>
+<p><a href="https://www.oneusefulthing.org/p/what-ai-can-do-with-a-toolbox-getting">I wrote about Code Interpreter last week</a>. It is a mode of GPT-4 that lets you upload files to the AI, allows the AI to write and run code, and lets you download the results provided by the AI. It can be used to execute programs, run data analysis (though you will need to know enough about statistics and data to check its work), and create all sorts of files, <a href="https://twitter.com/prkeshari/status/1678155933606637568?s=20">web pages</a>, and even <a href="https://twitter.com/icreatelife/status/1678184683702566922?s=20">games</a>. Though there has been a lot of debate since its release about the risks associated with untrained people using it for analysis, many experts testing Code Interpreter are pretty impressed, <a href="https://twitter.com/emollick/status/1678615507128164354?s=20">to the degree that one paper suggests it will require changing the way we train data scientists.</a> Go to my previous post if you want more details on how to use it. I also made an initial prompt to set up Code Interpreter to create useful data visualizations. It gives it some basic principles of good chart design &amp; also reminds it that it can output many kinds of files. You can find that <a href="https://t.co/m4yAdKROiJ">here</a>.<br>
+上周我写了关于代码解释器的文章。它是GPT-4的一种模式，可以让你上传文件到人工智能中，让人工智能编写和运行代码，并允许你下载人工智能提供的结果。它可以用于执行程序，进行数据分析（尽管你需要了解足够的统计和数据知识来检查其工作），以及创建各种文件、网页甚至游戏。尽管自发布以来关于未经训练的人使用它进行分析所带来的风险存在很多争议，但许多专家对代码解释器的测试结果印象深刻，以至于一篇论文认为这将需要改变我们培训数据科学家的方式。如果你想了解更多如何使用它的详细信息，请查看我之前的文章。我还提供了一个初始提示，以设置代码解释器来创建有用的数据可视化。它给出了一些良好图表设计的基本原则，并提醒它可以输出多种类型的文件。你可以在这里找到它。</p>
+<p>For working with text, and especially PDFs, Claude 2 is excellent so far. I have pasted in entire books into the previous version of Claude, with impressive results, and the new model is much stronger. You can see my previous experience, and some prompts that might be interesting to use, <a href="https://www.oneusefulthing.org/p/what-happens-when-ai-reads-a-book">here</a>. I also gave it numerous complex academic articles and asked it to summarize the results, and it does a good job! Even better, you can then interrogate the material by asking follow-up questions: what is the evidence for that approach? What do the authors conclude? And so on…<br>
+对于处理文本，尤其是PDF文件，Claude 2目前表现出色。我曾将整本书粘贴到之前的版本中，取得了令人印象深刻的结果，而新模型更加强大。你可以在这里看到我的先前经验和一些可能有趣的提示。我还给它提供了许多复杂的学术文章，并要求它总结结果，它做得很好！更棒的是，你还可以通过提出后续问题来进一步查询材料：这种方法有何证据支持？作者得出了什么结论？等等...</p>
+<p>[</p>
+<figure data-type="image" tabindex="5"><img src="https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fadd40f64-31fd-4acb-a4ce-97dfbfd8f4b2_1655x1382.png" alt="" loading="lazy"></figure>
+<p>](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fadd40f64-31fd-4acb-a4ce-97dfbfd8f4b2_1655x1382.png)</p>
+<p><em>Some things to worry about:</em> These systems still hallucinate, though in more limited ways. You need to check over their results if you want to ensure accuracy.<br>
+一些需要担心的事情：这些系统仍然会产生幻觉，尽管方式更加有限。如果您想确保准确性，您需要检查它们的结果。</p>
+<h1 id="get-information-and-learn-stuff">Get information and learn stuff</h1>
+<p>获取信息并学习东西</p>
+<p><strong>Best free option:</strong> <a href="https://www.bing.com/search?q=Bing+AI&amp;showconv=1&amp;FORM=hpcodx">Bing</a>  最佳免费选择：必应<br>
+<strong>Paid option:</strong> Usually Bing is best. For children, <a href="https://www.khanacademy.org/khan-labs">Khanmigo</a> from Khan Academy offers good AI-driven tutoring powered by GPT-4.<br>
+付费选项：通常Bing是最好的。对于儿童来说，来自可汗学院的Khanmigo提供由GPT-4驱动的良好人工智能辅导。</p>
+<p>If you are going to use AI as a search engine, probably don’t do that. The risk of hallucination is high and most AIs are not connected to the Internet, anyway (which is why I suggest you use Bing. Bard, Google’s AI, hallucinates much more). However, there is some evidence that AI can often provide more useful answers than search when used carefully, <a href="https://arxiv.org/abs/2307.01135">according to a recent pilot study</a>. Especially in cases where search engines aren’t very good, <a href="https://twitter.com/emollick/status/1643718474668097538?s=20">like tech support, deciding where to eat, or getting advice</a>, Bing is often better than Google as a starting point. This is an area that is evolving rapidly, but you should be careful about these uses for now. <a href="https://www.nytimes.com/2023/06/08/nyregion/lawyer-chatgpt-sanctions.html">You don’t want to get in trouble.</a><br>
+如果你打算将人工智能作为搜索引擎使用，可能最好不要这样做。幻觉的风险很高，而且大多数人工智能并没有连接到互联网（这就是为什么我建议你使用必应。Google的人工智能Bard幻觉更多）。然而，最近的一项试点研究表明，人工智能在谨慎使用时往往能提供比搜索更有用的答案。特别是在搜索引擎不太好用的情况下，比如技术支持、决定去哪里吃饭或寻求建议，作为起点，必应通常比谷歌更好。这是一个正在快速发展的领域，但你现在应该对这些用途保持谨慎。你不想惹上麻烦。</p>
+<p>But more exciting is the possibility of using AIs to help education, including helping us learn. <a href="https://www.oneusefulthing.org/p/assigning-ai-seven-ways-of-using">I have written about how AI can be used for teaching</a> and to <a href="https://oneusefulthing.substack.com/p/using-ai-to-make-teaching-easier">help make teachers’ lives easier and their lessons more effective</a>, but it can also work for self-guided learning as well. You can ask the AI to explain concepts and get ver good results. This <a href="https://twitter.com/emollick/status/1669434927761313807?s=20">prompt is a good automated tutor</a>, and use can find a <a href="https://chat.openai.com/share/ec1018ec-1d86-4160-b587-354253c7d5cb">direct link to activate the tutor in ChatGPT here</a>. Because we know the AI could be hallucinating, you would be wise to (carefully!) double-check any critical data against another source.<br>
+但更令人兴奋的是利用人工智能来辅助教育，包括帮助我们学习。我已经写过关于如何利用人工智能进行教学，以及如何使教师的工作更轻松、课程更有效的文章，但它也可以用于自主学习。你可以向人工智能提问解释概念，并获得非常好的结果。这个提示是一个很好的自动导师，你可以在ChatGPT中找到一个直接链接来激活导师。因为我们知道人工智能可能会产生幻觉，所以明智的做法是（小心地！）将任何关键数据与其他来源进行仔细核对。</p>
+<h1 id="and-more-还有吗">And more? 还有吗？</h1>
+<p>Thanks to rapid advances in technology, these are likely the worst AI tools you will ever use, as the past few months of development have shown. I have no doubt I will need to make a new guide soon. But remember two key points that remain true about AI:<br>
+由于技术的快速进步，这些很可能是你将使用过的最糟糕的人工智能工具，正如过去几个月的开发所展示的那样。我毫不怀疑我很快就需要制作一份新的指南。但请记住两个关键点，这些关键点对于人工智能仍然是真实的：</p>
+<ul>
+<li>
+<p>AI is a tool. It is not always the right tool. Consider carefully whether, given its weaknesses, it is right for the purpose to which you are planning to apply it.<br>
+AI是一种工具。它并不总是适合的工具。请仔细考虑，鉴于其弱点，它是否适合您计划应用它的目的。</p>
+</li>
+<li>
+<p>There are many ethical concerns you need to be aware of. AI can be used to infringe on copyright, or to cheat, or to steal the work of others, or to manipulate. And how a particular AI model is built and who benefits from its use are often complex issues, and not particularly clear at this stage. Ultimately, you are responsible for using these tools in an ethical manner.<br>
+有许多道德问题需要你注意。人工智能可以被用来侵犯版权，作弊，盗窃他人作品或操纵信息。而特定的人工智能模型是如何构建的以及谁从中受益往往是复杂的问题，在目前阶段并不十分清晰。最终，你有责任以道德的方式使用这些工具。</p>
+</li>
+</ul>
+<p>We are in the early days of a very rapidly advancing revolution. Are there other uses you want to share? Let me know in the comments.<br>
+我们正处于一个快速发展的革命的早期阶段。你还有其他想分享的用途吗？在评论中告诉我。</p>
+<p>[</p>
+<figure data-type="image" tabindex="6"><img src="https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F382ea217-7a23-47f3-bb7f-bbab3dbc9902_1376x864.png" alt="" loading="lazy"></figure>
+<p>](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F382ea217-7a23-47f3-bb7f-bbab3dbc9902_1376x864.png)</p>
+<p>This post is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.<br>
+本帖子采用知识共享署名-非商业性使用4.0国际许可协议。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#covering-the-state-of-play-as-of-summer-2023">Covering the state of play as of Summer, 2023</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#the-major-large-language-models">The Major Large Language Models</a></li>
+<li><a href="#write-stuff">Write stuff</a></li>
+<li><a href="#make-images-%E5%88%B6%E4%BD%9C%E5%9B%BE%E5%83%8F">Make images 制作图像</a></li>
+<li><a href="#come-up-with-ideas-%E6%8F%90%E5%87%BA%E6%83%B3%E6%B3%95">Come up with ideas 提出想法</a></li>
+<li><a href="#make-videos-%E5%88%B6%E4%BD%9C%E8%A7%86%E9%A2%91">Make videos 制作视频</a></li>
+<li><a href="#work-with-documents-and-data">Work with documents and data</a></li>
+<li><a href="#get-information-and-learn-stuff">Get information and learn stuff</a></li>
+<li><a href="#and-more-%E8%BF%98%E6%9C%89%E5%90%97">And more? 还有吗？</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/Kxd3j_PPt/">
+              <h3 class="post-title">
+                与群友的有效交流：一次小小的实践
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

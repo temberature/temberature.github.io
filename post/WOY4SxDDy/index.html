@@ -1,0 +1,310 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>使用确定性有限自动机匹配10进制的倍数 | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="使用确定性有限自动机匹配10进制的倍数 | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="在我们的数字世界中，计算机科学家常常面临一个看似平淡，却实际涉及复杂数学理论的问题：如何判断一个数是特定数的倍数？这可能看似是一个简单的问题，但其答案却需要我们走进计算机科学中最美的理论之一——自动机理论。在这里，我将尽力让你理解其中的奥秘..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              使用确定性有限自动机匹配10进制的倍数
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-07-23
+              </span>
+              <span>
+                9 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>在我们的数字世界中，计算机科学家常常面临一个看似平淡，却实际涉及复杂数学理论的问题：如何判断一个数是特定数的倍数？这可能看似是一个简单的问题，但其答案却需要我们走进计算机科学中最美的理论之一——自动机理论。在这里，我将尽力让你理解其中的奥秘，并通过一个实例，演示如何使用确定性有限自动机（DFA）来解决这个问题。</p>
+<h2 id="建立dfa的基本原理">建立DFA的基本原理</h2>
+<p>一种有效的方式是使用一个具有n个状态的DFA，每个状态对应着0到n-1之间的一个余数。起始状态是0，因为在我们开始时，我们的数没有任何值，所以对任何数取余都是0。接受状态也是0，因为只有当一个数是n的倍数时，它模n的余数才是0。</p>
+<p>让我们来构造DFA的转移函数。在任意给定的状态k，当读入数字m时，我们需要决定下一个状态。下一个状态r可以用这个公式计算：r = (10k + m) mod n。这个状态的转变，就像是在按照特定的舞步，在自动机的状态空间中跳舞。</p>
+<h2 id="实例判断一个数是否是3的倍数">实例：判断一个数是否是3的倍数</h2>
+<p>例如，当我们要判断一个数是否是3的倍数，我们会有三个状态：0, 1, 2。这三个状态分别对应于一个数模3的余数。这个DFA的构造如同我们在一个三角形的三个顶点跳舞。每一个数字，如同音乐中的每一拍，会引导我们向下一个顶点移动。</p>
+<p>假设当前状态是1，即当前的数模3的余数是1，我们读取的下一个数字是5，那么下一个状态就是(10 * 1 + 5) mod 3 = 2。就像是在舞曲的引导下，我们从一个顶点跳到了另一个顶点。</p>
+<p>在这个DFA中，我们可以创建如下的转移函数：</p>
+<ul>
+<li>0 --0--&gt; 0</li>
+<li>0 --1--&gt; 1</li>
+<li>0 --2--&gt; 2</li>
+<li>1 --0--&gt; 0</li>
+<li>1 --1--&gt; 1</li>
+<li>1 --2--&gt; 2</li>
+<li>2 --0--&gt; 0</li>
+<li>2 --1--&gt; 1</li>
+<li>2 --2--&gt; 2</li>
+</ul>
+<p>每个状态都有与0-9对应的10个转移，就像每个舞步都有10种可能的变化。</p>
+<h2 id="从抽象到具体dfa的性质">从抽象到具体：DFA的性质</h2>
+<p>这就是我们的自动机，它仿佛一个迷宫，用来指引我们判断一个数是否是n的倍数。然而，这个迷宫并非仅仅是一个解题工具，它更像是一种对数字世界的思考方式，一种把抽象的数学问题具象化的方式。</p>
+<p>实际上，这个DFA就是在模拟我们对一个数进行除法的过程。每次读取一个数字，就相当于将当前的余数乘以10然后加上这个数字，然后求余。就像我们在纸上进行长除法一样。因此，这个DFA可以保证对于任何输入的数字，最后都会停在正确的余数的状态上。</p>
+<p>我想让你记住的是，计算机科学并不只是关于编程和算法，它也是关于如何看待世界，如何用数学的语言描述我们的问题，并找到美丽的解决方案。我们使用的这个自动机，就是这样一种美丽的解决方案。它是对数字的一种全新的理解方式，是一种数学和艺术的结合，是理性与感性的交汇。</p>
+<h2 id="如何从给定的-dfa-得到相应的正则表达式的步骤">如何从给定的 DFA 得到相应的正则表达式的步骤。</h2>
+<p>在这个过程中，我将使用一种被称为“状态消除法”的算法。基本的想法是逐个消除非初始和非终态的状态，每次消除一个状态都需要更新正则表达式。在每个步骤中，所有进入被消除状态的边和所有从被消除状态出去的边会被替换为新的边，这些新的边代表了所有通过被消除状态可以实现的状态转换。</p>
+<p>让我们看看如何在给定的 DFA 上应用这个算法：</p>
+<p>初始的 DFA（用正则表达式表示边）如下：</p>
+<pre><code class="language-plaintext">start -&gt; A
+A -&gt; A [label=&quot;0,3,6,9&quot;];
+A -&gt; B [label=&quot;1,4,7&quot;];
+A -&gt; C [label=&quot;2,5,8&quot;];
+B -&gt; B [label=&quot;0,3,6,9&quot;];
+B -&gt; A [label=&quot;2,5,8&quot;];
+B -&gt; C [label=&quot;1,4,7&quot;];
+C -&gt; C [label=&quot;0,3,6,9&quot;];
+C -&gt; A [label=&quot;1,4,7&quot;];
+C -&gt; B [label=&quot;2,5,8&quot;];
+</code></pre>
+<p>第一步，我们消除状态 B：</p>
+<ol>
+<li>A 到 C 的新边是 “A 到 B 的边，跟着 B 的自循环任意次（也可能为零次），然后是 B 到 C 的边”。所以，新的边是 A 到 C，标签是 <code>(1,4,7)(0,3,6,9)*2,5,8</code>。</li>
+<li>A 到 A 的新边是 “A 到 B 的边，跟着 B 的自循环任意次（也可能为零次），然后是 B 到 A 的边”。所以，新的边是 A 到 A，标签是 <code>(1,4,7)(0,3,6,9)*2,5,8</code>。</li>
+<li>同理，C 到 A 和 C 到 C 的新边分别是 <code>2,5,8(0,3,6,9)*2,5,8</code> 和 <code>2,5,8(0,3,6,9)*1,4,7</code>。</li>
+</ol>
+<p>所以，我们现在的 DFA（用正则表达式表示边）是：</p>
+<pre><code class="language-plaintext">start -&gt; A
+A -&gt; A [label=&quot;0,3,6,9|(1,4,7)(0,3,6,9)*2,5,8&quot;];
+A -&gt; C [label=&quot;2,5,8|(1,4,7)(0,3,6,9)*1,4,7&quot;];
+C -&gt; C [label=&quot;0,3,6,9|2,5,8(0,3,6,9)*1,4,7&quot;];
+C -&gt; A [label=&quot;1,4,7|2,5,8(0,3,6,9)*2,5,8&quot;];
+</code></pre>
+<p>第二步，我们消除状态 C：</p>
+<ol>
+<li>A 到 A 的新边是 “A 到 C 的边，跟着 C 的自循环任意次（也可能为零次），然后是 C 到 A 的边”。所以，新的边是 A 到 A，标签是 <code>0,3,6,9|(1,4,7)(0,3,6,9)*2,5,8|(2,5,8|(1,4,7)(0,3,6,9)*1,4,7)(0,3,6,9|2,5,8(0,3,6,9)*1,4,7)*(1,4,7|2,5,8(0,3,6,9)*2,5,8)</code>。</li>
+</ol>
+<p>所以，最终的 DFA（用正则表达式表示边）是：</p>
+<pre><code class="language-plaintext">start -&gt; A
+A -&gt; A [label=&quot;0,3,6,9|(1,4,7)(0,3,6,9)*2,5,8|(2,5,8|(1,4,7)(0,3,6,9)*1,4,7)(0,3,6,9|2,5,8(0,3,6,9)*1,4,7)*(1,4,7|2,5,8(0,3,6,9)*2,5,8)&quot;];
+</code></pre>
+<p>其中，<code>|</code> 表示正则表达式中的 “或” 操作，<code>*</code> 表示任意次（包括零次）的重复。这就是最终的正则表达式，描述了从初始状态 A 到终态 A 的所有可能路径。</p>
+<p>需要注意的是，由于这个方法是用正则表达式直接描述状态转移，所以得到的正则表达式可能比实际需要的正则表达式要复杂。在实际使用中，可能需要通过简化正则表达式来得到更简洁、更易理解的结果。</p>
+<figure data-type="image" tabindex="1"><img src="https://temberature.github.io/post-images/1690046366730.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://temberature.github.io/post-images/1690046373535.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://temberature.github.io/post-images/1690046379321.png" alt="" loading="lazy"></figure>
+<p>digraph G {</p>
+<p>node [shape=circle]<br>
+A [shape=doublecircle];<br>
+start [shape=plaintext, label=&quot;&quot;]</p>
+<p>start -&gt; A<br>
+A -&gt; B [label=&quot;1,4,7&quot;];<br>
+B -&gt; C [label=&quot;1,4,7&quot;];<br>
+C -&gt; A [label=&quot;1,4,7&quot;];<br>
+A -&gt; A [label=&quot;0,3,6,9&quot;];<br>
+B -&gt; B [label=&quot;0,3,6,9&quot;];<br>
+C -&gt; C [label=&quot;0,3,6,9&quot;];<br>
+A -&gt; C [label=&quot;2,5,8&quot;];<br>
+C -&gt; B [label=&quot;2,5,8&quot;];<br>
+B -&gt; A [label=&quot;2,5,8&quot;];<br>
+}</p>
+<p><a href="https://dreampuf.github.io/GraphvizOnline/#digraph%20G%20%7B%0A%0A%20%20node%20%5Bshape%3Dcircle%5D%0A%20%20A%20%5Bshape%3Ddoublecircle%5D%3B%0A%20%20start%20%5Bshape%3Dplaintext%2C%20label%3D%22%22%5D%0A%20%20%0A%20%20start%20-%3E%20A%0A%20%20A%20-%3E%20B%20%5Blabel%3D%221%2C4%2C7%22%5D%3B%0A%20%20B%20-%3E%20C%20%5Blabel%3D%221%2C4%2C7%22%5D%3B%0A%20%20C%20-%3E%20A%20%5Blabel%3D%221%2C4%2C7%22%5D%3B%0A%20%20A%20-%3E%20A%20%5Blabel%3D%220%2C3%2C6%2C9%22%5D%3B%0A%20%20B%20-%3E%20B%20%5Blabel%3D%220%2C3%2C6%2C9%22%5D%3B%0A%20%20C%20-%3E%20C%20%5Blabel%3D%220%2C3%2C6%2C9%22%5D%3B%0A%20%20A%20-%3E%20C%20%5Blabel%3D%222%2C5%2C8%22%5D%3B%0A%20%20C%20-%3E%20B%20%5Blabel%3D%222%2C5%2C8%22%5D%3B%0A%20%20B%20-%3E%20A%20%5Blabel%3D%222%2C5%2C8%22%5D%3B%0A%7D%20">Graphviz Online</a></p>
+<p><a href="https://alf.nu/RegexGolf?world=regex&amp;level=r09">Regex Golf</a></p>
+<p>https://chat.openai.com/share/5a109fed-1e82-4ce0-a46e-59470cc6271a</p>
+<p><a href="https://www.zhihu.com/question/24824487">(99 封私信) 正则表达式如何匹配 3 的倍数？ - 知乎</a></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%BB%BA%E7%AB%8Bdfa%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86">建立DFA的基本原理</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E5%90%A6%E6%98%AF3%E7%9A%84%E5%80%8D%E6%95%B0">实例：判断一个数是否是3的倍数</a></li>
+<li><a href="#%E4%BB%8E%E6%8A%BD%E8%B1%A1%E5%88%B0%E5%85%B7%E4%BD%93dfa%E7%9A%84%E6%80%A7%E8%B4%A8">从抽象到具体：DFA的性质</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E4%BB%8E%E7%BB%99%E5%AE%9A%E7%9A%84-dfa-%E5%BE%97%E5%88%B0%E7%9B%B8%E5%BA%94%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%AD%A5%E9%AA%A4">如何从给定的 DFA 得到相应的正则表达式的步骤。</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/2901h3-ui/">
+              <h3 class="post-title">
+                【转载】弱链接，悄然改变生活的力量
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

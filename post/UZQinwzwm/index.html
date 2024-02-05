@@ -1,0 +1,245 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vim编辑器中的保存与退出之道：`:wq`与`ZZ` | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Vim编辑器中的保存与退出之道：`:wq`与`ZZ` | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="一段别样的探索
+在我周围的朋友中，我对Vim的深入理解和使用是出了名的。然而，近日我发现一个问题，当我询问他们如何保存并退出Vim编辑器时，答案令我惊讶——他们几乎都回答“:wq”。而我习惯的ZZ命令，却鲜有人知。这让我思考，为什么在同样是..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Vim编辑器中的保存与退出之道：`:wq`与`ZZ`
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-08-08
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="一段别样的探索">一段别样的探索</h2>
+<p>在我周围的朋友中，我对Vim的深入理解和使用是出了名的。然而，近日我发现一个问题，当我询问他们如何保存并退出Vim编辑器时，答案令我惊讶——他们几乎都回答“<code>:wq</code>”。而我习惯的<code>ZZ</code>命令，却鲜有人知。这让我思考，为什么在同样是Vim用户中，我们的退出方式会如此不同？</p>
+<h2 id="vim的深度与广度">Vim的深度与广度</h2>
+<p>Vim是一款强大且灵活的编辑器，设计初衷就是为了让用户能够根据自己的需求和习惯来使用。在Vim的世界里，每个用户都可以找到适合自己的使用方式。Vim的深度和广度，如同一片无垠的海洋，每个人都可以在其中找到自己的航道。</p>
+<h2 id="wq-与-zz-的对比"><code>:wq</code> 与 <code>ZZ</code> 的对比</h2>
+<p>在Vim中，<code>:wq</code>和<code>ZZ</code>都是保存并退出的命令。它们的存在，就像海洋中的两艘船，虽然目的地相同，但航行的方式却各有千秋。</p>
+<p><code>:wq</code>是一个明确的命令，由<code>write</code>（写入，简写为<code>:w</code>）和<code>quit</code>（退出，简写为<code>:q</code>）两部分组成。这如同一艘笔直向前的船，直接指向目标，没有任何弯道。许多用户喜欢<code>:wq</code>，因为这是一个清晰明了的命令，很容易记住。</p>
+<p>然而，<code>ZZ</code>则是另一种风格。这个快捷方式，就像一艘灵活的帆船，依靠风的力量，轻松到达目的地。按下<code>shift + z + z</code>，Vim会立即保存当前的更改，并退出编辑器。这样的方式更适合那些喜欢简洁快速操作的用户。</p>
+<p>对比这两种方式，我们可以看出Vim的美：在这个编辑器中，每个人都可以根据自己的习惯选择最适合自己的方式。这就是Vim之美，也是它的哲学：提供多样性，尊重个性。</p>
+<h2 id="一个更广阔的世界">一个更广阔的世界</h2>
+<p>再进一步思考，我们发现Vim中保存并退出的方式并不止这两种。例如，你还可以使用<code>:x</code>或<code>:exit</code>来保存并退出。这两个命令的功能与<code>:wq</code>和<code>ZZ</code>一样，但在某些情况下可能更方便使用。</p>
+<h2 id="结语vim的哲学">结语：Vim的哲学</h2>
+<p>Vim的哲学是提供多样性，尊重个性。无论你是选择<code>:wq</code>，还是<code>ZZ</code>，甚至是<code>:x</code>或<code>:exit</code>，只要能够满足你的需求，都是好的方式。在Vim的世界里，没有绝对的对错，只有适合与不适合。因此，让我们尊重每一种方式，尊重每一位Vim的用户。</p>
+<p>参考文献：</p>
+<ol>
+<li>Robbins, A., Hannah, E., &amp; Lamb, L. (2008). Learning the vi and Vim Editors. O'Reilly Media.</li>
+</ol>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%80%E6%AE%B5%E5%88%AB%E6%A0%B7%E7%9A%84%E6%8E%A2%E7%B4%A2">一段别样的探索</a></li>
+<li><a href="#vim%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%B8%8E%E5%B9%BF%E5%BA%A6">Vim的深度与广度</a></li>
+<li><a href="#wq-%E4%B8%8E-zz-%E7%9A%84%E5%AF%B9%E6%AF%94"><code>:wq</code> 与 <code>ZZ</code> 的对比</a></li>
+<li><a href="#%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%B9%BF%E9%98%94%E7%9A%84%E4%B8%96%E7%95%8C">一个更广阔的世界</a></li>
+<li><a href="#%E7%BB%93%E8%AF%ADvim%E7%9A%84%E5%93%B2%E5%AD%A6">结语：Vim的哲学</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/eZ8YE-MTh/">
+              <h3 class="post-title">
+                石灰窑的“寒冬”：2018年的环保关停风波
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

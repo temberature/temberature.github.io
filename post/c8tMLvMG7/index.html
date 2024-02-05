@@ -1,0 +1,267 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>【编译】迷失在中间：语言模型如何使用长上下文 Lost in the Middle: How Language Models Use Long Contexts | 第三大脑</title>
+<link rel="shortcut icon" href="https://temberature.github.io/favicon.ico?v=1707130463873">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://temberature.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="【编译】迷失在中间：语言模型如何使用长上下文 Lost in the Middle: How Language Models Use Long Contexts | 第三大脑 - Atom Feed" href="https://temberature.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WY2N173F2W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WY2N173F2W');
+</script>
+
+
+    <meta name="description" content="Based on the paper summary you provided, here are a few key points about how language models use long contexts:
+根据您提供的论文..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://temberature.github.io">
+  <img class="avatar" src="https://temberature.github.io/images/avatar.png?v=1707130463873" alt="">
+  </a>
+  <h1 class="site-title">
+    第三大脑
+  </h1>
+  <p class="site-description">
+    智能共生——万物互联，裂隙有光。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/post/w3wJXnHGy" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://temberature.github.io/tag/99sjMFOuu/" class="menu">
+          转录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/temberature" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/TianDatong" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              【编译】迷失在中间：语言模型如何使用长上下文 Lost in the Middle: How Language Models Use Long Contexts
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-07-18
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>Based on the paper summary you provided, here are a few key points about how language models use long contexts:</p>
+<p>根据您提供的论文摘要，以下是有关语言模型如何使用长上下文的几个关键点：</p>
+<ul>
+<li>
+<p>The paper analyzes language model performance on multi-document question answering and key-value retrieval tasks that require accessing relevant information within long input contexts.</p>
+</li>
+<li>
+<p>本文分析了语言模型在多文档问答和键值检索任务中的性能，这些任务需要在长输入上下文中访问相关信息。</p>
+</li>
+<li>
+<p>It finds a &quot;U-shaped&quot; performance curve - models perform best when relevant information is at the very beginning or end of the input context, and performance degrades significantly when models must access information in the middle of long contexts.</p>
+</li>
+<li>
+<p>它发现了一条“U 形”性能曲线 - 当相关信息位于输入上下文的最开始或结束时，模型性能最佳，当模型必须在长上下文中访问信息时，性能会显着下降。</p>
+</li>
+<li>
+<p>Performance substantially decreases as the input context grows longer, even for models with extended context lengths like GPT-3.5-Turbo (16K). Extended-context models are not necessarily better at using their full context.</p>
+</li>
+<li>
+<p>随着输入上下文的变长，性能会大幅下降，即使对于具有扩展上下文长度的模型，如 GPT-3.5-Turbo （16K）。扩展上下文模型不一定能更好地使用其完整上下文。</p>
+</li>
+<li>
+<p>On a key-value retrieval task requiring simply matching tokens, many models still struggle when retrieving keys from the middle of 140+ key-value pairs.</p>
+</li>
+<li>
+<p>在需要简单匹配令牌的键值检索任务中，许多模型在从 140+ 键值对中间检索键时仍然很困难。</p>
+</li>
+<li>
+<p>Preliminary analysis suggests encoder-decoder models are more robust when evaluated on sequences shorter than their training length, but degrade on longer sequences. Query-aware contextualization improves key-value retrieval but not multi-document QA trends.</p>
+</li>
+<li>
+<p>初步分析表明，编码器-解码器模型在对短于其训练长度的序列进行评估时更稳健，但在较长的序列上会降级。查询感知上下文化改进了键值检索，但不能改善多文档 QA 趋势。</p>
+</li>
+<li>
+<p>Even base LMs without instruction tuning show a U-shaped performance curve, indicating the effect is not solely due to training procedures.</p>
+</li>
+<li>
+<p>即使是没有指令调整的基本LM也显示出U形性能曲线，表明效果不仅仅是由于训练过程。</p>
+</li>
+<li>
+<p>Case study on open-domain QA finds model performance saturates before retriever recall plateaus, indicating models fail to effectively use additional retrieved documents.</p>
+</li>
+<li>
+<p>开放域 QA 的案例研究发现，在检索器召回平台之前，模型性能饱和，表明模型无法有效地使用其他检索到的文档。</p>
+</li>
+</ul>
+<p>In summary, the paper provides evidence that current language models struggle to fully utilize long input contexts, with degraded performance when accessing and using information from the middle of contexts. The analysis offers insights into model limitations and introduces new evaluation protocols for future long-context models.</p>
+<p>总之，本文提供了证据，证明当前的语言模型难以充分利用长输入上下文，在访问和使用来自上下文中间的信息时性能下降。该分析提供了对模型局限性的见解，并为未来的长上下文模型引入了新的评估协议。</p>
+<p>[2307.03172] Lost in the Middle: How Language Models Use Long Contexts<br>
+https://arxiv.org/abs/2307.03172</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://temberature.github.io/post/-R9TKbdWg/">
+              <h3 class="post-title">
+                学英语的 GPT 提示词
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+
+          
+            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'https-blog-talkgpt-space',
+  apikey: 'DIRSOBifr8Ilq70AtPOLKvL83R1JlYaEhRFKlxlDh1eb9VWpF9zxmvhH1r8T6YWH',
+}
+if ('') {
+  options.api = ''
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://temberature.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
